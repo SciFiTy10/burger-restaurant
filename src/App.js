@@ -15,6 +15,9 @@ const App = () => {
       secondary: {
         main: "#681A1A",
       },
+      text: {
+        primary: "#fff",
+      },
     },
     overrides: {
       MuiCard: {

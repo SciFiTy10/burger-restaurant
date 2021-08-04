@@ -8,9 +8,7 @@ import {
 } from "@material-ui/core";
 
 const Welcome = () => {
-  const [title, setTitle] = useState(
-    "Welcome to the best burger restaurant around!"
-  );
+  const [title, setTitle] = useState("Welcome to Big Kahuna Burger!");
 
   const cardTitle = {
     textAlign: "center",
@@ -25,9 +23,10 @@ const Welcome = () => {
         <Grid container justifyContent="center">
           <Grid item>
             <Typography variant="h6" component="p" align="center">
-              Choose one of our delicious, gourmet burgers prepared by our top
-              tier chef.
+              Choose one of our delicious, gourmet burgers prepared by our
+              5-Star chef.
             </Typography>
+            <br />
             <Typography variant="h6" component="p" align="center">
               Satisfaction is guaranteed. If you don't like our burgers, not
               only will we give you your money back, but we will personally
