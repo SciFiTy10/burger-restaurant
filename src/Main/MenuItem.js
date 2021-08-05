@@ -1,22 +1,58 @@
 import React from "react";
-import { Button, ListItem, TextField, Typography } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  ListItem,
+  TextField,
+  Typography,
+} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& .MuiFormLabel-root": {
+      color: theme.palette.text.primary,
+    },
+    "& .MuiInput-underline:before": {
+      borderBottomColor: theme.palette.text.primary,
+    },
+    "& .MuiInputBase-input": {
+      textAlign: "center",
+    },
+  },
+}));
 
 const MenuItem = (props) => {
+  const classes = useStyles();
   return (
     <ListItem>
       <Grid container>
         <Grid item xs={2}>
           <Typography variant="h6">Title</Typography>
-          <div>description</div>
-          <div>Price</div>
+          <Box fontStyle="italic" mb={1}>
+            <Typography variant="subheader" component="div">
+              description
+            </Typography>
+          </Box>
+          <Typography variant="subheader" component="div">
+            $12.99
+          </Typography>
         </Grid>
-        <Grid item xs={8}></Grid>
-        <Grid item xs={2}>
+        <Grid item xs={9}></Grid>
+        <Grid item xs={1}>
           <div>
-            <TextField label="Amount" type="number" value="2" />
+            <TextField
+              className={classes.root}
+              label="Amount"
+              type="number"
+              value="2"
+              size="small"
+            />
           </div>
-          <Button>+ Add</Button>
+          <Box mt={1}>
+            <Button>+ Add</Button>
+          </Box>
         </Grid>
       </Grid>
     </ListItem>
