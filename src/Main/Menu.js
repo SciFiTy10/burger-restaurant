@@ -17,7 +17,14 @@ const Menu = (props) => {
     <List className={menuStyles.list} component="nav" aria-label="menu">
       {props.menuItems.length > 0
         ? props.menuItems.map((item) => {
-            return <MenuItem />;
+            return (
+              <MenuItem
+                title={item.title}
+                description={item.description}
+                price={item.price}
+                amount={item.amount}
+              />
+            );
           })
         : null}
     </List>
