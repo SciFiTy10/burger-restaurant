@@ -28,18 +28,18 @@ const MenuItem = (props) => {
   return (
     <ListItem>
       <Grid container>
-        <Grid item xs={2}>
-          <Typography variant="h6">Title</Typography>
+        <Grid item xs={8}>
+          <Typography variant="h6">{props.title}</Typography>
           <Box fontStyle="italic" mb={1}>
             <Typography variant="subheader" component="div">
-              description
+              {props.description}
             </Typography>
           </Box>
           <Typography variant="subheader" component="div">
-            $12.99
+            ${props.price}
           </Typography>
         </Grid>
-        <Grid item xs={9}></Grid>
+        <Grid item xs={3}></Grid>
         <Grid item xs={1}>
           <div>
             <TextField
