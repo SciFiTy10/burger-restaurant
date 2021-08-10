@@ -51,7 +51,7 @@ const MenuItem = (props) => {
             />
           </div>
           <Box mt={1}>
-            <Button>+ Add</Button>
+            <Button onClick={props.onItemChange}>+ Add</Button>
           </Box>
         </Grid>
       </Grid>

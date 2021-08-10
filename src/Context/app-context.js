@@ -40,29 +40,35 @@ const AppContextProvider = (props) => {
       price: 11.99,
     },
   ]);
-  const [cart, setCart] = useState([{}]);
+  const [cart, setCart] = useState([]);
 
   const cartHandler = (id, quantity) => {
     //create a variable for the current state
-    
+    const currentCart = [...cart];
+    //determine whether the cart contains this item
+    const existingItem = currentCart.filter((item) => item.id === id)[0];
     //check if the item exists
-    if(){
-
+    if (existingItem !== undefined) {
+      //get the existing amount
+      const currentAmount = existingItem.amount;
+      //determine the new amount
+      const newAmount =
+        currentAmount + quantity <= 0 ? 0 : currentAmount + quantity;
+      //update the quantity on the existingItem
+      existingItem.amount = newAmount;
+      //update the state of the cart
+      setCart([existingItem, [...cart]]);
+    } else {
+      //the item doesn't exist yet so we need to add it to the cart
+      setCart([{ id: id, amount: quantity }, [...cart]]);
     }
-    else{
-
-      setCart({})
-    }
-    const item = {
-      id: id,
-      amount: quantity
-    }
-  }
+  };
   return (
     <AppContext.Provider
       value={{
         menuList: menuList,
         cart: cart,
+        onItemChange: cartHandler,
       }}
     >
       {props.children}
