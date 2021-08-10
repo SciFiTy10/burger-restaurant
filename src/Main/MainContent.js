@@ -12,14 +12,7 @@ const MainContent = () => {
       backgroundSize: "90px 90px",
     },
   };
-  const menuItems = [
-    {
-      id: 1,
-      title: "Royale w/Cheese",
-      description: "You know what they call a quarter pounder in France?",
-      price: "12.99",
-    },
-  ];
+
   return (
     <Grid container style={styles.root}>
       <Hidden xsDown>
@@ -30,7 +23,7 @@ const MainContent = () => {
           <Welcome />
         </Box>
         <Box mt={5}>
-          <Menu menuItems={menuItems} />
+          <Menu />
         </Box>
       </Grid>
       <Hidden xsDown>

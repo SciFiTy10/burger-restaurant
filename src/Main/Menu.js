@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import List from "@material-ui/core/List";
 import MenuItem from "./MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
 import menuStyles from "../styles/menu.module.css";
+import { AppContext } from "../Context/app-context";
 
 const useStyles = makeStyles((theme) => ({
   listBackground: {
@@ -10,14 +11,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Menu = (props) => {
+const Menu = () => {
   const classes = useStyles();
-
+  const ctx = useContext(AppContext);
   return (
     <List className={menuStyles.list} component="nav" aria-label="menu">
-      {props.menuItems.length > 0
-        ? props.menuItems.map((item) => {
-            return <MenuItem />;
+      {ctx.menuList.length > 0
+        ? ctx.menuList.map((item) => {
+            return (
+              <MenuItem
+                key={item.id}
+                title={item.title}
+                description={item.description}
+                price={item.price}
+                amount={1}
+              />
+            );
           })
         : null}
     </List>
