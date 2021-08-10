@@ -7,11 +7,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* html {
-  background-image: url("./Assets/burger.jpg");
-  background-repeat: space repeat;
-  background-size: 50px 50px;
-} */
+html {
+  width: 100%;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

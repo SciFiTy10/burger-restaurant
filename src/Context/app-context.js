@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export const AppContext = React.createContext({
   menuList: [],
+  cart: [],
 });
 
 const AppContextProvider = (props) => {
@@ -39,10 +40,29 @@ const AppContextProvider = (props) => {
       price: 11.99,
     },
   ]);
+  const [cart, setCart] = useState([{}]);
+
+  const cartHandler = (id, quantity) => {
+    //create a variable for the current state
+    
+    //check if the item exists
+    if(){
+
+    }
+    else{
+
+      setCart({})
+    }
+    const item = {
+      id: id,
+      amount: quantity
+    }
+  }
   return (
     <AppContext.Provider
       value={{
         menuList: menuList,
+        cart: cart,
       }}
     >
       {props.children}

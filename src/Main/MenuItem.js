@@ -31,11 +31,11 @@ const MenuItem = (props) => {
         <Grid item xs={8}>
           <Typography variant="h6">{props.title}</Typography>
           <Box fontStyle="italic" mb={1}>
-            <Typography variant="subheader" component="div">
+            <Typography variant="subtitle1" component="div">
               {props.description}
             </Typography>
           </Box>
-          <Typography variant="subheader" component="div">
+          <Typography variant="subtitle1" component="div">
             ${props.price}
           </Typography>
         </Grid>
@@ -46,7 +46,7 @@ const MenuItem = (props) => {
               className={classes.root}
               label="Amount"
               type="number"
-              value="2"
+              value={props.amount}
               size="small"
             />
           </div>
