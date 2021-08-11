@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
 
 const MenuItem = (props) => {
   const classes = useStyles();
+
+  const addItemHandler = () => {
+    props.onItemChange(props.id, props.amount);
+  };
   return (
     <ListItem>
       <Grid container>
@@ -51,7 +55,7 @@ const MenuItem = (props) => {
             />
           </div>
           <Box mt={1}>
-            <Button onClick={props.onItemChange}>+ Add</Button>
+            <Button onClick={addItemHandler}>+ Add</Button>
           </Box>
         </Grid>
       </Grid>

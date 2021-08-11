@@ -56,11 +56,15 @@ const AppContextProvider = (props) => {
         currentAmount + quantity <= 0 ? 0 : currentAmount + quantity;
       //update the quantity on the existingItem
       existingItem.amount = newAmount;
+      //update the currentCart with the updated object
+      const newCart = currentCart.map((item) =>
+        item.id === id ? existingItem : item
+      );
       //update the state of the cart
-      setCart([existingItem, [...cart]]);
+      setCart(newCart);
     } else {
       //the item doesn't exist yet so we need to add it to the cart
-      setCart([{ id: id, amount: quantity }, [...cart]]);
+      setCart([{ id: id, amount: quantity }, ...cart]);
     }
   };
   return (

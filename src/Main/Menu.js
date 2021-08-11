@@ -21,6 +21,7 @@ const Menu = () => {
             return (
               <MenuItem
                 key={item.id}
+                id={item.id}
                 title={item.title}
                 description={item.description}
                 price={item.price}
