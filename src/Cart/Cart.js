@@ -19,14 +19,13 @@ const Cart = () => {
             ? ctx.cart.map((item) => {
                 return (
                   <>
-                    <MenuItem
+                    <CartItem
                       key={item.id}
                       id={item.id}
                       title={item.title}
-                      description={item.description}
                       price={item.price}
-                      amount={1}
-                      onItemChange={ctx.onItemChange}
+                      amount={item.amount}
+                      onAddItem={ctx.onAddItem}
                     />
                     <Divider />
                   </>

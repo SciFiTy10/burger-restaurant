@@ -41,7 +41,7 @@ const cartReducer = (state, action) => {
 
 const AppContextProvider = (props) => {
   //create state for menu list
-  const [menuList, setMenuList] = useState([
+  const [menu, setMenu] = useState([
     {
       id: 1,
       title: "Royale With Cheese",
@@ -74,7 +74,7 @@ const AppContextProvider = (props) => {
       price: 11.99,
     },
   ]);
-  const [cartState, dispatch] = useReducer(cartReducer, []);
+  const [cart, dispatch] = useReducer(cartReducer, []);
 
   //need the id, title, price, amount
 
@@ -88,8 +88,8 @@ const AppContextProvider = (props) => {
   return (
     <AppContext.Provider
       value={{
-        menuList: menuList,
-        cart: cartState,
+        menu: menu,
+        cart: cart,
         onAddItem: cartAddHandler,
       }}
     >

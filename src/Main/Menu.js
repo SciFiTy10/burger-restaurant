@@ -16,8 +16,8 @@ const Menu = () => {
   const ctx = useContext(AppContext);
   return (
     <List className={menuStyles.list} component="nav" aria-label="menu">
-      {ctx.menuList.length > 0
-        ? ctx.menuList.map((item) => {
+      {ctx.menu.length > 0
+        ? ctx.menu.map((item) => {
             return (
               <MenuItem
                 key={item.id}
