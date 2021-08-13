@@ -1,9 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 
 export const AppContext = React.createContext({
   menuList: [],
   cart: [],
 });
+
+const cartReducer = (state, action) => {
+  switch (action.type) {
+    case "ADD_ITEM":
+      //create a variable for the current state
+      const currentCart = [...state];
+      //determine whether the cart contains this item
+      const existingItem = currentCart.filter((item) => item.id === id)[0];
+      //check if the item exists
+      if (existingItem !== undefined) {
+        //get the existing amount
+        const currentAmount = existingItem.amount;
+        //determine the new amount
+        const newAmount = currentAmount + action.payload.amount;
+        //update the quantity on the existingItem
+        existingItem.amount = newAmount;
+        //update the currentCart with the updated object
+        const newCart = currentCart.map((item) =>
+          item.id === id ? existingItem : item
+        );
+        //update the state of the cart
+        return newCart;
+      } else {
+        //the item doesn't exist yet so we need to add it to the cart
+        return [item, ...state];
+      }
+    case "REMOVE_ITEM":
+      break;
+    default:
+      return state;
+  }
+};
 
 const AppContextProvider = (props) => {
   //create state for menu list
@@ -40,39 +72,23 @@ const AppContextProvider = (props) => {
       price: 11.99,
     },
   ]);
-  const [cart, setCart] = useState([]);
+  const [cartState, dispatch] = useReducer(cartReducer, []);
 
-  const cartHandler = (id, quantity) => {
-    //create a variable for the current state
-    const currentCart = [...cart];
-    //determine whether the cart contains this item
-    const existingItem = currentCart.filter((item) => item.id === id)[0];
-    //check if the item exists
-    if (existingItem !== undefined) {
-      //get the existing amount
-      const currentAmount = existingItem.amount;
-      //determine the new amount
-      const newAmount =
-        currentAmount + quantity <= 0 ? 0 : currentAmount + quantity;
-      //update the quantity on the existingItem
-      existingItem.amount = newAmount;
-      //update the currentCart with the updated object
-      const newCart = currentCart.map((item) =>
-        item.id === id ? existingItem : item
-      );
-      //update the state of the cart
-      setCart(newCart);
-    } else {
-      //the item doesn't exist yet so we need to add it to the cart
-      setCart([{ id: id, amount: quantity }, ...cart]);
+  //need the id, title, price, amount
+
+  const cartAddHandler = (item) => {
+    //ensure the item is non-empty
+    if (item) {
+      //dispatch the item to the reducer
+      dispatch({ type: "ADD_ITEM", payload: item });
     }
   };
   return (
     <AppContext.Provider
       value={{
         menuList: menuList,
-        cart: cart,
-        onItemChange: cartHandler,
+        cart: cartState,
+        onAddItem: cartAddHandler,
       }}
     >
       {props.children}

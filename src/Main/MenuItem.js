@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import { PinDropRounded } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +28,15 @@ const MenuItem = (props) => {
   const classes = useStyles();
 
   const addItemHandler = () => {
-    props.onItemChange(props.id, props.amount);
+    //create an item to send
+    const item = {
+      id: props.id,
+      title: props.title,
+      price: props.price,
+      amount: props.amount,
+    };
+    //send the item to the handler
+    props.onAddItem(item);
   };
   return (
     <ListItem>
