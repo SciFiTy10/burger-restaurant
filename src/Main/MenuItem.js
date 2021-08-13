@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -8,7 +8,6 @@ import {
 } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import { PinDropRounded } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,16 +26,22 @@ const useStyles = makeStyles((theme) => ({
 const MenuItem = (props) => {
   const classes = useStyles();
 
+  const [amount, setAmount] = useState(1);
+
   const addItemHandler = () => {
     //create an item to send
     const item = {
       id: props.id,
       title: props.title,
       price: props.price,
-      amount: props.amount,
+      amount: amount,
     };
     //send the item to the handler
     props.onAddItem(item);
+  };
+
+  const amountChangeHandler = (event) => {
+    setAmount(Number(event.target.value));
   };
   return (
     <ListItem>
@@ -59,12 +64,16 @@ const MenuItem = (props) => {
               className={classes.root}
               label="Amount"
               type="number"
-              value={props.amount}
+              inputProps={{ min: 0 }}
+              value={amount}
+              onChange={amountChangeHandler}
               size="small"
             />
           </div>
           <Box mt={1}>
-            <Button onClick={addItemHandler}>+ Add</Button>
+            <Button disabled={amount === 0} onClick={addItemHandler}>
+              + Add
+            </Button>
           </Box>
         </Grid>
       </Grid>

@@ -11,7 +11,9 @@ const cartReducer = (state, action) => {
       //create a variable for the current state
       const currentCart = [...state];
       //determine whether the cart contains this item
-      const existingItem = currentCart.filter((item) => item.id === id)[0];
+      const existingItem = currentCart.filter(
+        (item) => item.id === action.payload.id
+      )[0];
       //check if the item exists
       if (existingItem !== undefined) {
         //get the existing amount
@@ -22,13 +24,13 @@ const cartReducer = (state, action) => {
         existingItem.amount = newAmount;
         //update the currentCart with the updated object
         const newCart = currentCart.map((item) =>
-          item.id === id ? existingItem : item
+          item.id === action.payload.id ? existingItem : item
         );
         //update the state of the cart
         return newCart;
       } else {
         //the item doesn't exist yet so we need to add it to the cart
-        return [item, ...state];
+        return [...state, action.payload];
       }
     case "REMOVE_ITEM":
       break;

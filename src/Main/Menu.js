@@ -25,8 +25,7 @@ const Menu = () => {
                 title={item.title}
                 description={item.description}
                 price={item.price}
-                amount={1}
-                onItemChange={ctx.onItemChange}
+                onAddItem={ctx.onAddItem}
               />
             );
           })
