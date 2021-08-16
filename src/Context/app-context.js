@@ -76,8 +76,7 @@ const AppContextProvider = (props) => {
   ]);
   const [cart, dispatch] = useReducer(cartReducer, []);
 
-  //need the id, title, price, amount
-
+  const [cartIsOpen, setCartIsOpen] = useState(false);
   const cartAddHandler = (item) => {
     //ensure the item is non-empty
     if (item) {
@@ -85,12 +84,27 @@ const AppContextProvider = (props) => {
       dispatch({ type: "ADD_ITEM", payload: item });
     }
   };
+
+  const cartRemoveHandler = (item) => {
+    //ensure the item is non-empty
+    if (item) {
+      //dispatch the item to the reducer
+      dispatch({ type: "REMOVE_ITEM", payload: item });
+    }
+  };
+
+  const cartClickHandler = (isOpen) => {
+    setCartIsOpen(isOpen);
+  };
   return (
     <AppContext.Provider
       value={{
-        menu: menu,
-        cart: cart,
+        menu,
+        cart,
         onAddItem: cartAddHandler,
+        onRemoveItem: cartRemoveHandler,
+        cartIsOpen,
+        onCartClick: cartClickHandler,
       }}
     >
       {props.children}

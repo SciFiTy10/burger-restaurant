@@ -5,6 +5,7 @@ import MainContent from "./Main/MainContent";
 import React, { useState } from "react";
 import { CssBaseline } from "@material-ui/core";
 import AppContextProvider from "./Context/app-context";
+import Cart from "./Cart/Cart";
 
 const App = () => {
   const titleText = "Big Kahuna Burger";
@@ -14,8 +15,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppContextProvider>
-        <Header titleText={titleText} cartCount={cartCount} />
+        <Header titleText={titleText} />
         <MainContent />
+        <Cart />
       </AppContextProvider>
     </ThemeProvider>
   );

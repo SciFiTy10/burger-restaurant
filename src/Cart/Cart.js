@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Button,
-  Card,
-  CardActions,
-  CardContent,
+  Dialog,
+  DialogTitle,
+  DialogActions,
+  DialogContent,
   Divider,
+  List,
 } from "@material-ui/core";
 import { AppContext } from "../Context/app-context";
+import CartItem from "./CartItem";
+import CartTotal from "./CartTotal";
 
 const Cart = () => {
   const ctx = useContext(AppContext);
+  const onCloseHandler = () => {
+    ctx.onCartClick(false);
+  };
   return (
-    <Card>
-      <CardHeader></CardHeader>
-      <CardContent>
+    <Dialog onClose={onCloseHandler} open={ctx.cartIsOpen}>
+      <DialogTitle></DialogTitle>
+      <DialogContent dividers>
         <List component="nav" aria-label="cart">
           {ctx.cart.length > 0
             ? ctx.cart.map((item) => {
@@ -34,12 +41,12 @@ const Cart = () => {
             : null}
         </List>
         <CartTotal />
-      </CardContent>
-      <CardActions>
+      </DialogContent>
+      <DialogActions>
         <Button>Close</Button>
         <Button>Order</Button>
-      </CardActions>
-    </Card>
+      </DialogActions>
+    </Dialog>
   );
 };
 
