@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { Fragment, useContext } from "react";
 import {
   Button,
   Dialog,
@@ -19,23 +19,22 @@ const Cart = () => {
   };
   return (
     <Dialog onClose={onCloseHandler} open={ctx.cartIsOpen}>
-      <DialogTitle></DialogTitle>
-      <DialogContent dividers>
+      <DialogContent>
         <List component="nav" aria-label="cart">
           {ctx.cart.length > 0
             ? ctx.cart.map((item) => {
                 return (
-                  <>
+                  <Fragment key={item.id}>
                     <CartItem
-                      key={item.id}
                       id={item.id}
                       title={item.title}
                       price={item.price}
                       amount={item.amount}
                       onAddItem={ctx.onAddItem}
+                      onRemoveItem={ctx.onRemoveItem}
                     />
                     <Divider />
-                  </>
+                  </Fragment>
                 );
               })
             : null}

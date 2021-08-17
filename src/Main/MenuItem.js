@@ -12,10 +12,10 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiFormLabel-root": {
-      color: theme.palette.text.primary,
+      color: theme.palette.text.secondary,
     },
     "& .MuiInput-underline:before": {
-      borderBottomColor: theme.palette.text.primary,
+      borderBottomColor: theme.palette.text.secondary,
     },
     "& .MuiInputBase-input": {
       textAlign: "center",

@@ -6,10 +6,10 @@ const CartTotal = (props) => {
   return (
     <Grid container>
       <Grid item xs={10}>
-        <Typography variant="h2">Total Amount</Typography>
+        <Typography variant="body1">Total Amount</Typography>
       </Grid>
       <Grid item xs={2}>
-        <Typography variant="h6">{total}</Typography>
+        <Typography variant="body1">{total}</Typography>
       </Grid>
     </Grid>
   );

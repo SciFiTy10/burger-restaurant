@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Menu = () => {
-  const classes = useStyles();
   const ctx = useContext(AppContext);
   return (
     <List className={menuStyles.list} component="nav" aria-label="menu">
