@@ -4,7 +4,7 @@ import Header from "./Header/Header";
 import MainContent from "./Main/MainContent";
 import React, { useState } from "react";
 import { CssBaseline } from "@material-ui/core";
-import AppContextProvider from "./Context/app-context";
+import AppContextProvider from "./Context/AppContextProvider";
 import Cart from "./Cart/Cart";
 
 const App = () => {

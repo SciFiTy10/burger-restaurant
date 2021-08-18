@@ -16,7 +16,7 @@ const CartItem = (props) => {
       id: props.id,
       title: props.title,
       price: props.price,
-      amount: props.amount,
+      amount: 1,
     };
     //send the item to the handler
     props.onAddItem(item);
@@ -28,16 +28,16 @@ const CartItem = (props) => {
       id: props.id,
       title: props.title,
       price: props.price,
-      amount: props.amount,
+      amount: 1,
     };
     //send the item to the handler
-    props.onAddItem(item);
+    props.onRemoveItem(item);
   };
   return (
     <>
       <ListItem>
         <Grid container>
-          <Grid item xs={8}>
+          <Grid item xs={6}>
             <Typography variant="body1">{props.title}</Typography>
             <Box fontStyle="italic" mb={1}>
               <Typography variant="body1" component="div">
@@ -48,7 +48,7 @@ const CartItem = (props) => {
               ${props.price} x {props.amount}
             </Typography>
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2}>
             <Button
               onClick={removeItemHandler}
               color="primary"
@@ -67,7 +67,7 @@ const CartItem = (props) => {
               size="small"
             />
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2}>
             <Button
               onClick={addItemHandler}
               color="primary"
