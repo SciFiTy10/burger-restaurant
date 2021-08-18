@@ -45,6 +45,8 @@ const AppContextProvider = (props) => {
   const [cartIsOpen, setCartIsOpen] = useState(false);
   //create state for controlling the confirm dialog
   const [confirmIsOpen, setConfirmIsOpen] = useState(false);
+  //create state for the item to be completely removed from cart
+  const [itemToBeRemoved, setItemToBeRemoved] = useState({});
 
   //handler function for adding to the cart
   const cartAddHandler = (item) => {
@@ -54,12 +56,25 @@ const AppContextProvider = (props) => {
       dispatchCart({ type: "ADD_ITEM", payload: item });
     }
   };
-  //handler function for removing an item from the cart
+  //handler function for removing 1 of an item from the cart
   const cartRemoveHandler = (item) => {
     //ensure the item is non-empty
     if (item) {
       //dispatch the item to the reducer
       dispatchCart({ type: "REMOVE_ITEM", payload: item });
+    }
+  };
+  //handler function for storing the item to be removed completely from the cart
+  const setItemToBeCompletelyRemovedFromCartHandler = (item) => {
+    //update the state
+    setItemToBeRemoved(item);
+  };
+  //handler function for removing an item completely from the cart
+  const removeItemCompletelyFromCartHandler = (item) => {
+    //ensure the item is non-empty
+    if (item) {
+      //dispatch the item to the reducer
+      dispatchCart({ type: "REMOVE_ITEM_COMPLETELY_FROM_CART", payload: item });
     }
   };
   //handler function for controlling the open and close of the cart dialog
@@ -81,6 +96,10 @@ const AppContextProvider = (props) => {
         onCartClick: cartClickHandler,
         confirmIsOpen,
         onConfirmClick: confirmClickHandler,
+        onSetItemToBeCompletelyRemovedFromCart:
+          setItemToBeCompletelyRemovedFromCartHandler,
+        onRemoveItemCompletelyFromCart: removeItemCompletelyFromCartHandler,
+        itemToBeRemoved,
       }}
     >
       {props.children}

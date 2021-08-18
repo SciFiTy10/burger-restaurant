@@ -30,8 +30,16 @@ const CartItem = (props) => {
       price: props.price,
       amount: 1,
     };
-    //send the item to the handler
-    props.onRemoveItem(item);
+    //check whether this is the last one of this item
+    if (props.amount === 1) {
+      //store the item name within the state object
+      props.onSetItemToBeCompletelyRemovedFromCart(item);
+      //open the confirm dialog for deleting the item
+      props.onConfirmClick(true);
+    } else {
+      //send the item to the handler
+      props.onRemoveItem(item);
+    }
   };
   return (
     <>

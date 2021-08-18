@@ -32,6 +32,10 @@ const Cart = () => {
                       amount={item.amount}
                       onAddItem={ctx.onAddItem}
                       onRemoveItem={ctx.onRemoveItem}
+                      onConfirmClick={ctx.onConfirmClick}
+                      onSetItemToBeCompletelyRemovedFromCart={
+                        ctx.onSetItemToBeCompletelyRemovedFromCart
+                      }
                     />
                     <Divider />
                   </Fragment>

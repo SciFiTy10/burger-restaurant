@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { CssBaseline } from "@material-ui/core";
 import AppContextProvider from "./Context/AppContextProvider";
 import Cart from "./Cart/Cart";
+import ConfirmDialog from "./Dialogs/ConfirmDialog";
 
 const App = () => {
   const titleText = "Big Kahuna Burger";
@@ -18,6 +19,7 @@ const App = () => {
         <Header titleText={titleText} />
         <MainContent />
         <Cart />
+        <ConfirmDialog />
       </AppContextProvider>
     </ThemeProvider>
   );

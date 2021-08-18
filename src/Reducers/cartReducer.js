@@ -31,22 +31,28 @@ export const cartReducer = (state, action) => {
       //create a variable for the current state
       const cart = [...state];
       //get the existing item in the cart
-      const itemToBeRemoved = cart.find(
-        (item) => item.id === action.payload.id
+      const itemToDeduct = cart.find((item) => item.id === action.payload.id);
+      //deduct 1 from the item's amount
+      itemToDeduct.amount -= 1;
+      //update the cart with the updated item
+      const updatedCart = cart.map((item) =>
+        item.id === action.payload.id ? itemToDeduct : item
       );
-      //if the itemToBeRemoved is on its last one
-      if (itemToBeRemoved.amount === 1) {
-        //set the item to be removed
-        //open the confirmation dialog to ensure the user wants to remove this item from the cart
+      //update the state
+      return updatedCart;
+    case "REMOVE_ITEM_COMPLETELY_FROM_CART":
+      //create a variable for the current state
+      const current = [...state];
+      //get the index of the item to be removed completely
+      const index = current.findIndex((item) => item.id === action.payload.id);
+      //if the index was found
+      if (index !== -1) {
+        //remove the item from the state
+        const newState = current.splice(index, 1);
+        //return the updated state
+        return newState;
       } else {
-        //deduct 1 from the item's amount
-        itemToBeRemoved.amount -= 1;
-        //update the cart with the updated item
-        const updatedCart = cart.map((item) =>
-          item.id === action.payload.id ? itemToBeRemoved : item
-        );
-        //update the state
-        return updatedCart;
+        return state;
       }
     default:
       return state;

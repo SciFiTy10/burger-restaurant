@@ -1,25 +1,34 @@
 import React, { useContext } from "react";
 
-import { Dialog, DialogContent } from "@material-ui/core";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+} from "@material-ui/core";
 import { AppContext } from "../Context/app-context";
 
 const ConfirmDialog = () => {
   const ctx = useContext(AppContext);
-  const onCloseHandler = () => {
-    ctx.onCartClick(false);
-  };
+
   //handler for closing the dialog
   const onCloseHandler = () => {
     ctx.onConfirmClick(false);
   };
   //handler for removing the item from the cart
   const removeItemFromCartHandler = () => {
-    //call to remove from cart goes here
+    //remove the item completely from the cart
+    ctx.onRemoveItemCompletelyFromCart(ctx.itemToBeRemoved);
+    //close the dialog
+    onCloseHandler();
   };
   return (
-    <Dialog onClose={onCloseHandler} open={ctx.cartIsOpen}>
+    <Dialog onClose={onCloseHandler} open={ctx.confirmIsOpen}>
       <DialogContent>
-        <p>Are you sure you want to remove the {item} from your order?</p>
+        <p>
+          Are you sure you want to remove "{ctx.itemToBeRemoved.title}" from
+          your order?
+        </p>
       </DialogContent>
       <DialogActions>
         <Button onClick={onCloseHandler}>Close</Button>
