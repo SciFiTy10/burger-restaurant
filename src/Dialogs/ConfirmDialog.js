@@ -13,7 +13,10 @@ const ConfirmDialog = () => {
 
   //handler for closing the dialog
   const onCloseHandler = () => {
+    //close the confirm dialog
     ctx.onConfirmClick(false);
+    //open the cart dialog
+    ctx.onCartClick(true);
   };
   //handler for removing the item from the cart
   const removeItemFromCartHandler = () => {

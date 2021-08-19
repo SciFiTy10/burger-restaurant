@@ -40,7 +40,6 @@ const AppContextProvider = (props) => {
   ]);
   //create state for cart and dispatch to reducer method
   const [cart, dispatchCart] = useReducer(cartReducer, []);
-
   //create state for controlling the cart dialog
   const [cartIsOpen, setCartIsOpen] = useState(false);
   //create state for controlling the confirm dialog

@@ -32,8 +32,10 @@ const CartItem = (props) => {
     };
     //check whether this is the last one of this item
     if (props.amount === 1) {
-      //store the item name within the state object
+      //update the state for the item to be completely removed
       props.onSetItemToBeCompletelyRemovedFromCart(item);
+      //close the cart dialog
+      props.onCartClick(false);
       //open the confirm dialog for deleting the item
       props.onConfirmClick(true);
     } else {

@@ -43,17 +43,8 @@ export const cartReducer = (state, action) => {
     case "REMOVE_ITEM_COMPLETELY_FROM_CART":
       //create a variable for the current state
       const current = [...state];
-      //get the index of the item to be removed completely
-      const index = current.findIndex((item) => item.id === action.payload.id);
-      //if the index was found
-      if (index !== -1) {
-        //remove the item from the state
-        const newState = current.splice(index, 1);
-        //return the updated state
-        return newState;
-      } else {
-        return state;
-      }
+      //return the current state without that id
+      return current.filter((item) => item.id !== action.payload.id);
     default:
       return state;
   }

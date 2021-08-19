@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -22,10 +22,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = (props) => {
+const Header = () => {
   const classes = useStyles();
   const ctx = useContext(AppContext);
-
+  //create state for the header title
+  const [titleText, setTitleText] = useState("Big Kahuna Burger");
+  //get the total amount of items in the cart
+  const itemsInCart = ctx.cart.reduce((total, item) => {
+    return total + item.amount;
+  }, 0);
+  //handler function for managing the opening and closing of the cartdialog
   const cartOpenHandler = () => {
     ctx.onCartClick(true);
   };
@@ -35,10 +41,10 @@ const Header = (props) => {
         <Toolbar>
           <Icon>lunch_dining</Icon>
           <Typography variant="h6" className={classes.title}>
-            {props.titleText}
+            {titleText}
           </Typography>
           <IconButton color="inherit" onClick={cartOpenHandler}>
-            <Badge badgeContent={ctx.cart.length} color="secondary">
+            <Badge badgeContent={itemsInCart} color="secondary">
               <ShoppingCartIcon />
             </Badge>
           </IconButton>

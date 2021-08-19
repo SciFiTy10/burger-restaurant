@@ -2,27 +2,31 @@ import React, { Fragment, useContext } from "react";
 import {
   Button,
   Dialog,
-  DialogTitle,
   DialogActions,
   DialogContent,
   Divider,
   List,
+  Typography,
 } from "@material-ui/core";
 import { AppContext } from "../Context/app-context";
-import CartItem from "./CartItem";
-import CartTotal from "./CartTotal";
+import CartItem from "../Cart/CartItem";
+import CartTotal from "../Cart/CartTotal";
 
-const Cart = () => {
+const CartDialog = () => {
   const ctx = useContext(AppContext);
   const onCloseHandler = () => {
     ctx.onCartClick(false);
   };
+  let cartIsEmpty = ctx.cart.length === 0;
   return (
     <Dialog onClose={onCloseHandler} open={ctx.cartIsOpen}>
       <DialogContent>
-        <List component="nav" aria-label="cart">
-          {ctx.cart.length > 0
-            ? ctx.cart.map((item) => {
+        {cartIsEmpty ? (
+          <Typography variant="body1">Cart Is Empty</Typography>
+        ) : (
+          <>
+            <List component="nav" aria-label="cart">
+              {ctx.cart.map((item) => {
                 return (
                   <Fragment key={item.id}>
                     <CartItem
@@ -32,6 +36,7 @@ const Cart = () => {
                       amount={item.amount}
                       onAddItem={ctx.onAddItem}
                       onRemoveItem={ctx.onRemoveItem}
+                      onCartClick={ctx.onCartClick}
                       onConfirmClick={ctx.onConfirmClick}
                       onSetItemToBeCompletelyRemovedFromCart={
                         ctx.onSetItemToBeCompletelyRemovedFromCart
@@ -40,17 +45,18 @@ const Cart = () => {
                     <Divider />
                   </Fragment>
                 );
-              })
-            : null}
-        </List>
-        <CartTotal />
+              })}
+            </List>
+            <CartTotal cart={ctx.cart} />
+          </>
+        )}
       </DialogContent>
       <DialogActions>
-        <Button>Close</Button>
-        <Button>Order</Button>
+        <Button onClick={onCloseHandler}>Close</Button>
+        {cartIsEmpty ? null : <Button>Order</Button>}
       </DialogActions>
     </Dialog>
   );
 };
 
-export default Cart;
+export default CartDialog;
