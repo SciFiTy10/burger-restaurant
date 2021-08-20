@@ -46,10 +46,8 @@ const AppContextProvider = (props) => {
   const [confirmIsOpen, setConfirmIsOpen] = useState(false);
   //create state for the item to be completely removed from cart
   const [itemToBeRemoved, setItemToBeRemoved] = useState({});
-  //create state for managing the opening of the snackbar
-  const [snackbarIsOpen, setSnackbarIsOpen] = useState(false);
-  //create state for the snackbar message
-  const [snackbarMessage, setSnackbarMessage] = useState("");
+  //create state for managing the snackbar
+  const [snackbar, setSnackbar] = useState({});
 
   //handler function for adding to the cart
   const cartAddHandler = (item) => {
@@ -88,13 +86,9 @@ const AppContextProvider = (props) => {
   const confirmDialogHandler = (isOpen) => {
     setConfirmIsOpen(isOpen);
   };
-  //handler function for controlling the open and close of the snackbar
-  const snackbarHandler = (isOpen) => {
-    setSnackbarIsOpen(isOpen);
-  };
-  //handler function for controlling the open and close of the snackbar
-  const snackbarMessageHandler = (message) => {
-    setSnackbarMessage(message);
+  //handler function for controlling the snackbar
+  const snackbarHandler = (snackbar) => {
+    setSnackbar(snackbar);
   };
   return (
     <AppContext.Provider
@@ -110,10 +104,8 @@ const AppContextProvider = (props) => {
         setItemToBeCompletelyRemovedFromCartHandler,
         removeItemCompletelyFromCartHandler,
         itemToBeRemoved,
-        snackbarIsOpen,
+        snackbar,
         snackbarHandler,
-        snackbarMessage,
-        snackbarMessageHandler,
       }}
     >
       {props.children}
