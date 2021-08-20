@@ -11,6 +11,19 @@ const Snackbar = () => {
   const anchorOrigin = isSmallScreen
     ? { vertical: "bottom", horizontal: "center" }
     : { vertical: "top", horizontal: "center" };
+  //create a variable for holding the action for the snackbar
+  const action = (
+    <>
+      <Button onClick={ctx.cartDialogHandler}>Show Cart</Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        onClick={closeSnackbarHandler}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </>
+  );
   //handler function for closing the snackbar
   const closeSnackbarHandler = () => {
     ctx.snackbarHandler(false);
@@ -21,6 +34,7 @@ const Snackbar = () => {
       open={ctx.snackbarIsOpen}
       onClose={closeSnackbarHandler}
       message={ctx.snackbarMessage}
+      action={action}
     ></Snackbar>
   );
 };
