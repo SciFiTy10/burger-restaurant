@@ -9,7 +9,7 @@ const theme = createTheme({
       main: "#681A1A",
     },
     text: {
-      primary: "#fff",
+      secondary: "#fff",
     },
   },
   overrides: {

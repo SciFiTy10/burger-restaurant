@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -12,10 +12,10 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiFormLabel-root": {
-      color: theme.palette.text.primary,
+      color: theme.palette.text.secondary,
     },
     "& .MuiInput-underline:before": {
-      borderBottomColor: theme.palette.text.primary,
+      borderBottomColor: theme.palette.text.secondary,
     },
     "& .MuiInputBase-input": {
       textAlign: "center",
@@ -25,6 +25,24 @@ const useStyles = makeStyles((theme) => ({
 
 const MenuItem = (props) => {
   const classes = useStyles();
+
+  const [amount, setAmount] = useState(1);
+
+  const addItemHandler = () => {
+    //create an item to send
+    const item = {
+      id: props.id,
+      title: props.title,
+      price: props.price,
+      amount: amount,
+    };
+    //send the item to the handler
+    props.cartAddHandler(item);
+  };
+
+  const amountChangeHandler = (event) => {
+    setAmount(Number(event.target.value));
+  };
   return (
     <ListItem>
       <Grid container>
@@ -46,12 +64,16 @@ const MenuItem = (props) => {
               className={classes.root}
               label="Amount"
               type="number"
-              value={props.amount}
+              inputProps={{ min: 0 }}
+              value={amount}
+              onChange={amountChangeHandler}
               size="small"
             />
           </div>
           <Box mt={1}>
-            <Button>+ Add</Button>
+            <Button disabled={amount === 0} onClick={addItemHandler}>
+              + Add
+            </Button>
           </Box>
         </Grid>
       </Grid>
