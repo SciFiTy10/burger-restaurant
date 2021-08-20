@@ -37,7 +37,7 @@ const MenuItem = (props) => {
       amount: amount,
     };
     //send the item to the handler
-    props.onAddItem(item);
+    props.cartAddHandler(item);
   };
 
   const amountChangeHandler = (event) => {

@@ -19,7 +19,7 @@ const CartItem = (props) => {
       amount: 1,
     };
     //send the item to the handler
-    props.onAddItem(item);
+    props.cartAddHandler(item);
   };
 
   const removeItemHandler = () => {
@@ -33,14 +33,14 @@ const CartItem = (props) => {
     //check whether this is the last one of this item
     if (props.amount === 1) {
       //update the state for the item to be completely removed
-      props.onSetItemToBeCompletelyRemovedFromCart(item);
+      props.setItemToBeCompletelyRemovedFromCartHandler(item);
       //close the cart dialog
-      props.onCartClick(false);
+      props.cartDialogHandler(false);
       //open the confirm dialog for deleting the item
-      props.onConfirmClick(true);
+      props.confirmDialogHandler(true);
     } else {
       //send the item to the handler
-      props.onRemoveItem(item);
+      props.cartRemoveHandler(item);
     }
   };
   return (

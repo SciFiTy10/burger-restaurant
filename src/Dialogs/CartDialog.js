@@ -15,7 +15,7 @@ import CartTotal from "../Cart/CartTotal";
 const CartDialog = () => {
   const ctx = useContext(AppContext);
   const onCloseHandler = () => {
-    ctx.onCartClick(false);
+    ctx.cartDialogHandler(false);
   };
   let cartIsEmpty = ctx.cart.length === 0;
   return (
@@ -34,12 +34,12 @@ const CartDialog = () => {
                       title={item.title}
                       price={item.price}
                       amount={item.amount}
-                      onAddItem={ctx.onAddItem}
-                      onRemoveItem={ctx.onRemoveItem}
-                      onCartClick={ctx.onCartClick}
-                      onConfirmClick={ctx.onConfirmClick}
-                      onSetItemToBeCompletelyRemovedFromCart={
-                        ctx.onSetItemToBeCompletelyRemovedFromCart
+                      cartAddHandler={ctx.cartAddHandler}
+                      cartRemoveHandler={ctx.cartRemoveHandler}
+                      cartDialogHandler={ctx.cartDialogHandler}
+                      confirmDialogHandler={ctx.confirmDialogHandler}
+                      setItemToBeCompletelyRemovedFromCartHandler={
+                        ctx.setItemToBeCompletelyRemovedFromCartHandler
                       }
                     />
                     <Divider />

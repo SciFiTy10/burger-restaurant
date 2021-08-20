@@ -17,7 +17,7 @@ const Menu = () => {
                 title={item.title}
                 description={item.description}
                 price={item.price}
-                onAddItem={ctx.onAddItem}
+                cartAddHandler={ctx.cartAddHandler}
               />
             );
           })

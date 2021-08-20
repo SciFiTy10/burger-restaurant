@@ -14,14 +14,14 @@ const ConfirmDialog = () => {
   //handler for closing the dialog
   const onCloseHandler = () => {
     //close the confirm dialog
-    ctx.onConfirmClick(false);
+    ctx.confirmDialogHandler(false);
     //open the cart dialog
-    ctx.onCartClick(true);
+    ctx.cartDialogHandler(true);
   };
   //handler for removing the item from the cart
   const removeItemFromCartHandler = () => {
     //remove the item completely from the cart
-    ctx.onRemoveItemCompletelyFromCart(ctx.itemToBeRemoved);
+    ctx.removeItemCompletelyFromCartHandler(ctx.itemToBeRemoved);
     //close the dialog
     onCloseHandler();
   };

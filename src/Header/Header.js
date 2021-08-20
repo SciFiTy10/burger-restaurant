@@ -33,7 +33,7 @@ const Header = () => {
   }, 0);
   //handler function for managing the opening and closing of the cartdialog
   const cartOpenHandler = () => {
-    ctx.onCartClick(true);
+    ctx.cartDialogHandler(true);
   };
   return (
     <div className={classes.root}>

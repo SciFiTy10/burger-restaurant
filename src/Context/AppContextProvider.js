@@ -46,6 +46,8 @@ const AppContextProvider = (props) => {
   const [confirmIsOpen, setConfirmIsOpen] = useState(false);
   //create state for the item to be completely removed from cart
   const [itemToBeRemoved, setItemToBeRemoved] = useState({});
+  //create state for managing the opening of the snackbar
+  const [snackbarIsOpen, setSnackbarIsOpen] = useState(false);
 
   //handler function for adding to the cart
   const cartAddHandler = (item) => {
@@ -77,28 +79,33 @@ const AppContextProvider = (props) => {
     }
   };
   //handler function for controlling the open and close of the cart dialog
-  const cartClickHandler = (isOpen) => {
+  const cartDialogHandler = (isOpen) => {
     setCartIsOpen(isOpen);
   };
   //handler function for controlling the open and close of the confirm dialog
-  const confirmClickHandler = (isOpen) => {
+  const confirmDialogHandler = (isOpen) => {
     setConfirmIsOpen(isOpen);
+  };
+  //handler function for controlling the open and close of the snackbar
+  const snackbarHandler = (isOpen) => {
+    setSnackbarIsOpen(isOpen);
   };
   return (
     <AppContext.Provider
       value={{
         menu,
         cart,
-        onAddItem: cartAddHandler,
-        onRemoveItem: cartRemoveHandler,
+        cartAddHandler,
+        cartRemoveHandler,
         cartIsOpen,
-        onCartClick: cartClickHandler,
+        cartDialogHandler,
         confirmIsOpen,
-        onConfirmClick: confirmClickHandler,
-        onSetItemToBeCompletelyRemovedFromCart:
-          setItemToBeCompletelyRemovedFromCartHandler,
-        onRemoveItemCompletelyFromCart: removeItemCompletelyFromCartHandler,
+        confirmDialogHandler,
+        setItemToBeCompletelyRemovedFromCartHandler,
+        removeItemCompletelyFromCartHandler,
         itemToBeRemoved,
+        snackbarIsOpen,
+        snackbarHandler,
       }}
     >
       {props.children}
