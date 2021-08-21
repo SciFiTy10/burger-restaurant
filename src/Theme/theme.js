@@ -12,14 +12,6 @@ const theme = createTheme({
       secondary: "#fff",
     },
   },
-  overrides: {
-    MuiCard: {
-      root: {
-        backgroundColor: "#A52A2A",
-        color: "white",
-      },
-    },
-  },
 });
 
 export default theme;
