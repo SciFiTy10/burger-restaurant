@@ -7,6 +7,7 @@ import { CssBaseline } from "@material-ui/core";
 import AppContextProvider from "./Context/AppContextProvider";
 import CartDialog from "./Dialogs/CartDialog";
 import ConfirmDialog from "./Dialogs/ConfirmDialog";
+import SnackbarNotification from "./Notifications/SnackbarNotification";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <MainContent />
         <CartDialog />
         <ConfirmDialog />
+        <SnackbarNotification />
       </AppContextProvider>
     </ThemeProvider>
   );

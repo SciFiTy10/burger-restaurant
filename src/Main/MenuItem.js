@@ -8,6 +8,8 @@ import {
 } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import { CheckBoxTwoTone } from "@material-ui/icons";
+import createMixins from "@material-ui/core/styles/createMixins";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,6 +40,18 @@ const MenuItem = (props) => {
     };
     //send the item to the handler
     props.cartAddHandler(item);
+    //determine the string for what was added
+    const addedString =
+      item.amount === 1
+        ? `1 ${item.title} was added to the cart.`
+        : `${item.amount} ${item.title}s were added to the cart`;
+    //create the data to send to the snackbar
+    const snackbar = {
+      open: true,
+      message: `Success! ${addedString}`,
+    };
+    //display the snackbar
+    props.snackbarHandler(snackbar);
   };
 
   const amountChangeHandler = (event) => {

@@ -18,6 +18,7 @@ const Menu = () => {
                 description={item.description}
                 price={item.price}
                 cartAddHandler={ctx.cartAddHandler}
+                snackbarHandler={ctx.snackbarHandler}
               />
             );
           })
