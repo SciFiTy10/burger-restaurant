@@ -8,19 +8,14 @@ import {
 } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import { CheckBoxTwoTone } from "@material-ui/icons";
-import createMixins from "@material-ui/core/styles/createMixins";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& .MuiFormLabel-root": {
-      color: theme.palette.text.secondary,
-    },
-    "& .MuiInput-underline:before": {
-      borderBottomColor: theme.palette.text.secondary,
-    },
     "& .MuiInputBase-input": {
       textAlign: "center",
+    },
+    "& .MuiFormLabel-root": {
+      color: theme.palette.text.primary,
     },
   },
 }));
@@ -53,7 +48,7 @@ const MenuItem = (props) => {
     //display the snackbar
     props.snackbarHandler(snackbar);
   };
-
+  //handler function to update the amount
   const amountChangeHandler = (event) => {
     setAmount(Number(event.target.value));
   };

@@ -36,8 +36,8 @@ const Header = () => {
     ctx.cartDialogHandler(true);
   };
   return (
-    <div className={classes.root}>
-      <AppBar position="static" className={classes.backgroundColor}>
+    <>
+      <AppBar position="fixed" className={classes.backgroundColor}>
         <Toolbar>
           <Icon>lunch_dining</Icon>
           <Typography variant="h6" className={classes.title}>
@@ -50,7 +50,8 @@ const Header = () => {
           </IconButton>
         </Toolbar>
       </AppBar>
-    </div>
+      <Toolbar />
+    </>
   );
 };
 

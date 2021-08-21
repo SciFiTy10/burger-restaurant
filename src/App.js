@@ -1,13 +1,12 @@
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./Theme/theme";
 import Header from "./Header/Header";
-import MainContent from "./Main/MainContent";
+import MainContainer from "./Container/MainContainer";
+import DialogContainer from "./Container/Dialog/DialogContainer";
 import React from "react";
 import { CssBaseline } from "@material-ui/core";
 import AppContextProvider from "./Context/AppContextProvider";
-import CartDialog from "./Dialogs/CartDialog";
-import ConfirmDialog from "./Dialogs/ConfirmDialog";
-import SnackbarNotification from "./Notifications/SnackbarNotification";
+import SnackbarNotification from "./Notification/SnackbarNotification";
 
 const App = () => {
   return (
@@ -15,9 +14,8 @@ const App = () => {
       <CssBaseline />
       <AppContextProvider>
         <Header />
-        <MainContent />
-        <CartDialog />
-        <ConfirmDialog />
+        <MainContainer />
+        <DialogContainer />
         <SnackbarNotification />
       </AppContextProvider>
     </ThemeProvider>
