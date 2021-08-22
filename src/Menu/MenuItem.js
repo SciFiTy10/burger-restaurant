@@ -68,19 +68,17 @@ const MenuItem = (props) => {
         </Grid>
         <Grid item xs={3}></Grid>
         <Grid item xs={1}>
-          <div>
-            <TextField
-              className={classes.root}
-              label="Amount"
-              type="number"
-              inputProps={{ min: 0 }}
-              value={amount}
-              onChange={amountChangeHandler}
-              size="small"
-            />
-          </div>
+          <TextField
+            className={classes.root}
+            label="Amount"
+            type="number"
+            inputProps={{ min: 0 }}
+            value={amount}
+            onChange={amountChangeHandler}
+            size="small"
+          />
           <Box mt={1}>
-            <Button disabled={amount === 0} onClick={addItemHandler}>
+            <Button disabled={amount === 0} onClick={addItemHandler} fullWidth>
               + Add
             </Button>
           </Box>
