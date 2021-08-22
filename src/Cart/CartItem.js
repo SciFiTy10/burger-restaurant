@@ -1,13 +1,8 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  ListItem,
-  Grid,
-  TextField,
-  Typography,
-} from "@material-ui/core";
+import { Button, Grid, TextField } from "@material-ui/core";
 import { Add, Remove } from "@material-ui/icons";
+import ListItemContainer from "../Container/Content/ListItemContainer";
+import ItemInfoContainer from "../Container/Item/ItemInfoContainer";
 
 const CartItem = (props) => {
   const addItemHandler = () => {
@@ -44,52 +39,46 @@ const CartItem = (props) => {
     }
   };
   return (
-    <>
-      <ListItem>
-        <Grid container>
-          <Grid item xs={6}>
-            <Typography variant="body1">{props.title}</Typography>
-            <Box fontStyle="italic" mb={1}>
-              <Typography variant="body1" component="div">
-                {props.description}
-              </Typography>
-            </Box>
-            <Typography variant="subtitle1" component="span">
-              ${props.price} x {props.amount}
-            </Typography>
-          </Grid>
-          <Grid item xs={2}>
-            <Button
-              onClick={removeItemHandler}
-              color="primary"
-              aria-label="upload picture"
-              component="span"
-            >
-              <Remove />
-            </Button>
-          </Grid>
-          <Grid item xs={2}>
-            <TextField
-              label="Amount"
-              type="number"
-              inputProps={{ min: 0, readOnly: true }}
-              value={props.amount}
-              size="small"
-            />
-          </Grid>
-          <Grid item xs={2}>
-            <Button
-              onClick={addItemHandler}
-              color="primary"
-              aria-label="upload picture"
-              component="span"
-            >
-              <Add />
-            </Button>
-          </Grid>
-        </Grid>
-      </ListItem>
-    </>
+    <ListItemContainer>
+      <ItemInfoContainer
+        isCart={true}
+        xsSpacing={6}
+        titleVariant="body1"
+        title={props.title}
+        description={props.description}
+        price={props.price}
+        amount={props.amount}
+      ></ItemInfoContainer>
+      <Grid item xs={2}>
+        <Button
+          onClick={removeItemHandler}
+          color="primary"
+          aria-label="upload picture"
+          component="span"
+        >
+          <Remove />
+        </Button>
+      </Grid>
+      <Grid item xs={2}>
+        <TextField
+          label="Amount"
+          type="number"
+          inputProps={{ min: 0, readOnly: true }}
+          value={props.amount}
+          size="small"
+        />
+      </Grid>
+      <Grid item xs={2}>
+        <Button
+          onClick={addItemHandler}
+          color="primary"
+          aria-label="upload picture"
+          component="span"
+        >
+          <Add />
+        </Button>
+      </Grid>
+    </ListItemContainer>
   );
 };
 

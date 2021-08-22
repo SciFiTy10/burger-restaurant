@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  ListItem,
-  TextField,
-  Typography,
-} from "@material-ui/core";
+import { Box, Button, TextField } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import ListItemContainer from "../Container/Content/ListItemContainer";
+import ItemInfoContainer from "../Container/Item/ItemInfoContainer";
+import HideOnPhone from "../Hidden/HideOnPhone";
+import GridItemContainer from "../Container/Grid/GridItemContainer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,38 +51,35 @@ const MenuItem = (props) => {
     setAmount(Number(event.target.value));
   };
   return (
-    <ListItem>
-      <Grid container>
-        <Grid item xs={8}>
-          <Typography variant="h6">{props.title}</Typography>
-          <Box fontStyle="italic" mb={1}>
-            <Typography variant="subtitle1" component="div">
-              {props.description}
-            </Typography>
-          </Box>
-          <Typography variant="subtitle1" component="div">
-            ${props.price}
-          </Typography>
-        </Grid>
-        <Grid item xs={3}></Grid>
-        <Grid item xs={1}>
-          <TextField
-            className={classes.root}
-            label="Amount"
-            type="number"
-            inputProps={{ min: 0 }}
-            value={amount}
-            onChange={amountChangeHandler}
-            size="small"
-          />
-          <Box mt={1}>
-            <Button disabled={amount === 0} onClick={addItemHandler} fullWidth>
-              + Add
-            </Button>
-          </Box>
-        </Grid>
-      </Grid>
-    </ListItem>
+    <ListItemContainer>
+      <ItemInfoContainer
+        isCart={false}
+        xsSpacing={8}
+        titleVariant="h6"
+        title={props.title}
+        description={props.description}
+        price={props.price}
+      ></ItemInfoContainer>
+      <HideOnPhone>
+        <GridItemContainer xsSpacing={3}></GridItemContainer>
+      </HideOnPhone>
+      <GridItemContainer xsSpacing={1}>
+        <TextField
+          className={classes.root}
+          label="Amount"
+          type="number"
+          inputProps={{ min: 0 }}
+          value={amount}
+          onChange={amountChangeHandler}
+          size="small"
+        />
+        <Box mt={1}>
+          <Button disabled={amount === 0} onClick={addItemHandler} fullWidth>
+            + Add
+          </Button>
+        </Box>
+      </GridItemContainer>
+    </ListItemContainer>
   );
 };
 

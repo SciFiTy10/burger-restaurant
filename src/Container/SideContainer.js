@@ -1,11 +1,12 @@
 import React from "react";
-import { Grid, Hidden } from "@material-ui/core";
+import HideOnPhone from "../Hidden/HideOnPhone";
+import GridItemContainer from "./Grid/GridItemContainer";
 
 const SideContainer = () => {
   return (
-    <Hidden xsDown>
-      <Grid item sm={1}></Grid>
-    </Hidden>
+    <HideOnPhone>
+      <GridItemContainer smSpacing={1} />
+    </HideOnPhone>
   );
 };
 
