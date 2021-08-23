@@ -2,8 +2,8 @@ import React from "react";
 import GridItem from "../../Grid/GridItem";
 import ItemTitle from "../../Item/ItemTitle";
 import ItemDescription from "../../Item/ItemDescription";
-import ItemPrice from "../../Item/ItemPrice";
-import ItemPriceQuantity from "../../Item/ItemPriceQuantity";
+import ItemPrice from "../../Item/Price/ItemPrice";
+import ItemPriceQuantity from "../../Item/Price/ItemPriceAndQuantity";
 
 const ItemInfoContainer = (props) => {
   return (

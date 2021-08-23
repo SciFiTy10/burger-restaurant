@@ -6,7 +6,7 @@ import {
   DialogActions,
   DialogContent,
 } from "@material-ui/core";
-import { AppContext } from "../Context/app-context";
+import { AppContext } from "../../Context/app-context";
 
 const ConfirmDialog = () => {
   const ctx = useContext(AppContext);

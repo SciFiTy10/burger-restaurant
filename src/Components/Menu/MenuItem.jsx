@@ -11,15 +11,22 @@ const MenuItem = (props) => {
       <ItemInfoContainer
         isCart={false}
         xs={8}
-        titleVariant="h6"
         title={props.title}
+        titleVariant="h6"
         description={props.description}
         price={props.price}
       />
       <HideOnPhone>
         <GridItem xs={3}></GridItem>
       </HideOnPhone>
-      <ItemAmountContainer xs={1} />
+      <ItemAmountContainer
+        isCart={false}
+        id={props.id}
+        title={props.title}
+        price={props.price}
+        cartAddHandler={props.cartAddHandler}
+        snackbarHandler={props.snackbarhandler}
+      />
     </ListItem>
   );
 };
