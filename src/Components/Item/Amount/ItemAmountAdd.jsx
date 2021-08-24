@@ -6,7 +6,7 @@ import { Box, Button } from "@material-ui/core";
 const ItemAmountAdd = (props) => {
   const [amount, setAmount] = useState(1);
 
-  const addItemHandler = (props) => {
+  const addItemHandler = () => {
     //create an item to send
     const item = {
       id: props.id,

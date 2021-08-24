@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ListItem from "../List/ListItem";
 import ItemInfoContainer from "../Container/Item/ItemInfoContainer";
 import HideOnPhone from "../Hidden/HideOnPhone";
@@ -25,7 +25,7 @@ const MenuItem = (props) => {
         title={props.title}
         price={props.price}
         cartAddHandler={props.cartAddHandler}
-        snackbarHandler={props.snackbarhandler}
+        snackbarHandler={props.snackbarHandler}
       />
     </ListItem>
   );
