@@ -3,24 +3,21 @@ import ListItem from "../List/ListItem";
 import ItemInfoContainer from "../Container/Item/ItemInfoContainer";
 import HideOnPhone from "../Hidden/HideOnPhone";
 import GridItem from "../Grid/GridItem";
-import ItemAmountContainer from "../Container/Item/ItemAmountContainer";
+import ItemAmountAdd from "../Item/Amount/ItemAmountAdd";
+import ItemDescription from "../Item/ItemDescription";
+import ItemPrice from "../Item/Price/ItemPrice";
 
 const MenuItem = (props) => {
   return (
     <ListItem>
-      <ItemInfoContainer
-        isCart={false}
-        xs={8}
-        title={props.title}
-        titleVariant="h6"
-        description={props.description}
-        price={props.price}
-      />
+      <ItemInfoContainer xs={8} title={props.title} titleVariant="h6">
+        <ItemDescription description={props.description} />
+        <ItemPrice price={props.price} />
+      </ItemInfoContainer>
       <HideOnPhone>
         <GridItem xs={3}></GridItem>
       </HideOnPhone>
-      <ItemAmountContainer
-        isCart={false}
+      <ItemAmountAdd
         id={props.id}
         title={props.title}
         price={props.price}
