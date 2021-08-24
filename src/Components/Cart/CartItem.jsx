@@ -14,6 +14,7 @@ const CartItem = (props) => {
         id={props.id}
         title={props.title}
         price={props.price}
+        amount={props.amount}
         cartAddHandler={props.cartAddHandler}
         setItemToBeCompletelyRemovedFromCartHandler={
           props.setItemToBeCompletelyRemovedFromCartHandler

@@ -1,11 +1,8 @@
 import React, { useContext } from "react";
-
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-} from "@material-ui/core";
+import MuiDialog from "@material-ui/core/Dialog";
+import MuiDialogActions from "@material-ui/core/DialogActions";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+import TextButton from "../Button/TextButton";
 import { AppContext } from "../../Context/app-context";
 
 const ConfirmDialog = () => {
@@ -26,18 +23,18 @@ const ConfirmDialog = () => {
     onCloseHandler();
   };
   return (
-    <Dialog onClose={onCloseHandler} open={ctx.confirmIsOpen}>
-      <DialogContent>
+    <MuiDialog onClose={onCloseHandler} open={ctx.confirmIsOpen}>
+      <MuiDialogContent>
         <p>
           Are you sure you want to remove "{ctx.itemToBeRemoved.title}" from
           your order?
         </p>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={onCloseHandler}>Close</Button>
-        <Button onClick={removeItemFromCartHandler}>Remove</Button>
-      </DialogActions>
-    </Dialog>
+      </MuiDialogContent>
+      <MuiDialogActions>
+        <TextButton onClick={onCloseHandler}>Close</TextButton>
+        <TextButton onClick={removeItemFromCartHandler}>Remove</TextButton>
+      </MuiDialogActions>
+    </MuiDialog>
   );
 };
 

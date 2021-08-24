@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Icon from "@material-ui/core/Icon";
-import IconButton from "@material-ui/core/IconButton";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import Badge from "@material-ui/core/Badge";
+import MuiAppBar from "@material-ui/core/AppBar";
+import MuiToolbar from "@material-ui/core/Toolbar";
+import MuiTypography from "@material-ui/core/Typography";
+import MuiIcon from "@material-ui/core/Icon";
+import MuiIconButton from "@material-ui/core/IconButton";
+import MuiShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import MuiBadge from "@material-ui/core/Badge";
 import { AppContext } from "../../Context/app-context";
 
 const useStyles = makeStyles((theme) => ({
@@ -37,20 +37,20 @@ const Header = () => {
   };
   return (
     <>
-      <AppBar position="fixed" className={classes.backgroundColor}>
-        <Toolbar>
-          <Icon>lunch_dining</Icon>
-          <Typography variant="h6" className={classes.title}>
+      <MuiAppBar position="fixed" className={classes.backgroundColor}>
+        <MuiToolbar>
+          <MuiIcon>lunch_dining</MuiIcon>
+          <MuiTypography variant="h6" className={classes.title}>
             {titleText}
-          </Typography>
-          <IconButton color="inherit" onClick={cartOpenHandler}>
-            <Badge badgeContent={itemsInCart} color="secondary">
-              <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <Toolbar />
+          </MuiTypography>
+          <MuiIconButton color="inherit" onClick={cartOpenHandler}>
+            <MuiBadge badgeContent={itemsInCart} color="secondary">
+              <MuiShoppingCartIcon />
+            </MuiBadge>
+          </MuiIconButton>
+        </MuiToolbar>
+      </MuiAppBar>
+      <MuiToolbar />
     </>
   );
 };

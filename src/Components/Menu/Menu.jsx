@@ -1,22 +1,16 @@
 import React, { useContext } from "react";
-import { Card, CardContent, List } from "@material-ui/core";
+import MuiCard from "@material-ui/core/Card";
+import MuiCardContent from "@material-ui/core/CardContent";
 import MenuItem from "./MenuItem";
 import { AppContext } from "../../Context/app-context";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-  list: {
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
+import List from "../List/List";
 
 const Menu = () => {
   const ctx = useContext(AppContext);
-  const classes = useStyles();
   return (
-    <Card>
-      <CardContent>
-        <List className={classes.list} component="nav" aria-label="menu">
+    <MuiCard>
+      <MuiCardContent>
+        <List component="nav" ariaLabel="menu">
           {ctx.menu.length > 0
             ? ctx.menu.map((item) => {
                 return (
@@ -33,8 +27,8 @@ const Menu = () => {
               })
             : null}
         </List>
-      </CardContent>
-    </Card>
+      </MuiCardContent>
+    </MuiCard>
   );
 };
 

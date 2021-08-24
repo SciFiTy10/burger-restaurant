@@ -1,6 +1,6 @@
 import React from "react";
 import GridItem from "../../Grid/GridItem";
-import ItemTitle from "../../Item/ItemTitle";
+import ItemTitle from "../../Item/Info/ItemTitle";
 
 const ItemInfoContainer = (props) => {
   return (

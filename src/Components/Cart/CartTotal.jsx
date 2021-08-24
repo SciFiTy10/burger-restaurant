@@ -1,5 +1,7 @@
 import React from "react";
-import { Grid, Typography } from "@material-ui/core";
+import MuiTypography from "@material-ui/core/Typography";
+import GridContainer from "../Grid/GridContainer";
+import GridItem from "../Grid/GridItem";
 
 const CartTotal = (props) => {
   //get the cart total
@@ -7,14 +9,14 @@ const CartTotal = (props) => {
     return total + item.price * item.amount;
   }, 0.0);
   return (
-    <Grid container>
-      <Grid item xs={10}>
-        <Typography variant="body1">Total Amount</Typography>
-      </Grid>
-      <Grid item xs={2}>
-        <Typography variant="body1">${total}</Typography>
-      </Grid>
-    </Grid>
+    <GridContainer>
+      <GridItem xs={10}>
+        <MuiTypography variant="body1">Total Amount</MuiTypography>
+      </GridItem>
+      <GridItem xs={2}>
+        <MuiTypography variant="body1">${total}</MuiTypography>
+      </GridItem>
+    </GridContainer>
   );
 };
 

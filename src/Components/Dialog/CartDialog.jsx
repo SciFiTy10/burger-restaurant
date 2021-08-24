@@ -1,13 +1,11 @@
 import React, { Fragment, useContext } from "react";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  Divider,
-  List,
-  Typography,
-} from "@material-ui/core";
+import MuiButton from "@material-ui/core/Button";
+import MuiDialog from "@material-ui/core/Dialog";
+import MuiDialogActions from "@material-ui/core/DialogActions";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+import MuiDivider from "@material-ui/core/Divider";
+import MuiTypography from "@material-ui/core/Typography";
+import List from "../List/List";
 import { AppContext } from "../../Context/app-context";
 import CartItem from "../Cart/CartItem";
 import CartTotal from "../Cart/CartTotal";
@@ -22,13 +20,13 @@ const CartDialog = () => {
   //variable for tracking whether the cart is empty
   const cartIsEmpty = ctx.cart.length === 0;
   return (
-    <Dialog onClose={onCloseHandler} open={ctx.cartIsOpen}>
-      <DialogContent>
+    <MuiDialog onClose={onCloseHandler} open={ctx.cartIsOpen}>
+      <MuiDialogContent>
         {cartIsEmpty ? (
-          <Typography variant="body1">Cart Is Empty</Typography>
+          <MuiTypography variant="body1">Cart Is Empty</MuiTypography>
         ) : (
           <>
-            <List component="nav" aria-label="cart">
+            <List component="nav" ariaLabel="cart">
               {ctx.cart.map((item) => {
                 return (
                   <Fragment key={item.id}>
@@ -45,7 +43,7 @@ const CartDialog = () => {
                         ctx.setItemToBeCompletelyRemovedFromCartHandler
                       }
                     />
-                    <Divider />
+                    <MuiDivider />
                   </Fragment>
                 );
               })}
@@ -53,12 +51,12 @@ const CartDialog = () => {
             <CartTotal cart={ctx.cart} />
           </>
         )}
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={onCloseHandler}>Close</Button>
-        {cartIsEmpty ? null : <Button>Order</Button>}
-      </DialogActions>
-    </Dialog>
+      </MuiDialogContent>
+      <MuiDialogActions>
+        <MuiButton onClick={onCloseHandler}>Close</MuiButton>
+        {cartIsEmpty ? null : <MuiButton>Order</MuiButton>}
+      </MuiDialogActions>
+    </MuiDialog>
   );
 };
 

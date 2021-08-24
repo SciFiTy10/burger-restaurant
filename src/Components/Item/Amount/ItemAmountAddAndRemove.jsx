@@ -3,28 +3,19 @@ import GridItem from "../../Grid/GridItem";
 import IconButton from "../../Button/IconButton";
 import { Add, Remove } from "@material-ui/icons";
 import ItemAmount from "./ItemAmount";
+import { createItem } from "../createItem";
 
 const ItemAmountAddAndRemove = (props) => {
   const addItemHandler = () => {
     //create an item to send
-    const item = {
-      id: props.id,
-      title: props.title,
-      price: props.price,
-      amount: 1,
-    };
+    const item = createItem(props.id, props.title, props.price);
     //send the item to the handler
     props.cartAddHandler(item);
   };
 
   const removeItemHandler = () => {
     //create an item to send
-    const item = {
-      id: props.id,
-      title: props.title,
-      price: props.price,
-      amount: 1,
-    };
+    const item = createItem(props.id, props.title, props.price);
     //check whether this is the last one of this item
     if (props.amount === 1) {
       //update the state for the item to be completely removed

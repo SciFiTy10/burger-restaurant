@@ -4,7 +4,7 @@ import ItemInfoContainer from "../Container/Item/ItemInfoContainer";
 import HideOnPhone from "../Hidden/HideOnPhone";
 import GridItem from "../Grid/GridItem";
 import ItemAmountAdd from "../Item/Amount/ItemAmountAdd";
-import ItemDescription from "../Item/ItemDescription";
+import ItemDescription from "../Item/Info/ItemDescription";
 import ItemPrice from "../Item/Price/ItemPrice";
 
 const MenuItem = (props) => {

@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import GridItem from "../../Grid/GridItem";
 import ItemAmount from "./ItemAmount";
-import { Box, Button } from "@material-ui/core";
+import MuiBox from "@material-ui/core/Box";
+import MuiButton from "@material-ui/core/Button";
+import { createItem } from "../createItem";
 
 const ItemAmountAdd = (props) => {
   const [amount, setAmount] = useState(1);
 
   const addItemHandler = () => {
     //create an item to send
-    const item = {
-      id: props.id,
-      title: props.title,
-      price: props.price,
-      amount: amount,
-    };
+    const item = createItem(props.id, props.title, props.price, amount);
     //send the item to the handler
     props.cartAddHandler(item);
     //determine the string for what was added
@@ -41,11 +38,11 @@ const ItemAmountAdd = (props) => {
         amount={amount}
         onChange={amountChangeHandler}
       />
-      <Box mt={1}>
-        <Button disabled={amount === 0} onClick={addItemHandler} fullWidth>
+      <MuiBox mt={1}>
+        <MuiButton disabled={amount === 0} onClick={addItemHandler} fullWidth>
           + Add
-        </Button>
-      </Box>
+        </MuiButton>
+      </MuiBox>
     </GridItem>
   );
 };
