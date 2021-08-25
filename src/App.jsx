@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./Theme/theme";
-import Header from "./Components/Header/Header";
+import Header from "./Components/Layout/Header/Header";
 import MainContainer from "./Components/Container/MainContainer";
 import DialogContainer from "./Components/Container/Dialog/DialogContainer";
 import NotificationContainer from "./Components/Container/Notification/NotificationContainer";

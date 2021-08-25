@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import GridItem from "../../Grid/GridItem";
+import GridItem from "../../../Layout/Grid/GridItem";
 import ItemAmount from "./ItemAmount";
-import Box from "../../UI/Box/Box";
-import Button from "../../UI/Button/Button";
-import { createItem } from "../../../Functions/createItem";
+import Box from "../../../UI/Box/Box";
+import Button from "../../../UI/Button/Button";
+import { createItem } from "../../../../Functions/createItem";
 
 const ItemAmountAdd = (props) => {
   const [amount, setAmount] = useState(1);
@@ -31,12 +31,16 @@ const ItemAmountAdd = (props) => {
     setAmount(Number(event.target.value));
   };
   return (
-    <GridItem xs={1}>
-      <ItemAmount
-        inputProps={{ min: 0 }}
-        amount={amount}
-        onChange={amountChangeHandler}
-      />
+    <GridItem xs={props.xs} sm={props.sm}>
+      <Box mt={1}>
+        <ItemAmount
+          inputProps={{ min: 0 }}
+          amount={amount}
+          onChange={amountChangeHandler}
+          variant="outlined"
+          color="primary"
+        />
+      </Box>
       <Box mt={1}>
         <Button disabled={amount === 0} onClick={addItemHandler} fullWidth>
           + Add

@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import Card from "../UI/Card/Card";
-import CardContent from "../UI/Card/CardContent";
+import Card from "../../UI/Card/Card";
+import CardContent from "../../UI/Card/CardContent";
 import MenuItem from "./MenuItem";
-import { AppContext } from "../../Context/app-context";
-import List from "../UI/List/List";
+import { AppContext } from "../../../Context/app-context";
+import List from "../../UI/List/List";
 
 const Menu = () => {
   const ctx = useContext(AppContext);

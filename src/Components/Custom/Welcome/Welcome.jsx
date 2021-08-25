@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import GridContainer from "../Grid/GridContainer";
-import GridItem from "../Grid/GridItem";
+import GridContainer from "../../Layout/Grid/GridContainer";
+import GridItem from "../../Layout/Grid/GridItem";
 import Typography from "../../UI/Typography/Typography";
 import Card from "../../UI/Card/Card";
 import CardHeader from "../../UI/Card/CardHeader";
@@ -18,12 +18,12 @@ const Welcome = () => {
       <CardContent>
         <GridContainer justifyContent="center">
           <GridItem>
-            <Typography variant="h6" component="p" align="center">
+            <Typography variant="body1" component="p" align="center">
               Choose one of our delicious, gourmet burgers prepared by our
               5-Star chef.
             </Typography>
             <br />
-            <Typography variant="h6" component="p" align="center">
+            <Typography variant="body1" component="p" align="center">
               Satisfaction is guaranteed. If you don't like our burgers, not
               only will we give you your money back, but we will personally
               throw you from our restaurant!

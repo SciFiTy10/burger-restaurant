@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import Dialog from "../../Dialog/Dialog";
 import DialogActions from "../DialogActions";
 import DialogContent from "../DialogContent";
-import Button from "../../UI/Button/Button";
-import { AppContext } from "../../../Context/app-context";
+import Button from "../../../UI/Button/Button";
+import { AppContext } from "../../../../Context/app-context";
 
 const ConfirmDialog = () => {
   //get the context object

@@ -2,7 +2,7 @@ import React from "react";
 import theme from "../../Theme/theme";
 import SideContainer from "./SideContainer";
 import MiddleContainer from "./MiddleContainer";
-import GridContainer from "../Grid/GridContainer";
+import GridContainer from "../Layout/Grid/GridContainer";
 
 const MainContainer = () => {
   const styles = {

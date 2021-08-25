@@ -25,6 +25,8 @@ const ItemAmount = (props) => {
       value={props.amount}
       size="small"
       onChange={props.onChange}
+      variant={props.variant}
+      color={props.color}
     />
   );
 };

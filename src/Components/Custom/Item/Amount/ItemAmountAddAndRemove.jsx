@@ -1,9 +1,9 @@
 import React from "react";
-import GridItem from "../../Layout/Grid/GridItem";
-import Button from "../../UI/Button/Button";
-import Icon from "../../UI/Icon/Icon";
+import GridItem from "../../../Layout/Grid/GridItem";
+import Button from "../../../UI/Button/Button";
+import Icon from "../../../UI/Icon/Icon";
 import ItemAmount from "./ItemAmount";
-import { createItem } from "../../../Functions/createItem";
+import { createItem } from "../../../../Functions/createItem";
 
 const ItemAmountAddAndRemove = (props) => {
   const addItemHandler = () => {
@@ -31,7 +31,7 @@ const ItemAmountAddAndRemove = (props) => {
   };
   return (
     <>
-      <GridItem xs={2}>
+      <GridItem xs={2} justifyContent="center">
         <Button
           ariaLabel="remove one of item"
           onClick={removeItemHandler}
@@ -44,6 +44,7 @@ const ItemAmountAddAndRemove = (props) => {
         <ItemAmount
           inputProps={{ min: 0, readOnly: true }}
           amount={props.amount}
+          variant="outlined"
         />
       </GridItem>
       <GridItem xs={2}>

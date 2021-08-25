@@ -1,14 +1,14 @@
 import React, { Fragment, useContext } from "react";
 import Dialog from "../Dialog";
-import Button from "../../UI/Button/Button";
+import Button from "../../../UI/Button/Button";
 import DialogActions from "../DialogActions";
 import DialogContent from "../DialogContent";
 import MuiDivider from "@material-ui/core/Divider";
-import Typography from "../../UI/Typography/Typography";
-import List from "../../UI/List/List";
-import { AppContext } from "../../../Context/app-context";
-import CartItem from "../../Cart/CartItem";
-import CartTotal from "../../Cart/CartTotal";
+import Typography from "../../../UI/Typography/Typography";
+import List from "../../../UI/List/List";
+import { AppContext } from "../../../../Context/app-context";
+import CartItem from "../../../Custom/Cart/CartItem";
+import CartTotal from "../../../Custom/Cart/CartTotal";
 
 const CartDialog = () => {
   //grab the context object

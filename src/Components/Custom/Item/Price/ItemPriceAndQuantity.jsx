@@ -1,5 +1,5 @@
 import React from "react";
-import ItemPriceContainer from "../../Container/Item/ItemPriceContainer";
+import ItemPriceContainer from "../../../Container/Item/ItemPriceContainer";
 const ItemPriceAndQuantity = (props) => {
   return (
     <ItemPriceContainer>

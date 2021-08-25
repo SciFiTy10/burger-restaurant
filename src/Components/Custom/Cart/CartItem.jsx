@@ -1,8 +1,8 @@
 import React from "react";
 import ListItem from "../../UI/List/ListItem";
 import ItemInfoContainer from "../../Container/Item/ItemInfoContainer";
-import ItemAmountAddAndRemove from "../../Item/Amount/ItemAmountAddAndRemove";
-import ItemPriceAndQuantity from "../../Item/Price/ItemPriceAndQuantity";
+import ItemAmountAddAndRemove from "../Item/Amount/ItemAmountAddAndRemove";
+import ItemPriceAndQuantity from "../Item/Price/ItemPriceAndQuantity";
 
 const CartItem = (props) => {
   return (

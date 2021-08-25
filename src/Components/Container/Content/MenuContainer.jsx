@@ -1,7 +1,7 @@
 import React from "react";
 import { useMediaQuery } from "@material-ui/core";
 import Box from "../../UI/Box/Box";
-import Menu from "../../Menu/Menu";
+import Menu from "../../Custom/Menu/Menu";
 const MenuContainer = () => {
   //determine whether this is a small screen size or not
   const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("xs"));

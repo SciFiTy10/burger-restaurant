@@ -1,22 +1,21 @@
 import React from "react";
-import Typography from "../UI/Typography/Typography";
-import GridContainer from "../Grid/GridContainer";
-import GridItem from "../Grid/GridItem";
-
+import Typography from "../../UI/Typography/Typography";
+import GridItem from "../../Layout/Grid/GridItem";
+import ListItem from "../../UI/List/ListItem";
 const CartTotal = (props) => {
   //get the cart total
   const total = props.cart.reduce((total, item) => {
     return total + item.price * item.amount;
   }, 0.0);
   return (
-    <GridContainer>
+    <ListItem>
       <GridItem xs={10}>
         <Typography variant="body1">Total Amount</Typography>
       </GridItem>
       <GridItem xs={2}>
         <Typography variant="body1">${total}</Typography>
       </GridItem>
-    </GridContainer>
+    </ListItem>
   );
 };
 

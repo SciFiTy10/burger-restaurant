@@ -1,10 +1,10 @@
 import React from "react";
-import GridItem from "../../Grid/GridItem";
-import ItemTitle from "../../Item/Info/ItemTitle";
+import GridItem from "../../Layout/Grid/GridItem";
+import ItemTitle from "../../Custom/Item/Info/ItemTitle";
 
 const ItemInfoContainer = (props) => {
   return (
-    <GridItem xs={props.xs}>
+    <GridItem xs={props.xs} sm={props.sm}>
       <ItemTitle variant={props.titleVariant} title={props.title}></ItemTitle>
       {props.children}
     </GridItem>
