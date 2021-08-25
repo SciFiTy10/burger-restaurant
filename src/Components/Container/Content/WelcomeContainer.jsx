@@ -1,5 +1,6 @@
 import React from "react";
-import { Box, useMediaQuery } from "@material-ui/core";
+import { useMediaQuery } from "@material-ui/core";
+import Box from "../../UI/Box/Box";
 import Welcome from "../../Welcome/Welcome";
 const WelcomeContainer = () => {
   //determine whether this is a small screen size or not

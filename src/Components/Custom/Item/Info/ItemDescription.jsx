@@ -1,14 +1,15 @@
 import React from "react";
 import Box from "../../UI/Box/Box";
 import Typography from "../../UI/Typography/Typography";
-const ItemPriceContainer = (props) => {
+
+const ItemDescription = (props) => {
   return (
-    <Box mt={1}>
+    <Box fontStyle="italic">
       <Typography variant="subtitle1" component="div">
-        {props.children}
+        {props.description}
       </Typography>
     </Box>
   );
 };
 
-export default ItemPriceContainer;
+export default ItemDescription;

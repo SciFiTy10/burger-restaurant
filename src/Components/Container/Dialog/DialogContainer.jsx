@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import CartDialog from "../../Dialog/CartDialog";
-import ConfirmDialog from "../../Dialog/ConfirmDialog";
+import CartDialog from "../../Dialog/Cart/CartDialog";
+import ConfirmDialog from "../../Dialog/Confirm/ConfirmDialog";
 import { AppContext } from "../../../Context/app-context";
 
 const DialogContainer = () => {
