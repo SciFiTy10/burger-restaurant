@@ -7,6 +7,7 @@ const Typography = (props) => {
       variant={props.variant}
       component={props.component}
       align={props.align}
+      className={props.className}
     >
       {props.children}
     </MuiTypography>

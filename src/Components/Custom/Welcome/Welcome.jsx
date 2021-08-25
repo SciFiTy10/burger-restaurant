@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import GridContainer from "../../Layout/Grid/GridContainer";
 import GridItem from "../../Layout/Grid/GridItem";
 import Typography from "../../UI/Typography/Typography";
 import Card from "../../UI/Card/Card";
 import CardHeader from "../../UI/Card/CardHeader";
 import CardContent from "../../UI/Card/CardContent";
+import { AppContext } from "../../../Context/app-context";
 
 const Welcome = () => {
-  const [title, setTitle] = useState("Welcome to Big Kahuna Burger!");
+  const ctx = useContext(AppContext);
+  //create variable for the header title
+  const titleText = `Welcome to ${ctx.titleText}!`;
 
   return (
     <Card>
       <CardHeader
-        title={title}
+        title={titleText}
         titleTypographyProps={{ align: "center" }}
       ></CardHeader>
       <CardContent>

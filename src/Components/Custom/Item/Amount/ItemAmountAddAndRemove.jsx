@@ -4,8 +4,16 @@ import Button from "../../../UI/Button/Button";
 import Icon from "../../../UI/Icon/Icon";
 import ItemAmount from "./ItemAmount";
 import { createItem } from "../../../../Functions/createItem";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  addRemoveButton: {
+    textAlign: "center",
+  },
+}));
 
 const ItemAmountAddAndRemove = (props) => {
+  const classes = useStyles();
   const addItemHandler = () => {
     //create an item to send
     const item = createItem(props.id, props.title, props.price);
@@ -31,7 +39,7 @@ const ItemAmountAddAndRemove = (props) => {
   };
   return (
     <>
-      <GridItem xs={2} justifyContent="center">
+      <GridItem xs={2} className={classes.addRemoveButton}>
         <Button
           ariaLabel="remove one of item"
           onClick={removeItemHandler}
@@ -47,7 +55,7 @@ const ItemAmountAddAndRemove = (props) => {
           variant="outlined"
         />
       </GridItem>
-      <GridItem xs={2}>
+      <GridItem xs={2} className={classes.addRemoveButton}>
         <Button
           ariaLabel="add one of item"
           onClick={addItemHandler}

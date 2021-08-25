@@ -4,6 +4,8 @@ import { cartReducer } from "../Reducers/cartReducer";
 import { AppContext } from "./app-context";
 
 const AppContextProvider = (props) => {
+  //create state for the title
+  const [titleText, setTitleText] = useState("Big Kahuna Burger");
   //create state for menu list
   const [menu, setMenu] = useState([
     {
@@ -93,6 +95,7 @@ const AppContextProvider = (props) => {
   return (
     <AppContext.Provider
       value={{
+        titleText,
         menu,
         cart,
         cartAddHandler,
