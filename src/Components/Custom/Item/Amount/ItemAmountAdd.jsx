@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import GridItem from "../../../Layout/Grid/GridItem";
 import ItemAmount from "./ItemAmount";
-import Box from "../../../UI/Box/Box";
+import Box from "../../../Layout/Box/Box";
 import Button from "../../../UI/Button/Button";
 import { createItem } from "../../../../Functions/createItem";
 

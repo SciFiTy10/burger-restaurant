@@ -7,7 +7,7 @@ import ItemPriceAndQuantity from "../Item/Price/ItemPriceAndQuantity";
 const CartItem = (props) => {
   return (
     <ListItem>
-      <ItemInfoContainer xs={6} title={props.title} titleVariant="body1">
+      <ItemInfoContainer xs={6} sm={6} title={props.title} titleVariant="body1">
         <ItemPriceAndQuantity price={props.price} amount={props.amount} />
       </ItemInfoContainer>
       <ItemAmountAddAndRemove

@@ -1,5 +1,5 @@
 import React from "react";
-import { Hidden } from "@material-ui/core";
+import Hidden from "./Hidden";
 const HideOnPhone = (props) => {
   return <Hidden xsDown>{props.children}</Hidden>;
 };

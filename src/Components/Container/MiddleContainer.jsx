@@ -1,6 +1,6 @@
 import React from "react";
-import WelcomeContainer from "./Content/WelcomeContainer";
-import MenuContainer from "./Content/MenuContainer";
+import WelcomeContainer from "./Welcome/WelcomeContainer";
+import MenuContainer from "./Menu/MenuContainer";
 import GridItem from "../Layout/Grid/GridItem";
 
 const MiddleContainer = () => {

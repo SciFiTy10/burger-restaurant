@@ -8,6 +8,8 @@ const Box = (props) => {
       mx={props.mx}
       mb={props.mb}
       fontStyle={props.fontStyle}
+      fontWeight={props.fontWeight}
+      textAlign={props.textAlign}
     >
       {props.children}
     </MuiBox>
