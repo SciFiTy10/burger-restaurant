@@ -4,9 +4,9 @@ import Box from "../../../Layout/Box/Box";
 
 const ItemTitle = (props) => {
   return (
-    <Box fontWeight={props.fontWeight}>
-      <Typography variant={props.variant}>{props.children}</Typography>
-    </Box>
+    <Typography variant={props.variant} component="span">
+      <Box fontWeight={props.fontWeight}>{props.children}</Box>
+    </Typography>
   );
 };
 

@@ -3,7 +3,7 @@ import Button from "../../../UI/Button/Button";
 import Icon from "../../../UI/Icon/Icon";
 import ItemAmount from "./ItemAmount";
 import { createItem } from "../../../../Functions/createItem";
-import { InputAdornment } from "@material-ui/core";
+import InputAdornment from "../../../UI/TextField/InputAdornment";
 const ItemAmountAddAndRemove = (props) => {
   const addItemHandler = () => {
     //create an item to send
@@ -16,7 +16,7 @@ const ItemAmountAddAndRemove = (props) => {
     //create an item to send
     const item = createItem(props.id, props.title, props.price);
     //check whether this is the last one of this item
-    if (props.amount === 1) {
+    if (Number(props.amount) === 1) {
       //update the state for the item to be completely removed
       props.setItemToBeCompletelyRemovedFromCartHandler(item);
       //close the cart dialog

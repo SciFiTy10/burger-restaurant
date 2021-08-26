@@ -4,9 +4,7 @@ import ItemTitle from "../../Custom/Item/Info/ItemTitle";
 const ItemInfoContainer = (props) => {
   return (
     <>
-      <ItemTitle variant={props.titleVariant} fontWeight="fontWeightBold">
-        {props.title}
-      </ItemTitle>
+      <ItemTitle variant={props.titleVariant}>{props.title}</ItemTitle>
       {props.children}
     </>
   );

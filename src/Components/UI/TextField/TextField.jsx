@@ -20,7 +20,6 @@ const TextField = (props) => {
     <MuiTextField
       label={props.label}
       className={classes.root}
-      type="number"
       InputProps={props.inputProps}
       value={props.amount}
       size="small"
