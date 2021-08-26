@@ -3,11 +3,9 @@ import Box from "../../Layout/Box/Box";
 import Typography from "../../UI/Typography/Typography";
 const ItemPriceContainer = (props) => {
   return (
-    <Box mt={1}>
-      <Typography variant="subtitle1" component="div">
-        {props.children}
-      </Typography>
-    </Box>
+    <Typography variant="subtitle1" component="div">
+      <Box mt={props.mt}>{props.children}</Box>
+    </Typography>
   );
 };
 

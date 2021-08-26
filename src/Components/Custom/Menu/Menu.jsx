@@ -4,7 +4,6 @@ import CardContent from "../../UI/Card/CardContent";
 import MenuItem from "./MenuItem";
 import { AppContext } from "../../../Context/app-context";
 import List from "../../UI/List/List";
-import Divider from "../../UI/Divider/Divider";
 const Menu = () => {
   const ctx = useContext(AppContext);
   return (
@@ -14,18 +13,16 @@ const Menu = () => {
           {ctx.menu.length > 0
             ? ctx.menu.map((item, index) => {
                 return (
-                  <>
-                    <MenuItem
-                      key={item.id}
-                      id={item.id}
-                      title={item.title}
-                      description={item.description}
-                      price={item.price}
-                      cartAddHandler={ctx.cartAddHandler}
-                      snackbarHandler={ctx.snackbarHandler}
-                    />
-                    {index < ctx.menu.length - 1 && <Divider />}
-                  </>
+                  <MenuItem
+                    key={item.id}
+                    id={item.id}
+                    title={item.title}
+                    description={item.description}
+                    price={item.price}
+                    cartAddHandler={ctx.cartAddHandler}
+                    snackbarHandler={ctx.snackbarHandler}
+                    divider={index < ctx.menu.length - 1}
+                  />
                 );
               })
             : null}

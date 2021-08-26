@@ -1,28 +1,12 @@
 import React from "react";
-import MuiTextField from "@material-ui/core/TextField";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& .MuiInputBase-input": {
-      textAlign: "center",
-    },
-    "& .MuiFormLabel-root": {
-      color: theme.palette.text.primary,
-    },
-  },
-}));
+import TextField from "../../../UI/TextField/TextField";
 
 const ItemAmount = (props) => {
-  const classes = useStyles();
-
   return (
-    <MuiTextField
-      className={classes.root}
-      type="number"
-      InputProps={props.inputProps}
-      value={props.amount}
-      size="small"
+    <TextField
+      label={props.label}
+      inputProps={props.inputProps}
+      amount={props.amount}
       onChange={props.onChange}
       variant={props.variant}
       color={props.color}

@@ -9,7 +9,7 @@ import HideOnLargerThanPhone from "../../Hidden/HideOnLargerThanPhone";
 
 const CartItem = (props) => {
   return (
-    <ListItem>
+    <ListItem divider>
       <HideOnPhone>
         <GridItem xs={6}>
           <ItemTitle variant="body1" fontWeight="fontWeightBold">
@@ -40,6 +40,13 @@ const CartItem = (props) => {
           </ItemTitle>
         </GridItem>
         <GridItem xs={12}>
+          <ItemPriceAndQuantity
+            price={props.price}
+            amount={props.amount}
+            mt={1}
+          />
+        </GridItem>
+        <GridItem xs={12}>
           <ItemAmountAddAndRemove
             id={props.id}
             title={props.title}
@@ -53,10 +60,6 @@ const CartItem = (props) => {
             confirmDialogHandler={props.confirmDialogHandler}
             cartRemoveHandler={props.cartRemoveHandler}
           />
-        </GridItem>
-        <GridItem xs={8}></GridItem>
-        <GridItem xs={4}>
-          <ItemPriceAndQuantity price={props.price} amount={props.amount} />
         </GridItem>
       </HideOnLargerThanPhone>
     </ListItem>

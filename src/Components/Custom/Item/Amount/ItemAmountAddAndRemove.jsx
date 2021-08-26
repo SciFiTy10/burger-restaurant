@@ -3,7 +3,6 @@ import Button from "../../../UI/Button/Button";
 import Icon from "../../../UI/Icon/Icon";
 import ItemAmount from "./ItemAmount";
 import { createItem } from "../../../../Functions/createItem";
-import GridItem from "../../../Layout/Grid/GridItem";
 import { InputAdornment } from "@material-ui/core";
 const ItemAmountAddAndRemove = (props) => {
   const addItemHandler = () => {
@@ -30,38 +29,38 @@ const ItemAmountAddAndRemove = (props) => {
     }
   };
   return (
-    <>
-      <ItemAmount
-        inputProps={{
-          min: 0,
-          readOnly: true,
-          startAdornment: (
-            <InputAdornment>
-              <Button
-                ariaLabel="remove one of item"
-                onClick={removeItemHandler}
-                color="primary"
-              >
-                <Icon>remove</Icon>
-              </Button>
-            </InputAdornment>
-          ),
-          endAdornment: (
-            <InputAdornment>
-              <Button
-                ariaLabel="add one of item"
-                onClick={addItemHandler}
-                color="primary"
-              >
-                <Icon>add</Icon>
-              </Button>
-            </InputAdornment>
-          ),
-        }}
-        amount={props.amount}
-        variant="outlined"
-      />
-    </>
+    <ItemAmount
+      inputProps={{
+        min: 0,
+        readOnly: true,
+        startAdornment: (
+          <InputAdornment position="start">
+            <Button
+              ariaLabel="remove one of item"
+              onClick={removeItemHandler}
+              color="primary"
+            >
+              <Icon>remove</Icon>
+            </Button>
+          </InputAdornment>
+        ),
+        endAdornment: (
+          <InputAdornment position="end">
+            <Button
+              ariaLabel="add one of item"
+              onClick={addItemHandler}
+              color="primary"
+            >
+              <Icon>add</Icon>
+            </Button>
+          </InputAdornment>
+        ),
+      }}
+      amount={props.amount}
+      variant="outlined"
+      label={props.label}
+      color="primary"
+    />
   );
 };
 

@@ -3,7 +3,6 @@ import Dialog from "../Dialog";
 import Button from "../../../UI/Button/Button";
 import DialogActions from "../DialogActions";
 import DialogContent from "../DialogContent";
-import Divider from "../../Divider/Divider";
 import Typography from "../../../UI/Typography/Typography";
 import List from "../../../UI/List/List";
 import { AppContext } from "../../../../Context/app-context";
@@ -47,7 +46,6 @@ const CartDialog = () => {
                 );
               })}
             </List>
-            <Divider />
             <CartTotal cart={ctx.cart} />
           </>
         )}

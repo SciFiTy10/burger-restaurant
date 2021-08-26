@@ -10,7 +10,7 @@ const CartTotal = (props) => {
   return (
     <ListItem>
       <GridItem xs={10}>
-        <Typography variant="body1">Total Amount</Typography>
+        <Typography variant="body1">Total</Typography>
       </GridItem>
       <GridItem xs={2}>
         <Typography variant="body1">${total}</Typography>

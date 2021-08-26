@@ -8,7 +8,7 @@ import ItemPrice from "../Item/Price/ItemPrice";
 
 const MenuItem = (props) => {
   return (
-    <ListItem>
+    <ListItem divider={props.divider}>
       <GridItem xs={9} sm={8}>
         <ItemInfoContainer title={props.title} titleVariant="h6">
           <ItemDescription description={props.description} />
