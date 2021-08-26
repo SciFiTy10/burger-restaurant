@@ -10,6 +10,7 @@ const Button = (props) => {
       aria-label={props.ariaLabel}
       fullWidth={props.fullWidth}
       disabled={props.disabled}
+      component={props.component}
     >
       {props.children}
     </MuiButton>

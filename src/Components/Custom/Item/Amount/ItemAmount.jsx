@@ -19,9 +19,8 @@ const ItemAmount = (props) => {
   return (
     <MuiTextField
       className={classes.root}
-      label="Amount"
       type="number"
-      inputProps={props.inputProps}
+      InputProps={props.inputProps}
       value={props.amount}
       size="small"
       onChange={props.onChange}

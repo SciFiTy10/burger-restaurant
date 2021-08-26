@@ -1,13 +1,10 @@
 import React from "react";
-import GridItem from "../../../Layout/Grid/GridItem";
 import Button from "../../../UI/Button/Button";
 import Icon from "../../../UI/Icon/Icon";
 import ItemAmount from "./ItemAmount";
 import { createItem } from "../../../../Functions/createItem";
-import Box from "../../../Layout/Box/Box";
-import HideOnPhone from "../../../Hidden/HideOnPhone";
-import HideOnLargerThanPhone from "../../../Hidden/HideOnLargerThanPhone";
-
+import GridItem from "../../../Layout/Grid/GridItem";
+import { InputAdornment } from "@material-ui/core";
 const ItemAmountAddAndRemove = (props) => {
   const addItemHandler = () => {
     //create an item to send
@@ -34,29 +31,36 @@ const ItemAmountAddAndRemove = (props) => {
   };
   return (
     <>
-      <Box textAlign="center">
-        <Button
-          ariaLabel="add one of item"
-          onClick={addItemHandler}
-          color="primary"
-        >
-          <Icon>add</Icon>
-        </Button>
-      </Box>
       <ItemAmount
-        inputProps={{ min: 0, readOnly: true }}
+        inputProps={{
+          min: 0,
+          readOnly: true,
+          startAdornment: (
+            <InputAdornment>
+              <Button
+                ariaLabel="remove one of item"
+                onClick={removeItemHandler}
+                color="primary"
+              >
+                <Icon>remove</Icon>
+              </Button>
+            </InputAdornment>
+          ),
+          endAdornment: (
+            <InputAdornment>
+              <Button
+                ariaLabel="add one of item"
+                onClick={addItemHandler}
+                color="primary"
+              >
+                <Icon>add</Icon>
+              </Button>
+            </InputAdornment>
+          ),
+        }}
         amount={props.amount}
         variant="outlined"
       />
-      <Box textAlign="center">
-        <Button
-          ariaLabel="remove one of item"
-          onClick={removeItemHandler}
-          color="primary"
-        >
-          <Icon>remove</Icon>
-        </Button>
-      </Box>
     </>
   );
 };
