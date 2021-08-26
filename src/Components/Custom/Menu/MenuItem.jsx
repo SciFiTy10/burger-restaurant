@@ -10,12 +10,12 @@ import ItemAmountAddAndRemove from "../Item/Amount/ItemAmountAddAndRemove";
 const MenuItem = (props) => {
   return (
     <ListItem divider={props.divider}>
-      <GridItem xs={12} sm={8}>
+      <GridItem xs={12} sm={9}>
         <ItemTitle titleVariant="h6">{props.title}</ItemTitle>
         <ItemDescription description={props.description} />
         <ItemPrice price={props.price} />
       </GridItem>
-      <GridItem xs={12} sm={4}>
+      <GridItem xs={12} sm={3}>
         <ItemAmountAddAndRemove />
       </GridItem>
     </ListItem>
