@@ -9,20 +9,22 @@ import ItemPrice from "../Item/Price/ItemPrice";
 const MenuItem = (props) => {
   return (
     <ListItem>
-      <ItemInfoContainer xs={9} sm={8} title={props.title} titleVariant="h6">
-        <ItemDescription description={props.description} />
-        <ItemPrice price={props.price} />
-      </ItemInfoContainer>
+      <GridItem xs={9} sm={8}>
+        <ItemInfoContainer title={props.title} titleVariant="h6">
+          <ItemDescription description={props.description} />
+          <ItemPrice price={props.price} />
+        </ItemInfoContainer>
+      </GridItem>
       <GridItem xs={1} sm={3}></GridItem>
-      <ItemAmountAdd
-        xs={2}
-        sm={1}
-        id={props.id}
-        title={props.title}
-        price={props.price}
-        cartAddHandler={props.cartAddHandler}
-        snackbarHandler={props.snackbarHandler}
-      />
+      <GridItem xs={2} sm={1}>
+        <ItemAmountAdd
+          id={props.id}
+          title={props.title}
+          price={props.price}
+          cartAddHandler={props.cartAddHandler}
+          snackbarHandler={props.snackbarHandler}
+        />
+      </GridItem>
     </ListItem>
   );
 };

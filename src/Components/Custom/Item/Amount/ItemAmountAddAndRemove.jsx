@@ -34,64 +34,29 @@ const ItemAmountAddAndRemove = (props) => {
   };
   return (
     <>
-      <HideOnPhone>
-        <GridItem sm={2}>
-          <Box textAlign="center">
-            <Button
-              ariaLabel="remove one of item"
-              onClick={removeItemHandler}
-              color="primary"
-            >
-              <Icon>remove</Icon>
-            </Button>
-          </Box>
-        </GridItem>
-        <GridItem sm={2}>
-          <ItemAmount
-            inputProps={{ min: 0, readOnly: true }}
-            amount={props.amount}
-            variant="outlined"
-          />
-        </GridItem>
-        <GridItem sm={2}>
-          <Box textAlign="center">
-            <Button
-              ariaLabel="add one of item"
-              onClick={addItemHandler}
-              color="primary"
-            >
-              <Icon>add</Icon>
-            </Button>
-          </Box>
-        </GridItem>
-      </HideOnPhone>
-      <HideOnLargerThanPhone>
-        <GridItem xs={6}>
-          <Box textAlign="center">
-            <Button
-              ariaLabel="add one of item"
-              onClick={addItemHandler}
-              color="primary"
-            >
-              <Icon>add</Icon>
-            </Button>
-          </Box>
-          <ItemAmount
-            inputProps={{ min: 0, readOnly: true }}
-            amount={props.amount}
-            variant="outlined"
-          />
-          <Box textAlign="center">
-            <Button
-              ariaLabel="remove one of item"
-              onClick={removeItemHandler}
-              color="primary"
-            >
-              <Icon>remove</Icon>
-            </Button>
-          </Box>
-        </GridItem>
-      </HideOnLargerThanPhone>
+      <Box textAlign="center">
+        <Button
+          ariaLabel="add one of item"
+          onClick={addItemHandler}
+          color="primary"
+        >
+          <Icon>add</Icon>
+        </Button>
+      </Box>
+      <ItemAmount
+        inputProps={{ min: 0, readOnly: true }}
+        amount={props.amount}
+        variant="outlined"
+      />
+      <Box textAlign="center">
+        <Button
+          ariaLabel="remove one of item"
+          onClick={removeItemHandler}
+          color="primary"
+        >
+          <Icon>remove</Icon>
+        </Button>
+      </Box>
     </>
   );
 };

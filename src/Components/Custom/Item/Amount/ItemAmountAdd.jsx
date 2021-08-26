@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import GridItem from "../../../Layout/Grid/GridItem";
 import ItemAmount from "./ItemAmount";
 import Box from "../../../Layout/Box/Box";
 import Button from "../../../UI/Button/Button";
@@ -31,7 +30,7 @@ const ItemAmountAdd = (props) => {
     setAmount(Number(event.target.value));
   };
   return (
-    <GridItem xs={props.xs} sm={props.sm}>
+    <>
       <Box mt={1}>
         <ItemAmount
           inputProps={{ min: 0 }}
@@ -46,7 +45,7 @@ const ItemAmountAdd = (props) => {
           + Add
         </Button>
       </Box>
-    </GridItem>
+    </>
   );
 };
 
