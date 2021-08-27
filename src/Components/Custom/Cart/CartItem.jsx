@@ -1,6 +1,6 @@
 import React from "react";
 import ListItem from "../../UI/List/ListItem";
-import ItemAmountAddAndRemove from "../Item/Amount/ItemAmountAddAndRemove";
+import ItemAmount from "../Item/Amount/ItemAmount";
 import ItemPriceAndQuantity from "../Item/Price/ItemPriceAndQuantity";
 import GridItem from "../../Layout/Grid/GridItem";
 import ItemTitle from "../Item/Info/ItemTitle";
@@ -15,7 +15,7 @@ const CartItem = (props) => {
         <ItemPriceAndQuantity price={props.price} amount={props.amount} />
       </GridItem>
       <GridItem xs={12} sm={6}>
-        <ItemAmountAddAndRemove
+        <ItemAmount
           id={props.id}
           title={props.title}
           price={props.price}

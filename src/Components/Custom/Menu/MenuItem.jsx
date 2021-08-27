@@ -4,7 +4,7 @@ import GridItem from "../../Layout/Grid/GridItem";
 import ItemTitle from "../Item/Info/ItemTitle";
 import ItemDescription from "../Item/Info/ItemDescription";
 import ItemPrice from "../Item/Price/ItemPrice";
-import ItemAmountAddAndRemove from "../Item/Amount/ItemAmountAddAndRemove";
+import ItemAmount from "../Item/Amount/ItemAmount";
 
 const MenuItem = (props) => {
   return (
@@ -15,7 +15,7 @@ const MenuItem = (props) => {
         <ItemPrice price={props.price} />
       </GridItem>
       <GridItem xs={12} sm={3}>
-        <ItemAmountAddAndRemove
+        <ItemAmount
           id={props.id}
           title={props.title}
           price={props.price}

@@ -5,7 +5,8 @@ import Snackbar from "../../UI/Snackbar/Snackbar";
 import IconButton from "../../UI/Button/IconButton";
 import Icon from "../../UI/Icon/Icon";
 import Alert from "../../UI/Alert/Alert";
-import Slide from "../../Transitions/Slide";
+import MuiSlide from "@material-ui/core/Slide";
+
 import { AppContext } from "../../../Context/app-context";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddToCartNotification = () => {
+const CartNotification = () => {
   //get the styles object
   const classes = useStyles();
   //get the context object
@@ -27,11 +28,11 @@ const AddToCartNotification = () => {
     ? { vertical: "bottom", horizontal: "center" }
     : { vertical: "top", horizontal: "center" };
   //set the slide direction for the snackbar transition
-  const transition = isSmallScreen ? (
-    <Slide direction="up" in={ctx.snackbar.open} />
-  ) : (
-    <Slide direction="down" in={ctx.snackbar.open} />
-  );
+  // const transition = isSmallScreen ? (
+  //   <Slide direction="up" />
+  // ) : (
+  //   <Slide direction="down" />
+  // );
   //handler function for closing the snackbar
   const closeSnackbarHandler = () => {
     ctx.snackbarHandler({ open: false, message: "" });
@@ -65,13 +66,17 @@ const AddToCartNotification = () => {
     </>
   );
 
+  function SlideTransition(props) {
+    return <MuiSlide {...props} direction="down" />;
+  }
+
   return (
     <Snackbar
       anchorOrigin={anchorOrigin}
       open={ctx.snackbar.open}
       autoHideDuration={4000}
       onClose={closeSnackbarHandler}
-      transitionComponent={transition}
+      transitionComponent={SlideTransition}
     >
       <Alert
         severity="success"
@@ -85,4 +90,4 @@ const AddToCartNotification = () => {
   );
 };
 
-export default AddToCartNotification;
+export default CartNotification;
