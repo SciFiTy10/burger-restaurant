@@ -5,6 +5,7 @@ import Snackbar from "../../UI/Snackbar/Snackbar";
 import IconButton from "../../UI/Button/IconButton";
 import Icon from "../../UI/Icon/Icon";
 import Alert from "../../UI/Alert/Alert";
+import Slide from "../../Transitions/Slide";
 import { AppContext } from "../../../Context/app-context";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -25,6 +26,12 @@ const AddToCartNotification = () => {
   const anchorOrigin = isSmallScreen
     ? { vertical: "bottom", horizontal: "center" }
     : { vertical: "top", horizontal: "center" };
+  //set the slide direction for the snackbar transition
+  const transition = isSmallScreen ? (
+    <Slide direction="up" in={ctx.snackbar.open} />
+  ) : (
+    <Slide direction="down" in={ctx.snackbar.open} />
+  );
   //handler function for closing the snackbar
   const closeSnackbarHandler = () => {
     ctx.snackbarHandler({ open: false, message: "" });
@@ -64,6 +71,7 @@ const AddToCartNotification = () => {
       open={ctx.snackbar.open}
       autoHideDuration={4000}
       onClose={closeSnackbarHandler}
+      transitionComponent={transition}
     >
       <Alert
         severity="success"

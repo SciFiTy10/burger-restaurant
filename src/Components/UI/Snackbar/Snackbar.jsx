@@ -7,6 +7,7 @@ const Snackbar = (props) => {
       open={props.open}
       autoHideDuration={props.autoHideDuration}
       onClose={props.onClose}
+      TransitionComponent={props.transitionComponent}
     >
       {props.children}
     </MuiSnackbar>
