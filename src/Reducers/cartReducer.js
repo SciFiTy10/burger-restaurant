@@ -6,9 +6,9 @@ export const cartReducer = (state, action) => {
       //create a variable for the current state
       const currentCart = [...state];
       //determine whether the cart contains this item
-      const existingItem = currentCart.filter(
+      const existingItem = currentCart.find(
         (item) => item.id === action.payload.id
-      )[0];
+      );
       //check if the item exists
       if (existingItem !== undefined) {
         //get the existing amount

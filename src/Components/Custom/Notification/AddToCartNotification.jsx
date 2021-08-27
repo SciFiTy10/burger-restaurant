@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { useMediaQuery } from "@material-ui/core";
 import Button from "../../UI/Button/Button";
 import Snackbar from "../../UI/Snackbar/Snackbar";
-import MuiAlert from "@material-ui/lab/Alert";
 import IconButton from "../../UI/Button/IconButton";
 import Icon from "../../UI/Icon/Icon";
+import Alert from "../../UI/Alert/Alert";
 import { AppContext } from "../../../Context/app-context";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -65,14 +65,14 @@ const AddToCartNotification = () => {
       autoHideDuration={4000}
       onClose={closeSnackbarHandler}
     >
-      <MuiAlert
+      <Alert
         severity="success"
         variant="filled"
         onClose={closeSnackbarHandler}
         action={action}
       >
         {ctx.snackbar.message}
-      </MuiAlert>
+      </Alert>
     </Snackbar>
   );
 };

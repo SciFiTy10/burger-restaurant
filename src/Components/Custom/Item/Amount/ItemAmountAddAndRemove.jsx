@@ -3,6 +3,7 @@ import Button from "../../../UI/Button/Button";
 import Icon from "../../../UI/Icon/Icon";
 import ItemAmount from "./ItemAmount";
 import { createItem } from "../../../../Functions/createItem";
+import { createSnackbar } from "../../../../Functions/createSnackbar";
 import InputAdornment from "../../../UI/TextField/InputAdornment";
 const ItemAmountAddAndRemove = (props) => {
   const addItemHandler = () => {
@@ -10,6 +11,12 @@ const ItemAmountAddAndRemove = (props) => {
     const item = createItem(props.id, props.title, props.price);
     //send the item to the handler
     props.cartAddHandler(item);
+    //if this is a menu item
+    if (props.itemType === "menu") {
+      const snackbar = createSnackbar(item.title, "added to");
+      //display the snackbar
+      props.snackbarHandler(snackbar);
+    }
   };
 
   const removeItemHandler = () => {
@@ -26,6 +33,12 @@ const ItemAmountAddAndRemove = (props) => {
     } else {
       //send the item to the handler
       props.cartRemoveHandler(item);
+      //if this is a menu item
+      if (props.itemType === "menu") {
+        const snackbar = createSnackbar(item.title, "removed from");
+        //display the snackbar
+        props.snackbarHandler(snackbar);
+      }
     }
   };
   return (
@@ -39,6 +52,7 @@ const ItemAmountAddAndRemove = (props) => {
               ariaLabel="remove one of item"
               onClick={removeItemHandler}
               color="primary"
+              disabled={props.amount === 0}
             >
               <Icon>remove</Icon>
             </Button>

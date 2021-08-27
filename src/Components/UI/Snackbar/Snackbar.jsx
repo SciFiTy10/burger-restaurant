@@ -6,7 +6,7 @@ const Snackbar = (props) => {
       anchorOrigin={props.anchorOrigin}
       open={props.open}
       autoHideDuration={props.autoHideDuration}
-      onClose={props.onClick}
+      onClose={props.onClose}
     >
       {props.children}
     </MuiSnackbar>

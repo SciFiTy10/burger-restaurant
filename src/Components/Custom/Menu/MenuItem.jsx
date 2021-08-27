@@ -1,7 +1,6 @@
 import React from "react";
 import ListItem from "../../UI/List/ListItem";
 import GridItem from "../../Layout/Grid/GridItem";
-import ItemAmountAdd from "../Item/Amount/ItemAmountAdd";
 import ItemTitle from "../Item/Info/ItemTitle";
 import ItemDescription from "../Item/Info/ItemDescription";
 import ItemPrice from "../Item/Price/ItemPrice";
@@ -16,7 +15,21 @@ const MenuItem = (props) => {
         <ItemPrice price={props.price} />
       </GridItem>
       <GridItem xs={12} sm={3}>
-        <ItemAmountAddAndRemove />
+        <ItemAmountAddAndRemove
+          id={props.id}
+          title={props.title}
+          price={props.price}
+          amount={props.amount}
+          cartAddHandler={props.cartAddHandler}
+          cartRemoveHandler={props.cartRemoveHandler}
+          setItemToBeCompletelyRemovedFromCartHandler={
+            props.setItemToBeCompletelyRemovedFromCartHandler
+          }
+          cartDialogHandler={props.cartDialogHandler}
+          confirmDialogHandler={props.confirmDialogHandler}
+          snackbarHandler={props.snackbarHandler}
+          itemType="menu"
+        />
       </GridItem>
     </ListItem>
   );

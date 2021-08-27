@@ -13,7 +13,7 @@ const CartTotal = (props) => {
         <Typography variant="body1">Total</Typography>
       </GridItem>
       <GridItem xs={2}>
-        <Typography variant="body1">${total}</Typography>
+        <Typography variant="body1">${total.toFixed(2)}</Typography>
       </GridItem>
     </ListItem>
   );
