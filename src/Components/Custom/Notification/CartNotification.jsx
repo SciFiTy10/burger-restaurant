@@ -26,7 +26,7 @@ const CartNotification = () => {
     ? { vertical: "bottom", horizontal: "center" }
     : { vertical: "top", horizontal: "center" };
   //set the slide direction for the snackbar transition
-  const transitionDirection = isSmallScreen ? "up" : "down";
+  const slideDirection = isSmallScreen ? "up" : "down";
   //handler function for closing the snackbar
   const closeSnackbarHandler = () => {
     ctx.snackbarHandler({ open: false, message: "" });
@@ -66,6 +66,7 @@ const CartNotification = () => {
       open={ctx.snackbar.open}
       autoHideDuration={4000}
       onClose={closeSnackbarHandler}
+      slideDirection={slideDirection}
     >
       <Alert
         severity="success"
