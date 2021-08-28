@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import Dialog from "../Dialog";
 import Button from "../../../UI/Button/Button";
 import DialogActions from "../DialogActions";
@@ -6,7 +6,7 @@ import DialogContent from "../DialogContent";
 import Typography from "../../../UI/Typography/Typography";
 import List from "../../../UI/List/List";
 import { AppContext } from "../../../../Context/app-context";
-import CartItem from "../../../Custom/Cart/CartItem";
+import Cart from "../../../Custom/Cart/Cart";
 import CartTotal from "../../../Custom/Cart/CartTotal";
 
 const CartDialog = () => {
@@ -26,25 +26,16 @@ const CartDialog = () => {
         ) : (
           <>
             <List component="nav" ariaLabel="cart">
-              {ctx.cart.map((item) => {
-                return (
-                  <Fragment key={item.id}>
-                    <CartItem
-                      id={item.id}
-                      title={item.title}
-                      price={item.price}
-                      amount={item.amount}
-                      cartAddHandler={ctx.cartAddHandler}
-                      cartRemoveHandler={ctx.cartRemoveHandler}
-                      cartDialogHandler={ctx.cartDialogHandler}
-                      confirmDialogHandler={ctx.confirmDialogHandler}
-                      setItemToBeCompletelyRemovedFromCartHandler={
-                        ctx.setItemToBeCompletelyRemovedFromCartHandler
-                      }
-                    />
-                  </Fragment>
-                );
-              })}
+              <Cart
+                cart={ctx.cart}
+                cartAddHandler={ctx.cartAddHandler}
+                cartRemoveHandler={ctx.cartRemoveHandler}
+                cartDialogHandler={ctx.cartDialogHandler}
+                confirmDialogHandler={ctx.confirmDialogHandler}
+                setItemToBeCompletelyRemovedFromCartHandler={
+                  ctx.setItemToBeCompletelyRemovedFromCartHandler
+                }
+              />
             </List>
             <CartTotal cart={ctx.cart} />
           </>
