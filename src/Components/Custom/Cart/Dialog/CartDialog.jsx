@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import Dialog from "../Dialog";
+import Dialog from "../../../UI/Dialog/Dialog";
 import Button from "../../../UI/Button/Button";
-import DialogActions from "../DialogActions";
-import DialogContent from "../DialogContent";
+import DialogActions from "../../../UI/Dialog/DialogActions";
+import DialogContent from "../../../UI/Dialog/DialogContent";
 import Typography from "../../../UI/Typography/Typography";
 import List from "../../../UI/List/List";
 import { AppContext } from "../../../../Context/app-context";
-import Cart from "../../../Custom/Cart/Cart";
-import CartTotal from "../../../Custom/Cart/CartTotal";
+import Cart from "../Cart";
+import CartTotal from "../CartTotal";
 
 const CartDialog = () => {
   //grab the context object

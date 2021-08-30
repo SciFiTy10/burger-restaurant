@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import Dialog from "../../Dialog/Dialog";
-import DialogActions from "../DialogActions";
-import DialogContent from "../DialogContent";
+import Dialog from "../../../UI/Dialog/Dialog";
+import DialogActions from "../../../UI/Dialog/DialogActions";
+import DialogContent from "../../../UI/Dialog/DialogContent";
 import Button from "../../../UI/Button/Button";
 import { AppContext } from "../../../../Context/app-context";
 
-const ConfirmDialog = () => {
+const RemoveFromCartDialog = () => {
   //get the context object
   const ctx = useContext(AppContext);
   //handler for closing the dialog
@@ -46,4 +46,4 @@ const ConfirmDialog = () => {
   );
 };
 
-export default ConfirmDialog;
+export default RemoveFromCartDialog;

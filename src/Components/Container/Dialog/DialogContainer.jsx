@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import CartDialog from "../../UI/Dialog/Cart/CartDialog";
-import ConfirmDialog from "../../UI/Dialog/Confirm/ConfirmDialog";
+import CartDialog from "../../Custom/Cart/Dialog/CartDialog";
+import RemoveFromCartDialog from "../../Custom/Cart/Dialog/RemoveFromCartDialog";
 import { AppContext } from "../../../Context/app-context";
 
 const DialogContainer = () => {
@@ -8,7 +8,7 @@ const DialogContainer = () => {
   return (
     <>
       {ctx.cartIsOpen && <CartDialog />}
-      {ctx.confirmIsOpen && <ConfirmDialog />}
+      {ctx.confirmIsOpen && <RemoveFromCartDialog />}
     </>
   );
 };
