@@ -80,6 +80,11 @@ const AppContextProvider = (props) => {
       dispatchCart({ type: "REMOVE_ITEM_COMPLETELY_FROM_CART", payload: item });
     }
   };
+  //handler function for ordering the items in the cart
+  const cartOrderHandler = () => {
+    //dispatch the order from the reducer
+    dispatchCart({ type: "ORDER", payload: [] });
+  };
   //handler function for controlling the open and close of the cart dialog
   const cartDialogHandler = (isOpen) => {
     setCartIsOpen(isOpen);
@@ -106,6 +111,7 @@ const AppContextProvider = (props) => {
         confirmDialogHandler,
         setItemToBeCompletelyRemovedFromCartHandler,
         removeItemCompletelyFromCartHandler,
+        cartOrderHandler,
         itemToBeRemoved,
         snackbar,
         snackbarHandler,

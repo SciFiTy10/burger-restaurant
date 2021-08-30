@@ -45,6 +45,9 @@ export const cartReducer = (state, action) => {
       const current = [...state];
       //return the current state without that id
       return current.filter((item) => item.id !== action.payload.id);
+    case "ORDER":
+      //clear the cart of its items
+      return action.payload;
     default:
       return state;
   }

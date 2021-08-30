@@ -19,5 +19,3 @@ const Snackbar = (props) => {
 };
 
 export default Snackbar;
-
-//{props.children}

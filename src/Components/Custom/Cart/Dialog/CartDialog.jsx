@@ -12,12 +12,19 @@ import CartTotal from "../CartTotal";
 const CartDialog = () => {
   //grab the context object
   const ctx = useContext(AppContext);
+  //variable for tracking whether the cart is empty
+  const cartIsEmpty = ctx.cart.length === 0;
   //handler function for closing the cart dialog
   const onCloseHandler = () => {
     ctx.cartDialogHandler(false);
   };
-  //variable for tracking whether the cart is empty
-  const cartIsEmpty = ctx.cart.length === 0;
+  //handler function for ordering the items in the cart
+  const onOrderHandler = () => {
+    //order the items
+    ctx.cartOrderHandler();
+    //close the cart dialog
+    ctx.cartDialogHandler(false);
+  };
   return (
     <Dialog onClose={onCloseHandler} open={ctx.cartIsOpen}>
       <DialogContent>
@@ -46,7 +53,11 @@ const CartDialog = () => {
           Close
         </Button>
         {cartIsEmpty ? null : (
-          <Button ariaLabel="order button" color="primary">
+          <Button
+            ariaLabel="order button"
+            color="primary"
+            onClick={onOrderHandler}
+          >
             Order
           </Button>
         )}
