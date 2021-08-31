@@ -22,6 +22,14 @@ const CartDialog = () => {
   const onOrderHandler = () => {
     //order the items
     ctx.cartOrderHandler();
+    //create the snackbar object
+    const snackbar = {
+      type: "order",
+      message: "Success! Your order was submitted.",
+      open: true,
+    };
+    //display the snackbar
+    ctx.snackbarHandler(snackbar);
     //close the cart dialog
     ctx.cartDialogHandler(false);
   };

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import IconButton from "../../UI/Button/IconButton";
 import Icon from "../../UI/Icon/Icon";
 import Alert from "../../UI/Alert/Alert";
 import { AppContext } from "../../../Context/app-context";
 import { makeStyles } from "@material-ui/core/styles";
+import { useMediaQuery } from "@material-ui/core";
+import Snackbar from "../../UI/Snackbar/Snackbar";
 
 const useStyles = makeStyles((theme) => ({
   button: {

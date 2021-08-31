@@ -2,18 +2,26 @@ import React from "react";
 import Button from "../../../UI/Button/Button";
 import Icon from "../../../UI/Icon/Icon";
 import TextField from "../../../UI/TextField/TextField";
-import { createItem } from "../../../../Functions/createItem";
-import { createSnackbar } from "../../../../Functions/createSnackbar";
 import InputAdornment from "../../../UI/TextField/InputAdornment";
 const ItemAmount = (props) => {
   const addItemHandler = () => {
     //create an item to send
-    const item = createItem(props.id, props.title, props.price);
+    const item = {
+      id: props.id,
+      title: props.title,
+      price: props.price,
+      amount: 1,
+    };
     //send the item to the handler
     props.cartAddHandler(item);
     //if this is a menu item
     if (props.itemType === "menu") {
-      const snackbar = createSnackbar(item.title, "added to");
+      //create the snackbar object
+      const snackbar = {
+        type: "cart",
+        message: `Success! 1 ${item.title} was added to the cart`,
+        open: true,
+      };
       //display the snackbar
       props.snackbarHandler(snackbar);
     }
@@ -21,7 +29,12 @@ const ItemAmount = (props) => {
 
   const removeItemHandler = () => {
     //create an item to send
-    const item = createItem(props.id, props.title, props.price);
+    const item = {
+      id: props.id,
+      title: props.title,
+      price: props.price,
+      amount: 1,
+    };
     //check whether this is the last one of this item
     if (Number(props.amount) === 1) {
       //update the state for the item to be completely removed
@@ -35,7 +48,12 @@ const ItemAmount = (props) => {
       props.cartRemoveHandler(item);
       //if this is a menu item
       if (props.itemType === "menu") {
-        const snackbar = createSnackbar(item.title, "removed from");
+        //create the snackbar object
+        const snackbar = {
+          type: "cart",
+          message: `Success! 1 ${item.title} was removed from the cart`,
+          open: true,
+        };
         //display the snackbar
         props.snackbarHandler(snackbar);
       }
