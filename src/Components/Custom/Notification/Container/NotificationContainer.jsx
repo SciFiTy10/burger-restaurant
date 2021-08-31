@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { AppContext } from "../../../Context/app-context";
-import CartNotification from "../../Custom/Notification/CartNotification";
-import OrderNotification from "../../Custom/Notification/OrderNotification";
+import { AppContext } from "../../../../Context/app-context";
+import CartNotification from "../CartNotification";
+import OrderNotification from "../OrderNotification";
 
 const NotificationContainer = () => {
   const ctx = useContext(AppContext);

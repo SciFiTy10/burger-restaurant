@@ -1,6 +1,6 @@
 import React from "react";
-import HideOnPhone from "../Hidden/HideOnPhone";
-import GridItem from "../Layout/Grid/GridItem";
+import HideOnPhone from "../../Hidden/HideOnPhone";
+import GridItem from "../../Spacing/Grid/GridItem";
 
 const SideContainer = () => {
   return (

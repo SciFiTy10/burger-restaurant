@@ -1,6 +1,6 @@
 import React from "react";
 import ListItem from "../../UI/List/ListItem";
-import GridItem from "../../Layout/Grid/GridItem";
+import GridItem from "../../Spacing/Grid/GridItem";
 import ItemTitle from "../Item/Info/ItemTitle";
 import ItemDescription from "../Item/Info/ItemDescription";
 import ItemPrice from "../Item/Price/ItemPrice";

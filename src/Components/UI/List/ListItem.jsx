@@ -1,6 +1,6 @@
 import React from "react";
 import MuiListItem from "@material-ui/core/ListItem";
-import GridContainer from "../../Layout/Grid/GridContainer";
+import GridContainer from "../../Spacing/Grid/GridContainer";
 
 const ListItem = (props) => {
   return (

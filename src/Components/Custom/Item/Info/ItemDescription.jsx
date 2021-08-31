@@ -1,5 +1,5 @@
 import React from "react";
-import Box from "../../../Layout/Box/Box";
+import Box from "../../../Spacing/Box/Box";
 import Typography from "../../../UI/Typography/Typography";
 
 const ItemDescription = (props) => {
