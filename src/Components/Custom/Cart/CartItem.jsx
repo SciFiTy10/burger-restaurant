@@ -25,7 +25,7 @@ const CartItem = (props) => {
             props.setItemToBeCompletelyRemovedFromCartHandler
           }
           cartDialogHandler={props.cartDialogHandler}
-          confirmDialogHandler={props.confirmDialogHandler}
+          removeFromCartDialogHandler={props.removeFromCartDialogHandler}
           cartRemoveHandler={props.cartRemoveHandler}
         />
       </GridItem>

@@ -11,7 +11,7 @@ const RemoveFromCartDialog = () => {
   //handler for closing the dialog
   const onCloseHandler = () => {
     //close the confirm dialog
-    ctx.confirmDialogHandler(false);
+    ctx.removeFromCartDialogHandler(false);
     //open the cart dialog
     ctx.cartDialogHandler(true);
   };
@@ -23,7 +23,7 @@ const RemoveFromCartDialog = () => {
     onCloseHandler();
   };
   return (
-    <Dialog onClose={onCloseHandler} open={ctx.confirmIsOpen}>
+    <Dialog onClose={onCloseHandler} open={ctx.removeFromCartDialogIsOpen}>
       <DialogContent>
         <p>
           Are you sure you want to remove "{ctx.itemToBeRemoved.title}" from

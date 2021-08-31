@@ -2,6 +2,7 @@ import React from "react";
 import MuiList from "@material-ui/core/List";
 import { makeStyles } from "@material-ui/core/styles";
 
+//set up the background color
 const useStyles = makeStyles((theme) => ({
   list: {
     backgroundColor: theme.palette.background.paper,
@@ -9,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const List = (props) => {
+  //grab the classes object
   const classes = useStyles();
 
   return (

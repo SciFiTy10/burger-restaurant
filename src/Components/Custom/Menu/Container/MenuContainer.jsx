@@ -7,10 +7,10 @@ import CardContent from "../../../UI/Card/CardContent";
 import List from "../../../UI/List/List";
 
 const MenuContainer = () => {
-  //determine whether this is a small screen size or not
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("xs"));
+  //determine whether this is a phone screen size or not
+  const isPhoneScreen = useMediaQuery((theme) => theme.breakpoints.down("xs"));
   //create variables for managing the margin depending on the screensize
-  const marginSides = isSmallScreen ? 2 : {};
+  const marginSides = isPhoneScreen ? 2 : {};
   return (
     <Box mt={5} mx={marginSides} mb={2}>
       <Card>

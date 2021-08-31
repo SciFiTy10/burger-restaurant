@@ -3,8 +3,10 @@ import MuiSnackbar from "@material-ui/core/Snackbar";
 import { slideUp, slideDown } from "../../Transitions/Slide/slideTransition";
 
 const Snackbar = (props) => {
+  //determine what direction the snackbar will slide in
   const transitionComponent =
     props.slideDirection === "up" ? slideUp : slideDown;
+
   return (
     <MuiSnackbar
       anchorOrigin={props.anchorOrigin}

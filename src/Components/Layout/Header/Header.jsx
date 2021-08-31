@@ -8,6 +8,7 @@ import Badge from "../../UI/Badge/Badge";
 import { AppContext } from "../../../Context/app-context";
 import Icon from "../../UI/Icon/Icon";
 
+//set up the styles for the app bar
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -22,13 +23,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = () => {
+  //grab the styles object
   const classes = useStyles();
+  //grab the context object
   const ctx = useContext(AppContext);
 
   //get the total amount of items in the cart
   const itemsInCart = ctx.cart.reduce((total, item) => {
     return total + item.amount;
   }, 0);
+
   //handler function for managing the opening and closing of the cartdialog
   const cartOpenHandler = () => {
     //close the snackbar
@@ -36,6 +40,7 @@ const Header = () => {
     //open the cart dialog
     ctx.cartDialogHandler(true);
   };
+
   return (
     <>
       <AppBar position="fixed" className={classes.backgroundColor}>

@@ -26,7 +26,7 @@ const MenuItem = (props) => {
             props.setItemToBeCompletelyRemovedFromCartHandler
           }
           cartDialogHandler={props.cartDialogHandler}
-          confirmDialogHandler={props.confirmDialogHandler}
+          removeFromCartDialogHandler={props.removeFromCartDialogHandler}
           snackbarHandler={props.snackbarHandler}
           itemType="menu"
         />

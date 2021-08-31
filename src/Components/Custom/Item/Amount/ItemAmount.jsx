@@ -3,7 +3,9 @@ import Button from "../../../UI/Button/Button";
 import Icon from "../../../UI/Icon/Icon";
 import TextField from "../../../UI/TextField/TextField";
 import InputAdornment from "../../../UI/TextField/InputAdornment";
+
 const ItemAmount = (props) => {
+  //handler function for adding an item to the cart
   const addItemHandler = () => {
     //create an item to send
     const item = {
@@ -27,6 +29,7 @@ const ItemAmount = (props) => {
     }
   };
 
+  //handler function for removing an item from the cart
   const removeItemHandler = () => {
     //create an item to send
     const item = {
@@ -42,7 +45,7 @@ const ItemAmount = (props) => {
       //close the cart dialog
       props.cartDialogHandler(false);
       //open the confirm dialog for deleting the item
-      props.confirmDialogHandler(true);
+      props.removeFromCartDialogHandler(true);
     } else {
       //send the item to the handler
       props.cartRemoveHandler(item);
@@ -59,6 +62,7 @@ const ItemAmount = (props) => {
       }
     }
   };
+
   return (
     <TextField
       inputProps={{

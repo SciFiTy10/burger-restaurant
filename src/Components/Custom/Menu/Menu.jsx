@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import MenuItem from "./MenuItem";
 import { AppContext } from "../../../Context/app-context";
+
 const Menu = () => {
+  //grab the context object
   const ctx = useContext(AppContext);
   return (
     <>
@@ -11,7 +13,7 @@ const Menu = () => {
             const cartItem = ctx.cart.find(
               (cartItem) => cartItem.id === item.id
             );
-            //get the amount
+            //get the amount of the current menu item
             const amount = cartItem === undefined ? 0 : cartItem.amount;
             return (
               <MenuItem
@@ -24,7 +26,7 @@ const Menu = () => {
                 cartAddHandler={ctx.cartAddHandler}
                 cartRemoveHandler={ctx.cartRemoveHandler}
                 cartDialogHandler={ctx.cartDialogHandler}
-                confirmDialogHandler={ctx.confirmDialogHandler}
+                removeFromCartDialogHandler={ctx.removeFromCartDialogHandler}
                 setItemToBeCompletelyRemovedFromCartHandler={
                   ctx.setItemToBeCompletelyRemovedFromCartHandler
                 }
