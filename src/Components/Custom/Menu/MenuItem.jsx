@@ -9,12 +9,12 @@ import ItemAmount from "../Item/Amount/ItemAmount";
 const MenuItem = (props) => {
   return (
     <ListItem divider={props.divider}>
-      <GridItem xs={12} sm={9}>
+      <GridItem xs={12} sm={7} md={8}>
         <ItemTitle variant="h6">{props.title}</ItemTitle>
         <ItemDescription description={props.description} />
         <ItemPrice price={props.price} />
       </GridItem>
-      <GridItem xs={12} sm={3}>
+      <GridItem xs={12} sm={5} md={4}>
         <ItemAmount
           id={props.id}
           title={props.title}
