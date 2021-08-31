@@ -1,10 +1,10 @@
 import React from "react";
 import { useMediaQuery } from "@material-ui/core";
-import Box from "../../Layout/Box/Box";
-import Menu from "../../Custom/Menu/Menu";
-import Card from "../../UI/Card/Card";
-import CardContent from "../../UI/Card/CardContent";
-import List from "../../UI/List/List";
+import Box from "../../../Spacing/Box/Box";
+import Menu from "../Menu";
+import Card from "../../../UI/Card/Card";
+import CardContent from "../../../UI/Card/CardContent";
+import List from "../../../UI/List/List";
 
 const MenuContainer = () => {
   //determine whether this is a small screen size or not

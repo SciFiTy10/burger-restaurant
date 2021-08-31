@@ -2,7 +2,7 @@ import React from "react";
 import ListItem from "../../UI/List/ListItem";
 import ItemAmount from "../Item/Amount/ItemAmount";
 import ItemPriceAndQuantity from "../Item/Price/ItemPriceAndQuantity";
-import GridItem from "../../Layout/Grid/GridItem";
+import GridItem from "../../Spacing/Grid/GridItem";
 import ItemTitle from "../Item/Info/ItemTitle";
 
 const CartItem = (props) => {

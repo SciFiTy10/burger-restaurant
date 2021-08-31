@@ -1,8 +1,8 @@
 import React from "react";
 import theme from "../../Theme/theme";
-import SideContainer from "./SideContainer";
-import MiddleContainer from "./MiddleContainer";
-import GridContainer from "../Layout/Grid/GridContainer";
+import SideContainer from "./Section/SideContainer";
+import MiddleContainer from "./Section/MiddleContainer";
+import GridContainer from "../Spacing/Grid/GridContainer";
 
 const MainContainer = () => {
   const styles = {

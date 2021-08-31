@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "../../../UI/Typography/Typography";
-import Box from "../../../Layout/Box/Box";
+import Box from "../../../Spacing/Box/Box";
 
 const ItemTitle = (props) => {
   return (
