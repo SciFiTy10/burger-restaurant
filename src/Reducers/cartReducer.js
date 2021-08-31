@@ -2,6 +2,8 @@
 export const cartReducer = (state, action) => {
   //determine which action the user is taking
   switch (action.type) {
+    case "LOAD_ITEMS":
+      return action.payload;
     case "ADD_ITEM":
       //create a variable for the current state
       const currentCart = [...state];

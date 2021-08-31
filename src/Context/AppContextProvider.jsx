@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import { cartReducer } from "../Reducers/cartReducer";
 
 import { AppContext } from "./app-context";
@@ -50,6 +50,26 @@ const AppContextProvider = (props) => {
   const [itemToBeRemoved, setItemToBeRemoved] = useState({});
   //create state for managing the snackbar
   const [snackbar, setSnackbar] = useState({});
+
+  //use effect hook for setting up the default cart state based on localStorage
+  useEffect(() => {
+    //load the existing cart data
+    const cartData = JSON.parse(localStorage.getItem("cart"));
+    //if the cartData is empty
+    if (cartData === null) {
+      //set the cartData equal to the default from the reducer
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } else {
+      //if cartData has data, then we populate the cart state with the data
+      dispatchCart({ type: "LOAD_ITEMS", payload: cartData });
+    }
+  }, []);
+
+  //use effect hook for updating localStorage with the latest from the cart
+  useEffect(() => {
+    //the cart state has updated, so localStorage will now be updated
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   //handler function for adding to the cart
   const cartAddHandler = (item) => {
