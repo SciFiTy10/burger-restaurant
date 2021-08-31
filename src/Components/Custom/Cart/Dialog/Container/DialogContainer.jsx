@@ -4,11 +4,12 @@ import RemoveFromCartDialog from "../RemoveFromCartDialog";
 import { AppContext } from "../../../../../Context/app-context";
 
 const DialogContainer = () => {
+  //grab the context object
   const ctx = useContext(AppContext);
   return (
     <>
-      {ctx.cartIsOpen && <CartDialog />}
-      {ctx.confirmIsOpen && <RemoveFromCartDialog />}
+      {ctx.cartDialogIsOpen && <CartDialog />}
+      {ctx.removeFromCartDialogIsOpen && <RemoveFromCartDialog />}
     </>
   );
 };

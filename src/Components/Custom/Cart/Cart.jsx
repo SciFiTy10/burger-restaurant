@@ -14,7 +14,7 @@ const Cart = (props) => {
             cartAddHandler={props.cartAddHandler}
             cartRemoveHandler={props.cartRemoveHandler}
             cartDialogHandler={props.cartDialogHandler}
-            confirmDialogHandler={props.confirmDialogHandler}
+            removeFromCartDialogHandler={props.removeFromCartDialogHandler}
             setItemToBeCompletelyRemovedFromCartHandler={
               props.setItemToBeCompletelyRemovedFromCartHandler
             }

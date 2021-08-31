@@ -1,13 +1,9 @@
 import React from "react";
 import MuiDialog from "@material-ui/core/Dialog";
 import { zoom } from "../../Transitions/Zoom/zoomTransition";
-// const Dialog = (props) => {
-//   return (
-//     <MuiDialog onClose={props.onClose} open={props.open}>
-//       {props.children}
-//     </MuiDialog>
-//   );
-// };
+
+//because we are not forwarding the reference on the Dialog component where it's used
+//we must forward the reference per Material UI's documentation
 
 const Dialog = React.forwardRef((props, ref) => (
   <MuiDialog

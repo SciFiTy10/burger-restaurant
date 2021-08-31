@@ -1,6 +1,6 @@
 import React from "react";
-
 import MuiInputAdornment from "@material-ui/core/InputAdornment";
+
 const InputAdornment = (props) => {
   return (
     <MuiInputAdornment position={props.position}>

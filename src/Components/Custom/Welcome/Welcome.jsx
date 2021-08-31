@@ -8,6 +8,7 @@ import CardContent from "../../UI/Card/CardContent";
 import { AppContext } from "../../../Context/app-context";
 
 const Welcome = () => {
+  //get the context object
   const ctx = useContext(AppContext);
   //create variable for the header title
   const titleText = `Welcome to ${ctx.titleText}!`;

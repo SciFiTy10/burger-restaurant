@@ -16,6 +16,7 @@ const CartDialog = () => {
   const cartIsEmpty = ctx.cart.length === 0;
   //handler function for closing the cart dialog
   const onCloseHandler = () => {
+    //close the cart dialog
     ctx.cartDialogHandler(false);
   };
   //handler function for ordering the items in the cart
@@ -34,7 +35,7 @@ const CartDialog = () => {
     ctx.cartDialogHandler(false);
   };
   return (
-    <Dialog onClose={onCloseHandler} open={ctx.cartIsOpen}>
+    <Dialog onClose={onCloseHandler} open={ctx.cartDialogIsOpen}>
       <DialogContent>
         {cartIsEmpty ? (
           <Typography variant="body1">Cart Is Empty</Typography>
@@ -46,7 +47,7 @@ const CartDialog = () => {
                 cartAddHandler={ctx.cartAddHandler}
                 cartRemoveHandler={ctx.cartRemoveHandler}
                 cartDialogHandler={ctx.cartDialogHandler}
-                confirmDialogHandler={ctx.confirmDialogHandler}
+                removeFromCartDialogHandler={ctx.removeFromCartDialogHandler}
                 setItemToBeCompletelyRemovedFromCartHandler={
                   ctx.setItemToBeCompletelyRemovedFromCartHandler
                 }

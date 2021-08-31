@@ -1,12 +1,11 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
 import { cartReducer } from "../Reducers/cartReducer";
-
 import { AppContext } from "./app-context";
 
 const AppContextProvider = (props) => {
   //create state for the title
   const [titleText, setTitleText] = useState("Big Kahuna Burger");
-  //create state for menu list
+  //create state for the menu
   const [menu, setMenu] = useState([
     {
       id: 1,
@@ -40,18 +39,39 @@ const AppContextProvider = (props) => {
       price: 11.99,
     },
   ]);
-  //create state for cart and dispatch to reducer method
+  //create state for the cart and dispatch to reducer method
   const [cart, dispatchCart] = useReducer(cartReducer, []);
   //create state for controlling the cart dialog
-  const [cartIsOpen, setCartIsOpen] = useState(false);
-  //create state for controlling the confirm dialog
-  const [confirmIsOpen, setConfirmIsOpen] = useState(false);
+  const [cartDialogIsOpen, setCartDialogIsOpen] = useState(false);
+  //create state for controlling the removeFromCart dialog
+  const [removeFromCartDialogIsOpen, setRemoveFromCartDialogIsOpen] =
+    useState(false);
   //create state for the item to be completely removed from cart
   const [itemToBeRemoved, setItemToBeRemoved] = useState({});
   //create state for managing the snackbar
   const [snackbar, setSnackbar] = useState({});
 
-  //handler function for adding to the cart
+  //use effect hook for setting up the default cart state based on localStorage
+  useEffect(() => {
+    //load the existing cart data from localStorage
+    const cartData = JSON.parse(localStorage.getItem("cart"));
+    //if the cartData is empty
+    if (cartData === null) {
+      //set the cartData equal to the default from the reducer
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } else {
+      //if cartData has data, then we populate the cart state with that
+      dispatchCart({ type: "LOAD_ITEMS", payload: cartData });
+    }
+  }, []);
+
+  //use effect hook for updating localStorage with the latest from the cart
+  useEffect(() => {
+    //the cart state has updated, so localStorage will now be updated
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  //handler function for adding an item to the cart
   const cartAddHandler = (item) => {
     //ensure the item is non-empty
     if (item) {
@@ -59,6 +79,7 @@ const AppContextProvider = (props) => {
       dispatchCart({ type: "ADD_ITEM", payload: item });
     }
   };
+
   //handler function for removing 1 of an item from the cart
   const cartRemoveHandler = (item) => {
     //ensure the item is non-empty
@@ -67,11 +88,13 @@ const AppContextProvider = (props) => {
       dispatchCart({ type: "REMOVE_ITEM", payload: item });
     }
   };
+
   //handler function for storing the item to be removed completely from the cart
   const setItemToBeCompletelyRemovedFromCartHandler = (item) => {
     //update the state
     setItemToBeRemoved(item);
   };
+
   //handler function for removing an item completely from the cart
   const removeItemCompletelyFromCartHandler = (item) => {
     //ensure the item is non-empty
@@ -80,21 +103,27 @@ const AppContextProvider = (props) => {
       dispatchCart({ type: "REMOVE_ITEM_COMPLETELY_FROM_CART", payload: item });
     }
   };
+
   //handler function for ordering the items in the cart
   const cartOrderHandler = () => {
     //dispatch the order from the reducer
     dispatchCart({ type: "ORDER", payload: [] });
   };
+
   //handler function for controlling the open and close of the cart dialog
   const cartDialogHandler = (isOpen) => {
-    setCartIsOpen(isOpen);
+    //update the cart dialog state
+    setCartDialogIsOpen(isOpen);
   };
+
   //handler function for controlling the open and close of the confirm dialog
-  const confirmDialogHandler = (isOpen) => {
-    setConfirmIsOpen(isOpen);
+  const removeFromCartDialogHandler = (isOpen) => {
+    //update the remove from cart dialog state
+    setRemoveFromCartDialogIsOpen(isOpen);
   };
   //handler function for controlling the snackbar
   const snackbarHandler = (snackbar) => {
+    //update the snackbar state
     setSnackbar(snackbar);
   };
   return (
@@ -105,10 +134,10 @@ const AppContextProvider = (props) => {
         cart,
         cartAddHandler,
         cartRemoveHandler,
-        cartIsOpen,
+        cartDialogIsOpen,
         cartDialogHandler,
-        confirmIsOpen,
-        confirmDialogHandler,
+        removeFromCartDialogIsOpen,
+        removeFromCartDialogHandler,
         setItemToBeCompletelyRemovedFromCartHandler,
         removeItemCompletelyFromCartHandler,
         cartOrderHandler,
