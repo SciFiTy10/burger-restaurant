@@ -4,6 +4,7 @@ import { AppContext } from "../../../../../../Context/app-context";
 import ItemAmount from "../../ItemAmount";
 import { cartReducer } from "../../../../../../Reducers/cartReducer/cartReducer";
 import userEvent from "@testing-library/user-event";
+import "@testing-library/jest-dom";
 
 describe("adding an item", () => {
   //create a cart
@@ -77,7 +78,7 @@ describe("adding an item", () => {
     ]);
   });
 
-  it("if the item is already in the cart, it should increment the amount of the same item by 1", () => {
+  test("if the item is already in the cart, it should increment the amount of the same item by 1", () => {
     //create a test item to be added
     const itemToBeAdded = {
       id: 1,
@@ -110,5 +111,34 @@ describe("adding an item", () => {
         amount: 2,
       },
     ]);
+  });
+
+  it("should increment the text field value by 1", () => {
+    //create a test item to be added
+    const itemToBeAdded = {
+      id: 1,
+      title: "Royale With Cheese",
+      price: 9.99,
+      amount: 1,
+    };
+    render(
+      <AppContext.Provider
+        value={{
+          cart,
+        }}
+      >
+        <ItemAmount
+          id={itemToBeAdded.id}
+          title={itemToBeAdded.title}
+          price={itemToBeAdded.price}
+          amount={itemToBeAdded.amount}
+          cartAddHandler={cartAddHandler}
+        />
+      </AppContext.Provider>
+    );
+
+    userEvent.click(screen.getByLabelText("add one of item"));
+    console.log(cart);
+    expect(screen.getByText("2")).toBeInTheDocument();
   });
 });
