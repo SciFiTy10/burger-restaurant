@@ -107,7 +107,7 @@ const AppContextProvider = (props) => {
   //handler function for ordering the items in the cart
   const cartOrderHandler = () => {
     //dispatch the order from the reducer
-    dispatchCart({ type: "ORDER", payload: [] });
+    dispatchCart({ type: "ORDER_ITEMS", payload: [] });
   };
 
   //handler function for controlling the open and close of the cart dialog

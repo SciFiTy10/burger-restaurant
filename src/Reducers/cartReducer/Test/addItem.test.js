@@ -1,14 +1,21 @@
 import { cartReducer } from "../cartReducer";
 
-describe("cartReducer", () => {
+describe("adding an item to the cartReducer", () => {
+  //initialize an array
   const initialState = [];
   beforeEach(() => {
+    //add an item to the array
     initialState.push({
       id: 1,
       title: "Royale With Cheese",
       price: 9.99,
       amount: 1,
     });
+  });
+
+  afterEach(() => {
+    //reset the original array
+    initialState.splice(0, initialState.length);
   });
 
   it("should add a new item to the cart", () => {
