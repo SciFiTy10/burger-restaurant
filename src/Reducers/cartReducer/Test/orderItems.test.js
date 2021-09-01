@@ -4,20 +4,21 @@ describe("ordering items", () => {
   //initialize an array
   const initialState = [];
   beforeEach(() => {
-    //add an item to the array
-    initialState.push({
-      id: 1,
-      title: "Royale With Cheese",
-      price: 9.99,
-      amount: 1,
-    });
-    //add a 2nd item
-    initialState.push({
-      id: 2,
-      title: "What Burger",
-      price: 10.99,
-      amount: 2,
-    });
+    //add items to the array
+    initialState.push(
+      {
+        id: 1,
+        title: "Royale With Cheese",
+        price: 9.99,
+        amount: 1,
+      },
+      {
+        id: 2,
+        title: "What Burger",
+        price: 10.99,
+        amount: 2,
+      }
+    );
   });
 
   afterEach(() => {
