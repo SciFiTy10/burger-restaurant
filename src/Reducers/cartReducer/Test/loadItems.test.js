@@ -1,5 +1,8 @@
 import { cartReducer } from "../cartReducer";
 
+/*Please see setupTests.js for implementation of localStorage
+  And link to documentation where localStorageMock is from */
+
 describe("loading items", () => {
   //initialize an empty array
   let initialState = [];

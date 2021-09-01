@@ -4,6 +4,7 @@
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
 
+//per documentation: https://github.com/facebook/create-react-app/blob/main/docusaurus/docs/running-tests.md#srcsetuptestsjs-1
 const localStorageMock = {
   getItem: jest.fn(),
   setItem: jest.fn(),
