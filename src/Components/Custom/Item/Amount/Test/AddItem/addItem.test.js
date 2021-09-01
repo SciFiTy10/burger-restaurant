@@ -6,7 +6,7 @@ import { cartReducer } from "../../../../../../Reducers/cartReducer/cartReducer"
 import userEvent from "@testing-library/user-event";
 
 describe("adding an item", () => {
-  //create an empty cart
+  //create a cart
   let cart = [
     {
       id: 1,
@@ -26,7 +26,7 @@ describe("adding an item", () => {
   };
 
   afterEach(() => {
-    //reset the cart value
+    //reset the cart
     cart = [
       {
         id: 1,
@@ -77,7 +77,7 @@ describe("adding an item", () => {
     ]);
   });
 
-  it("should increment the amount if already in the cart", () => {
+  it("if the item is already in the cart, it should increment the amount of the same item by 1", () => {
     //create a test item to be added
     const itemToBeAdded = {
       id: 1,
