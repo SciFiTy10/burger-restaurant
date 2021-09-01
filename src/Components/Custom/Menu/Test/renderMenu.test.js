@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { AppContext } from "../../../../Context/app-context";
 import Menu from "../Menu";
+import "@testing-library/jest-dom";
 
 describe("menu", () => {
   //create a menu array
@@ -32,10 +33,12 @@ describe("menu", () => {
       }
     );
   });
+
   afterAll(() => {
     //destroy the menu
     menu.splice(0, menu.length);
   });
+
   test("renders Menu component", () => {
     render(
       <AppContext.Provider
@@ -48,7 +51,6 @@ describe("menu", () => {
       </AppContext.Provider>
     );
 
-    screen.debug();
     expect(screen.getByText("Royale With Cheese")).toBeInTheDocument();
   });
 });
