@@ -1,5 +1,5 @@
 import React, { useState, useReducer, useEffect } from "react";
-import { cartReducer } from "../Reducers/cartReducer";
+import { cartReducer } from "../Reducers/cartReducer/cartReducer";
 import { AppContext } from "./app-context";
 
 const AppContextProvider = (props) => {
