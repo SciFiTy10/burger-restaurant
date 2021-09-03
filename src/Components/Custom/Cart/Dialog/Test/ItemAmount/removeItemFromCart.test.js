@@ -6,6 +6,7 @@ import Header from "../../../../../Layout/Header/Header";
 import Menu from "../../../../Menu/Menu";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
+import { cyan } from "@material-ui/core/colors";
 
 describe("removing an item from the cart", () => {
   it("removes one of an item which exists in the cart", () => {
