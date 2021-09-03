@@ -27,6 +27,7 @@ const CartItem = (props) => {
           cartDialogHandler={props.cartDialogHandler}
           removeFromCartDialogHandler={props.removeFromCartDialogHandler}
           cartRemoveHandler={props.cartRemoveHandler}
+          itemType="cart"
         />
       </GridItem>
     </ListItem>
