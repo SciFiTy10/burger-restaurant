@@ -1,5 +1,5 @@
 import React, { useState, useReducer, useEffect } from "react";
-import { cartReducer } from "../Reducers/cartReducer";
+import { cartReducer } from "../Reducers/cartReducer/cartReducer";
 import { AppContext } from "./app-context";
 
 const AppContextProvider = (props) => {
@@ -107,7 +107,7 @@ const AppContextProvider = (props) => {
   //handler function for ordering the items in the cart
   const cartOrderHandler = () => {
     //dispatch the order from the reducer
-    dispatchCart({ type: "ORDER", payload: [] });
+    dispatchCart({ type: "ORDER_ITEMS", payload: [] });
   };
 
   //handler function for controlling the open and close of the cart dialog
