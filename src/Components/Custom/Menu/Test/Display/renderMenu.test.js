@@ -1,8 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { AppContext } from "../../../../Context/app-context";
-import AppContextProvider from "../../../../Context/AppContextProvider";
-import Menu from "../Menu";
+import AppContextProvider from "../../../../../Context/AppContextProvider";
+import Menu from "../../Menu";
 import "@testing-library/jest-dom";
 
 describe("menu", () => {
