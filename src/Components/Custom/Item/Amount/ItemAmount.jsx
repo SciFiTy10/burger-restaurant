@@ -68,6 +68,7 @@ const ItemAmount = (props) => {
       dataTestId={`amount of ${props.title} ${props.itemType} ${props.id}`}
       id={props.id}
       inputProps={{
+        title: `amount of ${props.title} ${props.itemType} ${props.id}`,
         min: 0,
         readOnly: true,
         startAdornment: (
