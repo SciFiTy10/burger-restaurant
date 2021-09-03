@@ -7,22 +7,8 @@ import Menu from "../../../../Menu/Menu";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 
-describe("cart", () => {
-  it("renders an empty cart dialog", () => {
-    const { getByText, getByLabelText } = render(
-      <AppContextProvider>
-        <Header />
-        <DialogContainer />
-      </AppContextProvider>
-    );
-
-    //click the cart button
-    userEvent.click(getByLabelText("shopping cart button"));
-    //check whether the Cart is empty text displayed
-    expect(screen.getByText("Cart Is Empty")).toBeInTheDocument();
-  });
-
-  it("renders a cart with an item", () => {
+describe("removing an item from the cart", () => {
+  it("removes one of an item which exists in the cart", () => {
     const { getByLabelText, getByTestId } = render(
       <AppContextProvider>
         <Header />
@@ -36,6 +22,12 @@ describe("cart", () => {
 
     //click the cart button
     userEvent.click(getByLabelText("shopping cart button"));
+
+    //add one of the item from the cart
+    userEvent.click(getByTestId("add one Royale With Cheese cart 1"));
+
+    //remove one of the item from the cart
+    userEvent.click(getByTestId("remove one Royale With Cheese cart 1"));
 
     //there should be a count of 1 for the item in the cart
     expect(
