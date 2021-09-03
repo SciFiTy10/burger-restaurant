@@ -20,6 +20,7 @@ const TextField = (props) => {
 
   return (
     <MuiTextField
+      data-testid={props.dataTestId}
       label={props.label}
       className={classes.root}
       InputProps={props.inputProps}

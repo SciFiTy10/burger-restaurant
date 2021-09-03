@@ -65,13 +65,16 @@ const ItemAmount = (props) => {
 
   return (
     <TextField
+      dataTestId={`amount of ${props.title} ${props.itemType} ${props.id}`}
+      id={props.id}
       inputProps={{
         min: 0,
         readOnly: true,
         startAdornment: (
           <InputAdornment position="start">
             <Button
-              ariaLabel="remove one of item"
+              dataTestId={`remove one ${props.title} ${props.itemType} ${props.id}`}
+              ariaLabel={`remove one ${props.title}`}
               onClick={removeItemHandler}
               color="primary"
               disabled={props.amount === 0}
@@ -83,7 +86,8 @@ const ItemAmount = (props) => {
         endAdornment: (
           <InputAdornment position="end">
             <Button
-              ariaLabel="add one of item"
+              dataTestId={`add one ${props.title} ${props.itemType} ${props.id}`}
+              ariaLabel={`add one ${props.title}`}
               onClick={addItemHandler}
               color="primary"
             >
