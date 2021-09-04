@@ -64,44 +64,46 @@ const ItemAmount = (props) => {
   };
 
   return (
-    <TextField
-      dataTestId={`amount of ${props.title} ${props.itemType} ${props.id}`}
-      id={props.id}
-      inputProps={{
-        title: `amount of ${props.title} ${props.itemType} ${props.id}`,
-        min: 0,
-        readOnly: true,
-        startAdornment: (
-          <InputAdornment position="start">
-            <Button
-              dataTestId={`remove one ${props.title} ${props.itemType} ${props.id}`}
-              ariaLabel={`remove one ${props.title}`}
-              onClick={removeItemHandler}
-              color="primary"
-              disabled={props.amount === 0}
-            >
-              <Icon>remove</Icon>
-            </Button>
-          </InputAdornment>
-        ),
-        endAdornment: (
-          <InputAdornment position="end">
-            <Button
-              dataTestId={`add one ${props.title} ${props.itemType} ${props.id}`}
-              ariaLabel={`add one ${props.title}`}
-              onClick={addItemHandler}
-              color="primary"
-            >
-              <Icon>add</Icon>
-            </Button>
-          </InputAdornment>
-        ),
-      }}
-      amount={props.amount}
-      variant="outlined"
-      label={props.label}
-      color="primary"
-    />
+    <label htmlFor={`amount of ${props.title} ${props.itemType} ${props.id}`}>
+      <TextField
+        dataTestId={`amount of ${props.title} ${props.itemType} ${props.id}`}
+        id={props.id}
+        inputProps={{
+          id: `amount of ${props.title} ${props.itemType} ${props.id}`,
+          min: 0,
+          readOnly: true,
+          startAdornment: (
+            <InputAdornment position="start">
+              <Button
+                dataTestId={`remove one ${props.title} ${props.itemType} ${props.id}`}
+                ariaLabel={`remove one ${props.title}`}
+                onClick={removeItemHandler}
+                color="primary"
+                disabled={props.amount === 0}
+              >
+                <Icon>remove</Icon>
+              </Button>
+            </InputAdornment>
+          ),
+          endAdornment: (
+            <InputAdornment position="end">
+              <Button
+                dataTestId={`add one ${props.title} ${props.itemType} ${props.id}`}
+                ariaLabel={`add one ${props.title}`}
+                onClick={addItemHandler}
+                color="primary"
+              >
+                <Icon>add</Icon>
+              </Button>
+            </InputAdornment>
+          ),
+        }}
+        amount={props.amount}
+        variant="outlined"
+        label={props.label}
+        color="primary"
+      />
+    </label>
   );
 };
 

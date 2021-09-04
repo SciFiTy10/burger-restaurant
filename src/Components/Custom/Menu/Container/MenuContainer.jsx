@@ -15,7 +15,7 @@ const MenuContainer = () => {
     <Box mt={5} mx={marginSides} mb={2}>
       <Card>
         <CardContent>
-          <List component="nav" ariaLabel="menu">
+          <List component="ul" ariaLabel="menu">
             <Menu />
           </List>
         </CardContent>
