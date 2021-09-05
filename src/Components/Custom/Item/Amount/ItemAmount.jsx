@@ -64,12 +64,12 @@ const ItemAmount = (props) => {
   };
 
   return (
-    <label htmlFor={`amount of ${props.title} ${props.itemType} ${props.id}`}>
+    <label htmlFor={`amount of ${props.title}`}>
       <TextField
         dataTestId={`amount of ${props.title} ${props.itemType} ${props.id}`}
         id={props.id}
         inputProps={{
-          id: `amount of ${props.title} ${props.itemType} ${props.id}`,
+          id: `amount of ${props.title}`,
           min: 0,
           readOnly: true,
           startAdornment: (
