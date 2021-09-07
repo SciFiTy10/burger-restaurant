@@ -52,7 +52,7 @@ const CartNotification = () => {
       </Button>
       <IconButton
         size="small"
-        aria-label="close snackbar"
+        ariaLabel="close snackbar"
         onClick={closeSnackbarHandler}
       >
         <Icon className={classes.button} fontSize="small">
@@ -69,6 +69,7 @@ const CartNotification = () => {
       autoHideDuration={4000}
       onClose={closeSnackbarHandler}
       slideDirection={slideDirection}
+      ariaLabel={ctx.snackbar.message}
     >
       <Alert
         severity="success"

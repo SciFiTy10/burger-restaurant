@@ -9,6 +9,8 @@ const Snackbar = (props) => {
 
   return (
     <MuiSnackbar
+      role="alert"
+      aria-label={props.ariaLabel}
       anchorOrigin={props.anchorOrigin}
       open={props.open}
       autoHideDuration={props.autoHideDuration}
