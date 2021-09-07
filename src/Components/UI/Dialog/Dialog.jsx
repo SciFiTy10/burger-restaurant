@@ -7,6 +7,9 @@ import { zoom } from "../../Transitions/Zoom/zoomTransition";
 
 const Dialog = React.forwardRef((props, ref) => (
   <MuiDialog
+    role="dialog"
+    aria-modal={true}
+    aria-describedby="dialog-description"
     ref={ref}
     onClose={props.onClose}
     open={props.open}
