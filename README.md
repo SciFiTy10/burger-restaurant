@@ -16,7 +16,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/SciFiTy10/burger-restaurant">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="media/burger_logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Big Kahuna Burger</h3>
@@ -43,6 +43,10 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#state-management">State Management</a></li>
+        <li><a href="#testing">Testing</a></li>
+        <li><a href="#accessibility">Accessibility</a></li>
+        <li><a href="#project-folder-structure">Project Folder Structure</a></li>
       </ul>
     </li>
     <li>
@@ -50,6 +54,7 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#running-tests">Running Tests</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -65,17 +70,59 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!--add link to main page -->
+<img src="media/main_page.png" alt="main_page" >
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`SciFiTy10`, `burger-restaurant`, `twitter_handle`, `email`, `Big Kahuna Burger`, `The world famous Big Kahuna Burger restaurant from numerous Quentin Tarantino films.`
+Welcome to the online version of the famous Big Kahuna Burger!
+
+This is a project I built to pay tribute to one of my favorite movies, and to have some fun working with React.
 
 ### Built With
 
-- []()
-- []()
-- []()
+- [React](https://reactjs.org)
+- [Material UI](https://material-ui.com)
+
+### State Management
+
+Application State is managed using React Hooks ([useState](https://reactjs.org/docs/hooks-state.html) and [useReducer](https://reactjs.org/docs/hooks-reference.html#usereducer)). State is distributed to child components via the [React Context API](https://reactjs.org/docs/context.html).
+
+- Cart - [useReducer](https://reactjs.org/docs/hooks-reference.html#usereducer)
+  - Cart state is persisted across page reloads using [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) and loaded via the [useEffect](https://reactjs.org/docs/hooks-effect.html) hook
+- Menu, Snackbar, Dialogs - [useState](https://reactjs.org/docs/hooks-state.html)
+
+### Testing
+
+For unit and small integration tests:
+
+- [Jest](https://jestjs.io/) - for running tests
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) - helper library for tests
+
+For larger integration tests:
+
+- [Cypress](https://www.cypress.io/) - for running tests
+
+### Accessibility
+
+Accessibility was ensured by leveraging [Material UI's](https://material-ui.com/) component props to use semantic elements where possible.
+
+Aria labelling was applied on:
+
+- Buttons - [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute) attribute
+- TextField/Inputs - [label](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) element wraps input and makes use of the "for" attribute
+- Dialogs:
+  - [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role) attribute was set to dialog
+  - [aria-modal](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role) prop was set to true
+  - [aria-describedby](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role) attribute was set to track the dialog description (id was placed on Dialog Content component)
+- Snackbar:
+  - [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Alert_Role) attribute was set to alert
+  - [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute) attribute was used
+
+For Accessibility Testing:
+
+- [WAVE](https://wave.webaim.org/extension/) - an extension for testing accessibility
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse) - for running an audit on accessibility
+
+### Project Folder Structure
 
 <!-- GETTING STARTED -->
 
@@ -85,7 +132,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+Make sure you have the latest version of npm installed
 
 - npm
   ```sh
@@ -103,13 +150,28 @@ This is an example of how to list things you need to use the software and how to
    npm install
    ```
 
+### Running Tests
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/SciFiTy10/burger-restaurant.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Add items to your cart from either the menu, or the cart itself before placing your order.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+<!--add items and order -->
+<img src="media/add_to_cart_and_order.gif" alt="add to cart and order" >
+
+Remove items from your cart, or remove them completely from your order.
+<img src="media/remove_from_cart_and_order.gif" alt="remove from cart and order" >
 
 <!-- ROADMAP -->
 
@@ -139,17 +201,19 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+Tyler Ridings - [LinkedIn](https://www.linkedin.com/in/tyler-ridings-24804585/)
 
-Project Link: [https://github.com/SciFiTy10/burger-restaurant](https://github.com/SciFiTy10/burger-restaurant)
+Personal Portfolio - [https://www.tylerridings.dev](https://www.tylerridings.dev)
+
+Project Link (deployed project link here): [https://github.com/SciFiTy10/burger-restaurant](https://github.com/SciFiTy10/burger-restaurant)
 
 <!-- ACKNOWLEDGEMENTS -->
 
 ## Acknowledgements
 
-- []()
-- []()
-- []()
+- [Quentin Tarantino](https://www.imdb.com/name/nm0000233/)
+- [Big Kahuna Burger Film Documentation](https://en.wikipedia.org/wiki/Big_Kahuna_Burger)
+- [Pulp Fiction Apartment Scene](https://www.youtube.com/watch?v=Y6YBKdmOlM8&t=357s)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
