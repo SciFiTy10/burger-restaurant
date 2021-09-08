@@ -37,7 +37,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -47,6 +47,7 @@
         <li><a href="#testing">Testing</a></li>
         <li><a href="#accessibility">Accessibility</a></li>
         <li><a href="#project-folder-structure">Project Folder Structure</a></li>
+        <li><a href="#things-i-learned">Things I Learned/Things I Would've Done Differently</a></li>
       </ul>
     </li>
     <li>
@@ -77,10 +78,14 @@ Welcome to the online version of the famous Big Kahuna Burger!
 
 This is a project I built to pay tribute to one of my favorite movies, and to have some fun working with React.
 
+---
+
 ### Built With
 
 - [React](https://reactjs.org)
 - [Material UI](https://material-ui.com)
+
+---
 
 ### State Management
 
@@ -89,6 +94,8 @@ Application State is managed using React Hooks ([useState](https://reactjs.org/d
 - Cart - [useReducer](https://reactjs.org/docs/hooks-reference.html#usereducer)
   - Cart state is persisted across page reloads using [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) and loaded via the [useEffect](https://reactjs.org/docs/hooks-effect.html) hook
 - Menu, Snackbar, Dialogs - [useState](https://reactjs.org/docs/hooks-state.html)
+
+---
 
 ### Testing
 
@@ -100,6 +107,8 @@ For unit and small integration tests:
 For larger integration tests:
 
 - [Cypress](https://www.cypress.io/) - for running tests
+
+---
 
 ### Accessibility
 
@@ -122,7 +131,41 @@ For Accessibility Testing:
 - [WAVE](https://wave.webaim.org/extension/) - an extension for testing accessibility
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse) - for running an audit on accessibility
 
+---
+
 ### Project Folder Structure
+
+This project is organized with collocation in mind.
+
+Let's begin with the core of the React project, our Components
+
+- Custom Components, Unit/Integration Tests, and Container Components are generally all collocated together
+  - Ex: the Cart folder holds all components related to a cart, and a Dialog folder, which holds Cart-related Dialogs. The tests for Cart Dialogs are within the Dialog folder.
+
+This is to reduce cognitive overhead when a new developer is onboarded to the project. It's easier to find a custom component's unit test if it's right next to the component.
+
+- All other components, such as Layout or UI components, are raised up one more level and are a sibling of the Custom components folder
+
+  - Ex: the TextField component is used in the Cart component and the Menu component, it doesn't make sense to bury them in both folders.
+
+- All other folders, such as cypress, Context, and Theme are raised up one more level and are a sibling of the Components folder
+  - Ex: the cypress folder includes larger integration tests which span our entire project, just like the Theme and Context. It makes sense to keep those at the top.
+
+---
+
+### Things I Learned/Things I Would've Done Differently
+
+- Originally, I was way too focused on keeping my project DRY
+
+  <u>Reason</u> - I think I had a general concern that leaving any potential chance to componentize would look bad or inconsistent.
+
+  <u>Outcome</u> - This had an unintended side effect in the beginning, which was it indirectly influenced how I structured my components and the project itself. When you are trying to aggregate at the beginning of the project, like when you are making containers for where your content will go, it is a slippery slope to componentize everything from the top down.
+
+  <u>Problems</u> - This has the potential to lead you to create components you don't even need in the end. I created container components for 2 or 3 components that made up an item just because it occurred in 2 spots. All that did was make my code less readable and more difficult to change when I encountered a responsiveness bug.
+
+  <u>What would I change</u> - If I could do it over, I might still begin with a top level organization of sections, and decide where the main content might be. But from then on, all combining of components would start from the bottom up.
+
+A better result would be to solve a problem with the <i>least</i> amount of reusable components, not the most.
 
 <!-- GETTING STARTED -->
 
@@ -139,6 +182,8 @@ Make sure you have the latest version of npm installed
   npm install npm@latest -g
   ```
 
+---
+
 ### Installation
 
 1. Clone the repo
@@ -150,25 +195,29 @@ Make sure you have the latest version of npm installed
    npm install
    ```
 
+---
+
 ### Running Tests
 
-1. Clone the repo
+1. Running unit and small integration tests (Jest + React Testing Library)
    ```sh
-   git clone https://github.com/SciFiTy10/burger-restaurant.git
+   npm test
    ```
-2. Install NPM packages
+2. Running larger integration tests (cypress)
    ```sh
-   npm install
+   npx cypress open
    ```
 
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
-Add items to your cart from either the menu, or the cart itself before placing your order.
-
 <!--add items and order -->
+
+Add items to your cart from either the menu, or the cart itself before placing your order.
 <img src="media/add_to_cart_and_order.gif" alt="add to cart and order" >
+
+<!--remove items from order -->
 
 Remove items from your cart, or remove them completely from your order.
 <img src="media/remove_from_cart_and_order.gif" alt="remove from cart and order" >
