@@ -163,6 +163,6 @@ Project Link: [https://github.com/SciFiTy10/burger-restaurant](https://github.co
 [issues-shield]: https://img.shields.io/github/issues/SciFiTy10/burger-restaurant.svg?style=for-the-badge
 [issues-url]: https://github.com/SciFiTy10/burger-restaurant/issues
 [license-shield]: https://img.shields.io/github/license/SciFiTy10/burger-restaurant.svg?style=for-the-badge
-[license-url]: https://github.com/SciFiTy10/burger-restaurant/blob/master/LICENSE.txt
+[license-url]: https://github.com/SciFiTy10/burger-restaurant/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/SciFiTy10
+[linkedin-url]: https://www.linkedin.com/in/tyler-ridings-24804585/
