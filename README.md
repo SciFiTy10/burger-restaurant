@@ -204,7 +204,7 @@ Make sure you have the latest version of npm installed
 
 ### Running Project
 
-1. Running unit and small integration tests (Jest + React Testing Library)
+1. Running the project in development mode
    ```sh
    npm start
    ```
