@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "../../UI/AppBar/AppBar";
-import Toolbar from "../../UI/Toolbar/Toolbar";
-import Typography from "../../UI/Typography/Typography";
-import IconButton from "../../UI/Button/IconButton";
-import Badge from "../../UI/Badge/Badge";
+import MuiAppBar from "@material-ui/core/AppBar";
+import MuiToolbar from "@material-ui/core/Toolbar";
+import MuiTypography from "@material-ui/core/Typography";
+import MuiIconButton from "@material-ui/core/IconButton";
+import MuiBadge from "@material-ui/core/Badge";
 import { AppContext } from "../../../Context/app-context";
-import Icon from "../../UI/Icon/Icon";
+import MuiLunchDiningIcon from "@material-ui/core/Icon";
+import MuiShoppingCartIcon from "@material-ui/core/Icon";
 
 //set up the styles for the app bar
 const useStyles = makeStyles((theme) => ({
@@ -43,24 +44,24 @@ const Header = () => {
 
   return (
     <>
-      <AppBar position="fixed" className={classes.backgroundColor}>
-        <Toolbar>
-          <Icon>lunch_dining</Icon>
-          <Typography variant="h6" className={classes.title}>
+      <MuiAppBar position="fixed" className={classes.backgroundColor}>
+        <MuiToolbar>
+          <MuiLunchDiningIcon>lunch_dining</MuiLunchDiningIcon>
+          <MuiTypography variant="h6" className={classes.title}>
             {ctx.titleText}
-          </Typography>
-          <IconButton
+          </MuiTypography>
+          <MuiIconButton
             color="inherit"
             onClick={cartOpenHandler}
-            ariaLabel="shopping cart button"
+            aria-label="shopping cart button"
           >
-            <Badge badgeContent={itemsInCart} color="secondary">
-              <Icon>shopping_cart</Icon>
-            </Badge>
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <Toolbar />
+            <MuiBadge badgeContent={itemsInCart} color="secondary">
+              <MuiShoppingCartIcon>shopping_cart</MuiShoppingCartIcon>
+            </MuiBadge>
+          </MuiIconButton>
+        </MuiToolbar>
+      </MuiAppBar>
+      <MuiToolbar />
     </>
   );
 };

@@ -1,12 +1,12 @@
 import React from "react";
-import Typography from "../../../UI/Typography/Typography";
+import MuiTypography from "@material-ui/core/Typography";
 import Box from "../../../Spacing/Box/Box";
 
 const ItemTitle = (props) => {
   return (
-    <Typography variant={props.variant} component="span">
+    <MuiTypography variant={props.variant} component="span">
       <Box fontWeight={props.fontWeight}>{props.children}</Box>
-    </Typography>
+    </MuiTypography>
   );
 };
 

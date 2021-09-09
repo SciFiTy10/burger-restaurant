@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import GridContainer from "../../Spacing/Grid/GridContainer";
 import GridItem from "../../Spacing/Grid/GridItem";
-import Typography from "../../UI/Typography/Typography";
-import Card from "../../UI/Card/Card";
-import CardHeader from "../../UI/Card/CardHeader";
-import CardContent from "../../UI/Card/CardContent";
+import MuiTypography from "@material-ui/core/Typography";
+import MuiCard from "@material-ui/core/Card";
+import MuiCardHeader from "@material-ui/core/CardHeader";
+import MuiCardContent from "@material-ui/core/CardContent";
 import { AppContext } from "../../../Context/app-context";
 
 const Welcome = () => {
@@ -14,28 +14,28 @@ const Welcome = () => {
   const titleText = `Welcome to ${ctx.titleText}!`;
 
   return (
-    <Card>
-      <CardHeader
+    <MuiCard>
+      <MuiCardHeader
         title={titleText}
         titleTypographyProps={{ align: "center" }}
-      ></CardHeader>
-      <CardContent>
+      ></MuiCardHeader>
+      <MuiCardContent>
         <GridContainer justifyContent="center">
           <GridItem>
-            <Typography variant="body1" component="p" align="center">
+            <MuiTypography variant="body1" component="p" align="center">
               Choose one of our delicious, gourmet burgers prepared by our
               5-Star chef.
-            </Typography>
+            </MuiTypography>
             <br />
-            <Typography variant="body1" component="p" align="center">
+            <MuiTypography variant="body1" component="p" align="center">
               Satisfaction is guaranteed. If you don't like our burgers, not
               only will we give you your money back, but we will personally
               throw you from our restaurant!
-            </Typography>
+            </MuiTypography>
           </GridItem>
         </GridContainer>
-      </CardContent>
-    </Card>
+      </MuiCardContent>
+    </MuiCard>
   );
 };
 

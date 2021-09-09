@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "../../UI/Typography/Typography";
+import MuiTypography from "@material-ui/core/Typography";
 import GridItem from "../../Spacing/Grid/GridItem";
 import ListItem from "../../UI/List/ListItem";
 import Box from "../../Spacing/Box/Box";
@@ -11,12 +11,12 @@ const CartTotal = (props) => {
   return (
     <ListItem>
       <GridItem xs={10}>
-        <Typography variant="body1" component="span">
+        <MuiTypography variant="body1" component="span">
           <Box fontWeight="fontWeightBold">Total</Box>
-        </Typography>
+        </MuiTypography>
       </GridItem>
       <GridItem xs={2}>
-        <Typography variant="body1">${total.toFixed(2)}</Typography>
+        <MuiTypography variant="body1">${total.toFixed(2)}</MuiTypography>
       </GridItem>
     </ListItem>
   );

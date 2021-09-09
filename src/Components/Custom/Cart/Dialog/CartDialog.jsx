@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import Dialog from "../../../UI/Dialog/Dialog";
-import Button from "../../../UI/Button/Button";
-import DialogActions from "../../../UI/Dialog/DialogActions";
-import DialogContent from "../../../UI/Dialog/DialogContent";
-import Typography from "../../../UI/Typography/Typography";
+import MuiButton from "@material-ui/core/Button";
+import MuiDialogActions from "@material-ui/core/DialogActions";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+import MuiTypography from "@material-ui/core/Typography";
 import List from "../../../UI/List/List";
 import { AppContext } from "../../../../Context/app-context";
 import Cart from "../Cart";
@@ -36,9 +36,9 @@ const CartDialog = () => {
   };
   return (
     <Dialog onClose={onCloseHandler} open={ctx.cartDialogIsOpen}>
-      <DialogContent>
+      <MuiDialogContent id="dialog-description">
         {cartIsEmpty ? (
-          <Typography variant="body1">Cart Is Empty</Typography>
+          <MuiTypography variant="body1">Cart Is Empty</MuiTypography>
         ) : (
           <>
             <List component="nav" ariaLabel="cart">
@@ -56,21 +56,21 @@ const CartDialog = () => {
             <CartTotal cart={ctx.cart} />
           </>
         )}
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={onCloseHandler} ariaLabel="close button">
+      </MuiDialogContent>
+      <MuiDialogActions>
+        <MuiButton onClick={onCloseHandler} aria-label="close button">
           Close
-        </Button>
+        </MuiButton>
         {cartIsEmpty ? null : (
-          <Button
-            ariaLabel="order button"
+          <MuiButton
+            aria-label="order button"
             color="primary"
             onClick={onOrderHandler}
           >
             Order
-          </Button>
+          </MuiButton>
         )}
-      </DialogActions>
+      </MuiDialogActions>
     </Dialog>
   );
 };
