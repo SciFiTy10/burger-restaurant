@@ -1,6 +1,6 @@
 import React from "react";
 import { useMediaQuery } from "@material-ui/core";
-import Box from "../../../Spacing/Box/Box";
+import MuiBox from "@material-ui/core/Box";
 import Menu from "../Menu";
 import MuiCard from "@material-ui/core/Card";
 import MuiCardContent from "@material-ui/core/CardContent";
@@ -12,7 +12,7 @@ const MenuContainer = () => {
   //create variables for managing the margin depending on the screensize
   const marginSides = isPhoneScreen ? 2 : {};
   return (
-    <Box mt={5} mx={marginSides} mb={2}>
+    <MuiBox mt={5} mx={marginSides} mb={2}>
       <MuiCard>
         <MuiCardContent>
           <List component="ul" ariaLabel="menu">
@@ -20,7 +20,7 @@ const MenuContainer = () => {
           </List>
         </MuiCardContent>
       </MuiCard>
-    </Box>
+    </MuiBox>
   );
 };
 

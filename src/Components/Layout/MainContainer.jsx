@@ -2,7 +2,7 @@ import React from "react";
 import theme from "../../Theme/theme";
 import SideContainer from "./Section/SideContainer";
 import MiddleContainer from "./Section/MiddleContainer";
-import GridContainer from "../Spacing/Grid/GridContainer";
+import MuiGrid from "@material-ui/core/Grid";
 
 const MainContainer = () => {
   const styles = {
@@ -12,11 +12,11 @@ const MainContainer = () => {
   };
 
   return (
-    <GridContainer style={styles.root}>
+    <MuiGrid container style={styles.root}>
       <SideContainer />
       <MiddleContainer />
       <SideContainer />
-    </GridContainer>
+    </MuiGrid>
   );
 };
 

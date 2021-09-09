@@ -1,6 +1,6 @@
 import React from "react";
 import ListItem from "../../UI/List/ListItem";
-import GridItem from "../../Spacing/Grid/GridItem";
+import MuiGrid from "@material-ui/core/Grid";
 import ItemTitle from "../Item/Info/ItemTitle";
 import ItemDescription from "../Item/Info/ItemDescription";
 import ItemPrice from "../Item/Price/ItemPrice";
@@ -9,12 +9,12 @@ import ItemAmount from "../Item/Amount/ItemAmount";
 const MenuItem = (props) => {
   return (
     <ListItem divider={props.divider}>
-      <GridItem xs={12} sm={7} md={8}>
+      <MuiGrid item xs={12} sm={7} md={8}>
         <ItemTitle variant="h6">{props.title}</ItemTitle>
         <ItemDescription description={props.description} />
         <ItemPrice price={props.price} />
-      </GridItem>
-      <GridItem xs={12} sm={5} md={4}>
+      </MuiGrid>
+      <MuiGrid item xs={12} sm={5} md={4}>
         <ItemAmount
           id={props.id}
           title={props.title}
@@ -30,7 +30,7 @@ const MenuItem = (props) => {
           snackbarHandler={props.snackbarHandler}
           itemType="menu"
         />
-      </GridItem>
+      </MuiGrid>
     </ListItem>
   );
 };

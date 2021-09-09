@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import GridContainer from "../../Spacing/Grid/GridContainer";
-import GridItem from "../../Spacing/Grid/GridItem";
+import MuiGrid from "@material-ui/core/Grid";
 import MuiTypography from "@material-ui/core/Typography";
 import MuiCard from "@material-ui/core/Card";
 import MuiCardHeader from "@material-ui/core/CardHeader";
@@ -20,8 +19,8 @@ const Welcome = () => {
         titleTypographyProps={{ align: "center" }}
       ></MuiCardHeader>
       <MuiCardContent>
-        <GridContainer justifyContent="center">
-          <GridItem>
+        <MuiGrid container justifyContent="center">
+          <MuiGrid item>
             <MuiTypography variant="body1" component="p" align="center">
               Choose one of our delicious, gourmet burgers prepared by our
               5-Star chef.
@@ -32,8 +31,8 @@ const Welcome = () => {
               only will we give you your money back, but we will personally
               throw you from our restaurant!
             </MuiTypography>
-          </GridItem>
-        </GridContainer>
+          </MuiGrid>
+        </MuiGrid>
       </MuiCardContent>
     </MuiCard>
   );

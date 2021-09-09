@@ -1,11 +1,11 @@
 import React from "react";
 import MuiHidden from "@material-ui/core/Hidden";
-import GridItem from "../../Spacing/Grid/GridItem";
+import MuiGrid from "@material-ui/core/Grid";
 
 const SideContainer = () => {
   return (
     <MuiHidden xsDown>
-      <GridItem sm={1} />
+      <MuiGrid item sm={1} />
     </MuiHidden>
   );
 };

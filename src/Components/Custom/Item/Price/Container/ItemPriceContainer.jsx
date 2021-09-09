@@ -1,10 +1,10 @@
 import React from "react";
-import Box from "../../../../Spacing/Box/Box";
+import MuiBox from "@material-ui/core/Box";
 import MuiTypography from "@material-ui/core/Typography";
 const ItemPriceContainer = (props) => {
   return (
     <MuiTypography variant="subtitle1" component="div">
-      <Box mt={props.mt}>{props.children}</Box>
+      <MuiBox mt={props.mt}>{props.children}</MuiBox>
     </MuiTypography>
   );
 };
