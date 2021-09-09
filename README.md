@@ -162,13 +162,13 @@ This is to reduce cognitive overhead when a new developer is onboarded to the pr
 
 - Originally, I was way too focused on keeping my project DRY
 
-  <u>Reason</u> - I think I had a general concern that leaving any potential chance to componentize would look bad or inconsistent.
+  **Reason** - I think I had a general concern that leaving any potential chance to componentize would look bad or inconsistent.
 
-  <u>Outcome</u> - This had an unintended side effect in the beginning, which was it indirectly influenced how I structured my components and the project itself. When you are trying to aggregate at the beginning of the project, like when you are making containers for where your content will go, it is a slippery slope to componentize everything from the top down.
+  **Outcome** - This had an unintended side effect in the beginning, which was it indirectly influenced how I structured my components and the project itself. When you are trying to aggregate at the beginning of the project, like when you are making containers for where your content will go, it is a slippery slope to componentize everything from the top down.
 
-  <u>Problems</u> - This has the potential to lead you to create components you don't even need in the end. I created container components for 2 or 3 components that made up an item just because it occurred in 2 spots. All that did was make my code less readable and more difficult to change when I encountered a responsiveness bug.
+  **Problems** - This has the potential to lead you to create components you don't even need in the end. I created container components for 2 or 3 components that made up an item just because it occurred in 2 spots. All that did was make my code less readable and more difficult to change when I encountered a responsiveness bug.
 
-  <u>What would I change</u> - If I could do it over, I might still begin with a top level organization of sections, and decide where the main content might be. But from then on, all combining of components would start from the bottom up.
+  **What would I change** - If I could do it over, I might still begin with a top level organization of sections, and decide where the main content might be. But from then on, all combining of components would start from the bottom up.
 
 A better result would be to solve a problem with the <i>least</i> amount of reusable components, not the most.
 
