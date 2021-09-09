@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import IconButton from "../../UI/Button/IconButton";
-import Icon from "../../UI/Icon/Icon";
+import MuiIconButton from "@material-ui/core/IconButton";
+import MuiCloseIcon from "@material-ui/icons/Close";
 import Alert from "../../UI/Alert/Alert";
 import { AppContext } from "../../../Context/app-context";
 import { makeStyles } from "@material-ui/core/styles";
@@ -36,15 +36,13 @@ const OrderNotification = () => {
   //create an action for the snackbar which closes it
   const action = (
     <>
-      <IconButton
+      <MuiIconButton
         size="small"
-        ariaLabel="close snackbar"
+        aria-label="close snackbar"
         onClick={closeSnackbarHandler}
       >
-        <Icon className={classes.button} fontSize="small">
-          close
-        </Icon>
-      </IconButton>
+        <MuiCloseIcon className={classes.button} fontSize="small" />
+      </MuiIconButton>
     </>
   );
   return (
