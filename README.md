@@ -43,12 +43,12 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
-        <li><a href="#ci/cd-and-hosting">CI/CD and Hosting</a></li>
+        <li><a href="#cicd-and-hosting">CI/CD and Hosting</a></li>
         <li><a href="#state-management">State Management</a></li>
         <li><a href="#testing">Testing</a></li>
         <li><a href="#accessibility">Accessibility</a></li>
         <li><a href="#project-folder-structure">Project Folder Structure</a></li>
-        <li><a href="#things-i-learned">Things I Learned/Things I Would've Done Differently</a></li>
+        <li><a href="#things-i-learned-and-things-i-wouldve-done-differently">Things I Learned/Things I Would've Done Differently</a></li>
       </ul>
     </li>
     <li>
