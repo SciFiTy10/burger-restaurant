@@ -43,6 +43,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#cicd">CI/CD and Hosting</a></li>
         <li><a href="#state-management">State Management</a></li>
         <li><a href="#testing">Testing</a></li>
         <li><a href="#accessibility">Accessibility</a></li>
@@ -85,6 +86,12 @@ This is a project I built to pay tribute to one of my favorite movies, and to ha
 
 - [React](https://reactjs.org)
 - [Material UI](https://material-ui.com)
+
+---
+
+### CI/CD and Hosting
+
+- [Netlify](https://www.netlify.com/?utm_source=google&utm_medium=paid_search&utm_campaign=12755510784&adgroup=118788138897&utm_term=netlify&utm_content=kwd-371509120223&creative=516906172749&device=c&matchtype=e&location=1016396&gclid=Cj0KCQjw4eaJBhDMARIsANhrQADGSLH06Rj9RaCKdY4K8YUEKdA5UGVnk8ge48CXlQzBYgX744jpOgwaAv3sEALw_wcB) - for builds, deployments, and hosting of the project
 
 ---
 
