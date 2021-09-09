@@ -48,7 +48,7 @@
         <li><a href="#testing">Testing</a></li>
         <li><a href="#accessibility">Accessibility</a></li>
         <li><a href="#project-folder-structure">Project Folder Structure</a></li>
-        <li><a href="#things-i-learned-and-things-i-wouldve-done-differently">Things I Learned/Things I Would've Done Differently</a></li>
+        <li><a href="#things-i-learned-and-things-i-wouldve-done-differently">Things I Learned and Things I Would've Done Differently</a></li>
       </ul>
     </li>
     <li>
@@ -165,7 +165,7 @@ This is to reduce cognitive overhead when a new developer is onboarded to the pr
 
 ---
 
-### Things I Learned/Things I Would've Done Differently
+### Things I Learned and Things I Would've Done Differently
 
 - Originally, I was way too focused on keeping my project DRY
 
