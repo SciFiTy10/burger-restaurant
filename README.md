@@ -27,7 +27,7 @@
     <a href="https://github.com/SciFiTy10/burger-restaurant"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/SciFiTy10/burger-restaurant">View Demo</a>
+    <a href="https://big-kahuna-burger.netlify.app">View Demo</a>
     ·
     <a href="https://github.com/SciFiTy10/burger-restaurant/issues">Report Bug</a>
     ·
@@ -266,7 +266,7 @@ Tyler Ridings - [LinkedIn](https://www.linkedin.com/in/tyler-ridings-24804585/)
 
 Personal Portfolio - [https://www.tylerridings.dev](https://www.tylerridings.dev)
 
-Project Link (deployed project link here): [https://github.com/SciFiTy10/burger-restaurant](https://github.com/SciFiTy10/burger-restaurant)
+Project Link - [https://big-kahuna-burger.netlify.app](https://big-kahuna-burger.netlify.app)
 
 <!-- ACKNOWLEDGEMENTS -->
 
