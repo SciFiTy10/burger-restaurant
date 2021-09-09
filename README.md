@@ -55,6 +55,7 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#running-project">Running Project</a></li>
         <li><a href="#running-tests">Running Tests</a></li>
       </ul>
     </li>
@@ -196,6 +197,13 @@ Make sure you have the latest version of npm installed
    ```
 
 ---
+
+### Running Project
+
+1. Running unit and small integration tests (Jest + React Testing Library)
+   ```sh
+   npm start
+   ```
 
 ### Running Tests
 
