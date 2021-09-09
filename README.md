@@ -113,7 +113,7 @@ For larger integration tests:
 
 ### Accessibility
 
-Accessibility was ensured by leveraging [Material UI's](https://material-ui.com/) component props to use semantic elements where possible.
+Accessibility was addressed by leveraging [Material UI's](https://material-ui.com/) component props to use semantic elements where possible.
 
 Aria labelling was applied on:
 
@@ -136,18 +136,22 @@ For Accessibility Testing:
 
 ### Project Folder Structure
 
-This project is organized with collocation in mind.
+This project is organized with [collocation](https://kentcdodds.com/blog/colocation) in mind.
 
-Let's begin with the core of the React project, our Components
+Let's begin with the core of the React project, our Components.
+
+- All Material UI components are prefixed with "Mui". This is to differentiate from any custom components and is based on the class names for Mui components.
 
 - Custom Components, Unit/Integration Tests, and Container Components are generally all collocated together
-  - Ex: the Cart folder holds all components related to a cart, and a Dialog folder, which holds Cart-related Dialogs. The tests for Cart Dialogs are within the Dialog folder.
+  - Ex: the Cart folder contains all components related to a cart, and a Dialog folder, which holds Cart-related Dialogs. The tests for Cart Dialogs are within the Dialog folder.
 
 This is to reduce cognitive overhead when a new developer is onboarded to the project. It's easier to find a custom component's unit test if it's right next to the component.
 
 - All other components, such as Layout or UI components, are raised up one more level and are a sibling of the Custom components folder
 
-  - Ex: the TextField component is used in the Cart component and the Menu component, it doesn't make sense to bury them in both folders.
+  - Ex: the TextField component is used in the Cart component and the Menu component, so we don't want to duplicate it in both folders.
+
+  - The UI folder contains Material UI (Mui) components which either combine multiple Mui components, or Mui components that are used in multiple locations and rely on additional logic, such as transitions, ref forwarding, or theme styling.
 
 - All other folders, such as cypress, Context, and Theme are raised up one more level and are a sibling of the Components folder
   - Ex: the cypress folder includes larger integration tests which span our entire project, just like the Theme and Context. It makes sense to keep those at the top.
