@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import Dialog from "../../../UI/Dialog/Dialog";
-import DialogActions from "../../../UI/Dialog/DialogActions";
-import DialogContent from "../../../UI/Dialog/DialogContent";
-import Button from "../../../UI/Button/Button";
+import MuiDialogActions from "@material-ui/core/DialogActions";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+import MuiButton from "@material-ui/core/Button";
 import { AppContext } from "../../../../Context/app-context";
 
 const RemoveFromCartDialog = () => {
@@ -24,24 +24,24 @@ const RemoveFromCartDialog = () => {
   };
   return (
     <Dialog onClose={onCloseHandler} open={ctx.removeFromCartDialogIsOpen}>
-      <DialogContent>
+      <MuiDialogContent id="dialog-description">
         <p>
           Are you sure you want to remove "{ctx.itemToBeRemoved.title}" from
           your order?
         </p>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={onCloseHandler} ariaLabel="close button">
+      </MuiDialogContent>
+      <MuiDialogActions>
+        <MuiButton onClick={onCloseHandler} aria-label="close button">
           Close
-        </Button>
-        <Button
+        </MuiButton>
+        <MuiButton
           onClick={removeItemFromCartHandler}
-          ariaLabel="remove button"
+          aria-label="remove button"
           color="primary"
         >
           Remove
-        </Button>
-      </DialogActions>
+        </MuiButton>
+      </MuiDialogActions>
     </Dialog>
   );
 };

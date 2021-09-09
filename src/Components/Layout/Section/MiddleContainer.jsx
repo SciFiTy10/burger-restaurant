@@ -1,14 +1,14 @@
 import React from "react";
 import WelcomeContainer from "../../Custom/Welcome/Container/WelcomeContainer";
 import MenuContainer from "../../Custom/Menu/Container/MenuContainer";
-import GridItem from "../../Spacing/Grid/GridItem";
+import MuiGrid from "@material-ui/core/Grid";
 
 const MiddleContainer = () => {
   return (
-    <GridItem xs={12} sm={10}>
+    <MuiGrid item xs={12} sm={10}>
       <WelcomeContainer />
       <MenuContainer />
-    </GridItem>
+    </MuiGrid>
   );
 };
 

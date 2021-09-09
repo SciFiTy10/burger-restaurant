@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { useMediaQuery } from "@material-ui/core";
-import Button from "../../UI/Button/Button";
+import MuiButton from "@material-ui/core/Button";
 import Snackbar from "../../UI/Snackbar/Snackbar";
-import IconButton from "../../UI/Button/IconButton";
-import Icon from "../../UI/Icon/Icon";
+import MuiIconButton from "@material-ui/core/IconButton";
+import MuiCloseIcon from "@material-ui/icons/Close";
 import Alert from "../../UI/Alert/Alert";
 import { AppContext } from "../../../Context/app-context";
 import { makeStyles } from "@material-ui/core/styles";
@@ -43,22 +43,20 @@ const CartNotification = () => {
   //create an action for the snackbar which holds a button to show the cart and close the snackbar
   const action = (
     <>
-      <Button
+      <MuiButton
         className={classes.button}
         onClick={showCartHandler}
-        ariaLabel="show cart button"
+        aria-label="show cart button"
       >
         Show Cart
-      </Button>
-      <IconButton
+      </MuiButton>
+      <MuiIconButton
         size="small"
-        ariaLabel="close snackbar"
+        aria-label="close snackbar"
         onClick={closeSnackbarHandler}
       >
-        <Icon className={classes.button} fontSize="small">
-          close
-        </Icon>
-      </IconButton>
+        <MuiCloseIcon className={classes.button} fontSize="small" />
+      </MuiIconButton>
     </>
   );
 

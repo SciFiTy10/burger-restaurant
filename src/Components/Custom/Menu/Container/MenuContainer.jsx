@@ -1,9 +1,9 @@
 import React from "react";
 import { useMediaQuery } from "@material-ui/core";
-import Box from "../../../Spacing/Box/Box";
+import MuiBox from "@material-ui/core/Box";
 import Menu from "../Menu";
-import Card from "../../../UI/Card/Card";
-import CardContent from "../../../UI/Card/CardContent";
+import MuiCard from "@material-ui/core/Card";
+import MuiCardContent from "@material-ui/core/CardContent";
 import List from "../../../UI/List/List";
 
 const MenuContainer = () => {
@@ -12,15 +12,15 @@ const MenuContainer = () => {
   //create variables for managing the margin depending on the screensize
   const marginSides = isPhoneScreen ? 2 : {};
   return (
-    <Box mt={5} mx={marginSides} mb={2}>
-      <Card>
-        <CardContent>
+    <MuiBox mt={5} mx={marginSides} mb={2}>
+      <MuiCard>
+        <MuiCardContent>
           <List component="ul" ariaLabel="menu">
             <Menu />
           </List>
-        </CardContent>
-      </Card>
-    </Box>
+        </MuiCardContent>
+      </MuiCard>
+    </MuiBox>
   );
 };
 

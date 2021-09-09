@@ -1,8 +1,8 @@
 import React from "react";
-import Typography from "../../UI/Typography/Typography";
-import GridItem from "../../Spacing/Grid/GridItem";
+import MuiTypography from "@material-ui/core/Typography";
+import MuiGrid from "@material-ui/core/Grid";
 import ListItem from "../../UI/List/ListItem";
-import Box from "../../Spacing/Box/Box";
+import MuiBox from "@material-ui/core/Box";
 const CartTotal = (props) => {
   //get the cart total
   const total = props.cart.reduce((total, item) => {
@@ -10,14 +10,14 @@ const CartTotal = (props) => {
   }, 0.0);
   return (
     <ListItem>
-      <GridItem xs={10}>
-        <Typography variant="body1" component="span">
-          <Box fontWeight="fontWeightBold">Total</Box>
-        </Typography>
-      </GridItem>
-      <GridItem xs={2}>
-        <Typography variant="body1">${total.toFixed(2)}</Typography>
-      </GridItem>
+      <MuiGrid item xs={10}>
+        <MuiTypography variant="body1" component="span">
+          <MuiBox fontWeight="fontWeightBold">Total</MuiBox>
+        </MuiTypography>
+      </MuiGrid>
+      <MuiGrid item xs={2}>
+        <MuiTypography variant="body1">${total.toFixed(2)}</MuiTypography>
+      </MuiGrid>
     </ListItem>
   );
 };

@@ -1,8 +1,9 @@
 import React from "react";
-import Button from "../../../UI/Button/Button";
-import Icon from "../../../UI/Icon/Icon";
+import MuiButton from "@material-ui/core/Button";
+import MuiAddIcon from "@material-ui/icons/Add";
+import MuiRemoveIcon from "@material-ui/icons/Remove";
 import TextField from "../../../UI/TextField/TextField";
-import InputAdornment from "../../../UI/TextField/InputAdornment";
+import MuiInputAdornment from "@material-ui/core/InputAdornment";
 
 const ItemAmount = (props) => {
   //handler function for adding an item to the cart
@@ -73,29 +74,29 @@ const ItemAmount = (props) => {
           min: 0,
           readOnly: true,
           startAdornment: (
-            <InputAdornment position="start">
-              <Button
-                dataTestId={`remove one ${props.title} ${props.itemType} ${props.id}`}
-                ariaLabel={`remove one ${props.title}`}
+            <MuiInputAdornment position="start">
+              <MuiButton
+                data-testid={`remove one ${props.title} ${props.itemType} ${props.id}`}
+                aria-label={`remove one ${props.title}`}
                 onClick={removeItemHandler}
                 color="primary"
                 disabled={props.amount === 0}
               >
-                <Icon>remove</Icon>
-              </Button>
-            </InputAdornment>
+                <MuiRemoveIcon />
+              </MuiButton>
+            </MuiInputAdornment>
           ),
           endAdornment: (
-            <InputAdornment position="end">
-              <Button
-                dataTestId={`add one ${props.title} ${props.itemType} ${props.id}`}
-                ariaLabel={`add one ${props.title}`}
+            <MuiInputAdornment position="end">
+              <MuiButton
+                data-testid={`add one ${props.title} ${props.itemType} ${props.id}`}
+                aria-label={`add one ${props.title}`}
                 onClick={addItemHandler}
                 color="primary"
               >
-                <Icon>add</Icon>
-              </Button>
-            </InputAdornment>
+                <MuiAddIcon />
+              </MuiButton>
+            </MuiInputAdornment>
           ),
         }}
         amount={props.amount}
