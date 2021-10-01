@@ -1,20 +1,15 @@
 {
-  "dev": {
+  "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-burgerrestaurant-dev-204046-authRole",
-      "UnauthRoleArn": "arn:aws:iam::527865731845:role/amplify-burgerrestaurant-dev-204046-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::527865731845:role/amplify-burgerrestaurant-dev-204046-authRole",
+      "AuthRoleName": "amplify-amplifydf5b1817f1d04-staging-21335-authRole",
+      "UnauthRoleArn": "arn:aws:iam::527865731845:role/amplify-amplifydf5b1817f1d04-staging-21335-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::527865731845:role/amplify-amplifydf5b1817f1d04-staging-21335-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-burgerrestaurant-dev-204046-deployment",
-      "UnauthRoleName": "amplify-burgerrestaurant-dev-204046-unauthRole",
-      "StackName": "amplify-burgerrestaurant-dev-204046",
-      "StackId": "arn:aws:cloudformation:us-east-1:527865731845:stack/amplify-burgerrestaurant-dev-204046/9b16ec80-2258-11ec-ac9c-0ee0692f5a4b",
-      "AmplifyAppId": "d3tzcjxg173d1c"
-    },
-    "categories": {
-      "auth": {
-        "burgerrestaurantf9a8d6fc": {}
-      }
+      "DeploymentBucketName": "amplify-amplifydf5b1817f1d04-staging-21335-deployment",
+      "UnauthRoleName": "amplify-amplifydf5b1817f1d04-staging-21335-unauthRole",
+      "StackName": "amplify-amplifydf5b1817f1d04-staging-21335",
+      "StackId": "arn:aws:cloudformation:us-east-1:527865731845:stack/amplify-amplifydf5b1817f1d04-staging-21335/2efb5950-225d-11ec-bfc0-0af9c7a58f19",
+      "AmplifyAppId": "d2m1blqzw5jwso"
     }
   }
 }
