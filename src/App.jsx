@@ -14,12 +14,11 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppContextProvider>
-        <Authenticator>
-          <Header />
-          <MainContainer />
-          <DialogContainer />
-          <NotificationContainer />
-        </Authenticator>
+        <Header />
+        <MainContainer />
+        <DialogContainer />
+        <NotificationContainer />
+        <Authenticator />
       </AppContextProvider>
     </ThemeProvider>
   );

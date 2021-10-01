@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../Context/app-context";
+import Dialog from "../UI/Dialog/Dialog";
 import Amplify from "aws-amplify";
 import { AmplifyAuthenticator, AmplifySignIn } from "@aws-amplify/ui-react";
 
@@ -13,10 +14,14 @@ const Authenticator = (props) => {
   return (
     <>
       {ctx.signInDialogIsOpen ? (
-        <AmplifyAuthenticator>
-          <AmplifySignIn headerText="My Custom Sign In Header" slot="sign-in" />
-          {props.children}
-        </AmplifyAuthenticator>
+        <Dialog open={ctx.signInDialogIsOpen}>
+          <AmplifyAuthenticator>
+            <AmplifySignIn
+              headerText="My Custom Sign In Header"
+              slot="sign-in"
+            />
+          </AmplifyAuthenticator>
+        </Dialog>
       ) : (
         <>{props.children}</>
       )}
