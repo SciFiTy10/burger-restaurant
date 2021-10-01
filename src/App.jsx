@@ -7,16 +7,19 @@ import NotificationContainer from "./Components/Custom/Notification/Container/No
 import React from "react";
 import { CssBaseline } from "@material-ui/core";
 import AppContextProvider from "./Context/AppContextProvider";
+import Authenticator from "./Components/Auth/Authenticator";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppContextProvider>
-        <Header />
-        <MainContainer />
-        <DialogContainer />
-        <NotificationContainer />
+        <Authenticator>
+          <Header />
+          <MainContainer />
+          <DialogContainer />
+          <NotificationContainer />
+        </Authenticator>
       </AppContextProvider>
     </ThemeProvider>
   );

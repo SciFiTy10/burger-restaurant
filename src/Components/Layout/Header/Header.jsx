@@ -5,9 +5,11 @@ import MuiToolbar from "@material-ui/core/Toolbar";
 import MuiTypography from "@material-ui/core/Typography";
 import MuiIconButton from "@material-ui/core/IconButton";
 import MuiBadge from "@material-ui/core/Badge";
+import MuiButton from "@material-ui/core/Button";
 import { AppContext } from "../../../Context/app-context";
 import MuiLunchDiningIcon from "@material-ui/core/Icon";
 import MuiShoppingCartIcon from "@material-ui/core/Icon";
+import MuiAccountCircle from "@material-ui/core/Icon";
 
 //set up the styles for the app bar
 const useStyles = makeStyles((theme) => ({
@@ -42,6 +44,12 @@ const Header = () => {
     ctx.cartDialogHandler(true);
   };
 
+  //handler function for managing the opening and closing of the signin/sign up dialog
+  const signInDialogHandler = () => {
+    //open the signIn dialog
+    ctx.signInDialogHandler(true);
+  };
+
   return (
     <>
       <MuiAppBar position="fixed" className={classes.backgroundColor}>
@@ -50,6 +58,23 @@ const Header = () => {
           <MuiTypography variant="h6" className={classes.title}>
             {ctx.titleText}
           </MuiTypography>
+          {!ctx.isSignedIn ? (
+            <MuiButton
+              onClick={signInDialogHandler}
+              color="inherit"
+              aria-label="sign in button"
+            >
+              Sign In
+            </MuiButton>
+          ) : (
+            <MuiIconButton
+              color="inherit"
+              onClick={cartOpenHandler}
+              aria-label="profile page button"
+            >
+              <MuiAccountCircle>account_circle</MuiAccountCircle>
+            </MuiIconButton>
+          )}
           <MuiIconButton
             color="inherit"
             onClick={cartOpenHandler}

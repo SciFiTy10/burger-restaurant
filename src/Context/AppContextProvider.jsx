@@ -50,6 +50,10 @@ const AppContextProvider = (props) => {
   const [itemToBeRemoved, setItemToBeRemoved] = useState({});
   //create state for managing the snackbar
   const [snackbar, setSnackbar] = useState({});
+  //create state for tracking whether the user is signed in
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  //create state for tracking whether the user is signed in
+  const [signInDialogIsOpen, setSignInDialogIsOpen] = useState(false);
 
   //use effect hook for setting up the default cart state based on localStorage
   useEffect(() => {
@@ -126,6 +130,14 @@ const AppContextProvider = (props) => {
     //update the snackbar state
     setSnackbar(snackbar);
   };
+  //handler function for controlling whether the user is signed in
+  const signInHandler = (isSignedIn) => {
+    setIsSignedIn(isSignedIn);
+  };
+  //handler function for controlling whether the signInDialog is open
+  const signInDialogHandler = (isOpen) => {
+    setSignInDialogIsOpen(isOpen);
+  };
   return (
     <AppContext.Provider
       value={{
@@ -144,6 +156,10 @@ const AppContextProvider = (props) => {
         itemToBeRemoved,
         snackbar,
         snackbarHandler,
+        isSignedIn,
+        signInHandler,
+        signInDialogIsOpen,
+        signInDialogHandler,
       }}
     >
       {props.children}
