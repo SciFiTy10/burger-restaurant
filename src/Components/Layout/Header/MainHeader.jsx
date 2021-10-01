@@ -10,6 +10,7 @@ import { AppContext } from "../../../Context/app-context";
 import MuiLunchDiningIcon from "@material-ui/core/Icon";
 import MuiShoppingCartIcon from "@material-ui/core/Icon";
 import MuiAccountCircle from "@material-ui/core/Icon";
+import { useHistory } from "react-router-dom";
 
 //set up the styles for the app bar
 const useStyles = makeStyles((theme) => ({
@@ -25,9 +26,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
+const MainHeader = () => {
   //grab the styles object
   const classes = useStyles();
+  //set up the useHistory hook
+  const history = useHistory();
   //grab the context object
   const ctx = useContext(AppContext);
 
@@ -46,8 +49,8 @@ const Header = () => {
 
   //handler function for managing the opening and closing of the signin/sign up dialog
   const signInDialogHandler = () => {
-    //open the signIn dialog
-    ctx.signInDialogHandler(true);
+    //go to the sign in page
+    history.push("/signin");
   };
 
   return (
@@ -91,4 +94,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default MainHeader;

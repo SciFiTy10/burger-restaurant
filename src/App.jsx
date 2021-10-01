@@ -1,24 +1,28 @@
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./Theme/theme";
-import Header from "./Components/Layout/Header/Header";
-import MainContainer from "./Components/Layout/MainContainer";
-import DialogContainer from "./Components/Custom/Cart/Dialog/Container/DialogContainer";
-import NotificationContainer from "./Components/Custom/Notification/Container/NotificationContainer";
 import React from "react";
 import { CssBaseline } from "@material-ui/core";
 import AppContextProvider from "./Context/AppContextProvider";
-import Authenticator from "./Components/Auth/Authenticator";
+import HomePage from "./Pages/HomePage";
+import SignInPage from "./Pages/SignInPage";
+
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <AppContextProvider>
-        <Header />
-        <MainContainer />
-        <DialogContainer />
-        <NotificationContainer />
-        <Authenticator />
+        <Router>
+          <Switch>
+            <Route path="/">
+              <HomePage />
+            </Route>
+            <Route path="/signin">
+              <SignInPage />
+            </Route>
+          </Switch>
+        </Router>
       </AppContextProvider>
     </ThemeProvider>
   );
