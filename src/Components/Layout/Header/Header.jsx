@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import MuiAppBar from "@material-ui/core/AppBar";
 import MuiToolbar from "@material-ui/core/Toolbar";
@@ -10,7 +10,7 @@ import { AppContext } from "../../../Context/app-context";
 import MuiLunchDiningIcon from "@material-ui/core/Icon";
 import MuiShoppingCartIcon from "@material-ui/core/Icon";
 import MuiAccountCircle from "@material-ui/core/Icon";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 //set up the styles for the app bar
 const useStyles = makeStyles((theme) => ({
@@ -26,13 +26,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MainHeader = () => {
+const Header = () => {
   //grab the styles object
   const classes = useStyles();
-  //set up the useHistory hook
-  const history = useHistory();
   //grab the context object
   const ctx = useContext(AppContext);
+  //track which page the user is on
+  const [page, setPage] = useState("");
+  //grab the history object
+  const history = useHistory();
+  //grab the location object
+  const location = useLocation();
+  //listen for the page and adjust the state when that occurs
+  useEffect(() => {
+    //update the page
+    setPage(location.pathname);
+  }, [location.pathname]);
 
   //get the total amount of items in the cart
   const itemsInCart = ctx.cart.reduce((total, item) => {
@@ -47,11 +56,34 @@ const MainHeader = () => {
     ctx.cartDialogHandler(true);
   };
 
-  //handler function for managing the opening and closing of the signin/sign up dialog
-  const signInDialogHandler = () => {
+  //handler function for managing which page to navigate to
+  const toSignInPageHandler = () => {
     //go to the sign in page
     history.push("/signin");
   };
+  const backToHomePageHandler = () => {
+    //go to the sign in page
+    history.push("/");
+  };
+
+  //determine which auth button to render
+  let authButton = !ctx.isSignedIn ? (
+    <MuiButton
+      onClick={toSignInPageHandler}
+      color="inherit"
+      aria-label="sign in button"
+    >
+      Sign In
+    </MuiButton>
+  ) : (
+    <MuiIconButton
+      color="inherit"
+      onClick={cartOpenHandler}
+      aria-label="profile page button"
+    >
+      <MuiAccountCircle>account_circle</MuiAccountCircle>
+    </MuiIconButton>
+  );
 
   return (
     <>
@@ -61,32 +93,28 @@ const MainHeader = () => {
           <MuiTypography variant="h6" className={classes.title}>
             {ctx.titleText}
           </MuiTypography>
-          {!ctx.isSignedIn ? (
-            <MuiButton
-              onClick={signInDialogHandler}
-              color="inherit"
-              aria-label="sign in button"
-            >
-              Sign In
-            </MuiButton>
+          {page === "/" ? (
+            <>
+              <>{authButton}</>
+              <MuiIconButton
+                color="inherit"
+                onClick={cartOpenHandler}
+                aria-label="shopping cart button"
+              >
+                <MuiBadge badgeContent={itemsInCart} color="secondary">
+                  <MuiShoppingCartIcon>shopping_cart</MuiShoppingCartIcon>
+                </MuiBadge>
+              </MuiIconButton>
+            </>
           ) : (
-            <MuiIconButton
+            <MuiButton
+              onClick={backToHomePageHandler}
               color="inherit"
-              onClick={cartOpenHandler}
-              aria-label="profile page button"
+              aria-label="back to home page button"
             >
-              <MuiAccountCircle>account_circle</MuiAccountCircle>
-            </MuiIconButton>
+              Back To Home Page
+            </MuiButton>
           )}
-          <MuiIconButton
-            color="inherit"
-            onClick={cartOpenHandler}
-            aria-label="shopping cart button"
-          >
-            <MuiBadge badgeContent={itemsInCart} color="secondary">
-              <MuiShoppingCartIcon>shopping_cart</MuiShoppingCartIcon>
-            </MuiBadge>
-          </MuiIconButton>
         </MuiToolbar>
       </MuiAppBar>
       <MuiToolbar />
@@ -94,4 +122,4 @@ const MainHeader = () => {
   );
 };
 
-export default MainHeader;
+export default Header;

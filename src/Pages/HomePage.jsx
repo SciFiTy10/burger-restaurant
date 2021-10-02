@@ -1,5 +1,5 @@
 import React from "react";
-import MainHeader from "../Components/Layout/Header/MainHeader";
+import Header from "../Components/Layout/Header/Header";
 import MainContainer from "../Components/Layout/MainContainer";
 import DialogContainer from "../Components/Custom/Cart/Dialog/Container/DialogContainer";
 import NotificationContainer from "../Components/Custom/Notification/Container/NotificationContainer";
@@ -7,7 +7,7 @@ import NotificationContainer from "../Components/Custom/Notification/Container/N
 const Home = () => {
   return (
     <>
-      <MainHeader />
+      <Header />
       <MainContainer />
       <DialogContainer />
       <NotificationContainer />

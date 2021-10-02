@@ -1,11 +1,11 @@
 import React from "react";
-import SignInHeader from "../Components/Layout/Header/SignInHeader";
+import Header from "../Components/Layout/Header/Header";
 import Authenticator from "../Components/Auth/Authenticator";
 
 const SignInPage = () => {
   return (
     <>
-      <SignInHeader />
+      <Header />
       <Authenticator />
     </>
   );

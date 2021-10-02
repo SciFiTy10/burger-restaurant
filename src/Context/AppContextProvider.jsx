@@ -52,8 +52,6 @@ const AppContextProvider = (props) => {
   const [snackbar, setSnackbar] = useState({});
   //create state for tracking whether the user is signed in
   const [isSignedIn, setIsSignedIn] = useState(false);
-  //create state for tracking whether the user is signed in
-  const [signInDialogIsOpen, setSignInDialogIsOpen] = useState(false);
 
   //use effect hook for setting up the default cart state based on localStorage
   useEffect(() => {
@@ -134,10 +132,7 @@ const AppContextProvider = (props) => {
   const signInHandler = (isSignedIn) => {
     setIsSignedIn(isSignedIn);
   };
-  //handler function for controlling whether the signInDialog is open
-  const signInDialogHandler = (isOpen) => {
-    setSignInDialogIsOpen(isOpen);
-  };
+
   return (
     <AppContext.Provider
       value={{
@@ -158,8 +153,6 @@ const AppContextProvider = (props) => {
         snackbarHandler,
         isSignedIn,
         signInHandler,
-        signInDialogIsOpen,
-        signInDialogHandler,
       }}
     >
       {props.children}

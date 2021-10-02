@@ -15,11 +15,11 @@ const App = () => {
       <AppContextProvider>
         <Router>
           <Switch>
-            <Route path="/">
-              <HomePage />
-            </Route>
             <Route path="/signin">
               <SignInPage />
+            </Route>
+            <Route path="/">
+              <HomePage />
             </Route>
           </Switch>
         </Router>
