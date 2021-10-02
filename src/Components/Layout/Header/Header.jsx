@@ -37,6 +37,7 @@ const Header = () => {
   const history = useHistory();
   //grab the location object
   const location = useLocation();
+
   //listen for the page and adjust the state when that occurs
   useEffect(() => {
     //update the page
@@ -61,7 +62,7 @@ const Header = () => {
     //go to the sign in page
     history.push("/signin");
   };
-  const backToHomePageHandler = () => {
+  const toHomePageHandler = () => {
     //go to the sign in page
     history.push("/");
   };
@@ -89,7 +90,10 @@ const Header = () => {
     <>
       <MuiAppBar position="fixed" className={classes.backgroundColor}>
         <MuiToolbar>
-          <MuiLunchDiningIcon>lunch_dining</MuiLunchDiningIcon>
+          <MuiIconButton color="inherit" onClick={toHomePageHandler}>
+            <MuiLunchDiningIcon>lunch_dining</MuiLunchDiningIcon>
+          </MuiIconButton>
+
           <MuiTypography variant="h6" className={classes.title}>
             {ctx.titleText}
           </MuiTypography>
@@ -108,7 +112,7 @@ const Header = () => {
             </>
           ) : (
             <MuiButton
-              onClick={backToHomePageHandler}
+              onClick={toHomePageHandler}
               color="inherit"
               aria-label="back to home page button"
             >
