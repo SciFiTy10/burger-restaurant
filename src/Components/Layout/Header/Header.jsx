@@ -32,7 +32,7 @@ const Header = () => {
   //grab the context object
   const ctx = useContext(AppContext);
   //track which page the user is on
-  const [page, setPage] = useState("");
+  const [page, setPage] = useState("/");
   //grab the history object
   const history = useHistory();
   //grab the location object
