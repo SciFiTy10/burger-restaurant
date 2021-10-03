@@ -18,7 +18,7 @@ const Name = (props) => {
         placeholder={props.placeholder}
         onChange={props.onChange}
         onBlur={props.onBlur}
-        componentType="auth"
+        componenttype="auth"
         error={props.error}
         helperText={props.helperText}
       />

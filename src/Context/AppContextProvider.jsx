@@ -1,6 +1,7 @@
 import React, { useState, useReducer, useEffect } from "react";
 import { cartReducer } from "../Reducers/cartReducer/cartReducer";
 import { AppContext } from "./app-context";
+import { Auth } from "aws-amplify";
 
 const AppContextProvider = (props) => {
   //create state for the title
@@ -56,9 +57,8 @@ const AppContextProvider = (props) => {
   const [signInDialogIsOpen, setSignInDialogIsOpen] = useState(false);
   //create state for showing the signUpDialog
   const [signUpDialogIsOpen, setSignUpDialogIsOpen] = useState(false);
-  //create state for showing the reset password dialog
-  const [resetPasswordDialogIsOpen, setResetPasswordDialogIsOpen] =
-    useState(false);
+  //create state for managing the logged in user
+  const [user, setUser] = useState({});
 
   //use effect hook for setting up the default cart state based on localStorage
   useEffect(() => {
@@ -79,6 +79,17 @@ const AppContextProvider = (props) => {
     //the cart state has updated, so localStorage will now be updated
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
+
+  //use effect hook for managing the current user
+  useEffect(() => {
+    //make a call to get the current user
+    Auth.currentAuthenticatedUser()
+      .then((user) => {
+        setUser(user);
+        console.log(user);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   //handler function for adding an item to the cart
   const cartAddHandler = (item) => {
@@ -147,9 +158,10 @@ const AppContextProvider = (props) => {
   const signUpDialogHandler = (isOpen) => {
     setSignUpDialogIsOpen(isOpen);
   };
-  //handler function for controlling whether the signUpDialog is open
-  const resetPasswordDialogHandler = (isOpen) => {
-    setResetPasswordDialogIsOpen(isOpen);
+
+  //handler function for updating the user
+  const userHandler = (user) => {
+    setUser(user);
   };
 
   return (
@@ -176,8 +188,8 @@ const AppContextProvider = (props) => {
         signInDialogHandler,
         signUpDialogIsOpen,
         signUpDialogHandler,
-        resetPasswordDialogIsOpen,
-        resetPasswordDialogHandler,
+        user,
+        userHandler,
       }}
     >
       {props.children}

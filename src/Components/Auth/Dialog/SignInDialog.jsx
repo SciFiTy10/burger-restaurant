@@ -29,7 +29,28 @@ const SignInDialog = () => {
   async function signIn() {
     try {
       const user = await Auth.signIn(email, password);
+      //update the current user state
+      ctx.setUser(user);
+      //create the snackbar object
+      const snackbar = {
+        type: "sign in",
+        message: `Welcome!`,
+        open: true,
+      };
+      //display the snackbar
+      ctx.snackbarHandler(snackbar);
+      //close the cart dialog
+      ctx.signInDialogHandler(false);
     } catch (error) {
+      //create the snackbar error object
+      const snackbar = {
+        type: "sign in",
+        message:
+          "Error: something went wrong. Please check your input fields and try again.",
+        open: true,
+      };
+      //display the snackbar
+      ctx.snackbarHandler(snackbar);
       console.log("error signing in", error);
     }
   }

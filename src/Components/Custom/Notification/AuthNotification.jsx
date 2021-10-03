@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignUpNotification = () => {
+const AuthNotification = () => {
   //get the styles object
   const classes = useStyles();
   //get the context object
@@ -66,4 +66,4 @@ const SignUpNotification = () => {
   );
 };
 
-export default SignUpNotification;
+export default AuthNotification;

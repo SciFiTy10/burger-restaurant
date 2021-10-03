@@ -28,7 +28,7 @@ const TextField = (props) => {
       type={props.type}
       data-testid={props.dataTestId}
       label={props.label}
-      className={props.componentType === "auth" ? classes.auth : classes.amount}
+      className={props.componenttype === "auth" ? classes.auth : classes.amount}
       InputProps={props.inputProps}
       value={props.amount}
       size="small"
@@ -37,8 +37,8 @@ const TextField = (props) => {
       variant={props.variant}
       color={props.color}
       placeholder={props.placeholder}
-      componentType={props.componentType}
-      fullWidth={props.componentType === "auth" ? true : false}
+      componenttype={props.componenttype}
+      fullWidth={props.componenttype === "auth" ? true : false}
       error={props.error}
       helperText={props.helperText}
     />
