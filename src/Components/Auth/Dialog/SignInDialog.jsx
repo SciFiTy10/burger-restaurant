@@ -12,13 +12,14 @@ import MuiBox from "@material-ui/core/Box";
 import MuiGrid from "@material-ui/core/Grid";
 import Email from "../UI/Email";
 import Password from "../UI/Password";
-import { Typography } from "@material-ui/core";
 
 const SignInDialog = () => {
   //grab the context object
   const ctx = useContext(AppContext);
   //create state for managing the sign in fields
   const [email, setEmail] = useState("");
+  const [emailHasError, setEmailHasError] = useState(false);
+  const [emailErrorText, setEmailErrorText] = useState("");
   const [password, setPassword] = useState("");
 
   async function signIn() {
@@ -63,6 +64,37 @@ const SignInDialog = () => {
     ctx.signUpDialogHandler(true);
   };
 
+  //function for validating email string
+  const validateEmail = (event) => {
+    //get the email string
+    const email = event.target.value.toLowerCase();
+    //if the email string is empty
+    if (email.length === 0) {
+      //set the error value to true
+      setEmailHasError(true);
+      //set the error text
+      setEmailErrorText("Email is required.");
+    }
+    //if there is an email string, but it's not in the correct format
+    else if (
+      email.length > 0 &&
+      new RegExp(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}/g).test(email) ===
+        false
+    ) {
+      //set the error value to true
+      setEmailHasError(true);
+      //set the error text
+      setEmailErrorText("Email must be in valid format (ex: user@test.com)");
+    }
+    //email is in the correct format
+    else {
+      //set the error value to false
+      setEmailHasError(false);
+      //reset the error text
+      setEmailErrorText("");
+    }
+  };
+
   return (
     <Dialog onClose={onCloseHandler} open={ctx.signInDialogIsOpen}>
       <MuiDialogTitle>Sign into your account</MuiDialogTitle>
@@ -77,7 +109,10 @@ const SignInDialog = () => {
               dataTestId="sign in email"
               value={email}
               onChange={emailHandler}
+              onBlur={validateEmail}
               placeholder="Enter your email"
+              error={emailHasError}
+              helperText={emailErrorText}
             />
           </MuiGrid>
         </MuiBox>
@@ -97,9 +132,10 @@ const SignInDialog = () => {
         </MuiBox>
         <MuiBox mb={2}>
           <MuiGrid item xs={12}>
-            <MuiTypography>
+            <MuiTypography variant="body2">
               Forgot your password?{" "}
               <MuiLink
+                variant="body2"
                 component="button"
                 underline="none"
                 onClick={onResetPasswordHandler}
@@ -110,17 +146,24 @@ const SignInDialog = () => {
             </MuiTypography>
           </MuiGrid>
         </MuiBox>
+        <MuiBox mt={6}>
+          <MuiGrid item xs={12}>
+            <MuiTypography variant="body2">
+              No account?{" "}
+              <MuiLink
+                variant="body2"
+                component="button"
+                underline="none"
+                onClick={onCreateAccountHandler}
+                color="primary"
+              >
+                Create account
+              </MuiLink>
+            </MuiTypography>
+          </MuiGrid>
+        </MuiBox>
       </MuiDialogContent>
       <MuiDialogActions>
-        <MuiTypography>No account?</MuiTypography>
-        <MuiLink
-          component="button"
-          underline="none"
-          onClick={onCreateAccountHandler}
-          color="primary"
-        >
-          Create account
-        </MuiLink>
         <MuiButton onClick={onCloseHandler} aria-label="close button">
           Close
         </MuiButton>
@@ -128,6 +171,7 @@ const SignInDialog = () => {
           aria-label="sign in button"
           color="primary"
           onClick={onSignInHandler}
+          disabled={emailHasError}
         >
           Sign In
         </MuiButton>

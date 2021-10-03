@@ -16,6 +16,7 @@ const Name = (props) => {
         color="primary"
         placeholder={props.placeholder}
         onChange={props.onChange}
+        type="auth"
       />
     </label>
   );
