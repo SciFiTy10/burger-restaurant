@@ -57,20 +57,16 @@ const Header = () => {
     ctx.cartDialogHandler(true);
   };
 
-  //handler function for managing which page to navigate to
-  const toSignInPageHandler = () => {
-    //go to the sign in page
-    history.push("/signin");
-  };
-  const toHomePageHandler = () => {
-    //go to the sign in page
-    history.push("/");
+  //handler function for showing the signin dialog
+  const signInDialogOpenHandler = () => {
+    //show the signInDialog
+    signInDialogHandler(true);
   };
 
   //determine which auth button to render
   let authButton = !ctx.isSignedIn ? (
     <MuiButton
-      onClick={toSignInPageHandler}
+      onClick={signInDialogOpenHandler}
       color="inherit"
       aria-label="sign in button"
     >
