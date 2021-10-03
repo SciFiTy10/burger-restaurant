@@ -4,7 +4,7 @@ import MainContainer from "../Components/Layout/MainContainer";
 import DialogContainer from "../Components/Custom/Cart/Dialog/Container/DialogContainer";
 import NotificationContainer from "../Components/Custom/Notification/Container/NotificationContainer";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <Header />
@@ -15,4 +15,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
