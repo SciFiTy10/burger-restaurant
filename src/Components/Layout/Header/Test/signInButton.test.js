@@ -4,7 +4,7 @@ import AppContextProvider from "../../../../Context/AppContextProvider";
 import Header from "../Header";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
-import SignInPage from "../../../../Pages/SignInPage";
+import Authenticator from "../../../Auth/Authenticator";
 
 //mock the useLocation hook
 jest.mock("react-router-dom", () => ({
@@ -13,6 +13,10 @@ jest.mock("react-router-dom", () => ({
     //set the pathname to the home page
     pathname: "/",
   }),
+  useHistory: () => ({
+    //mock the history value
+    push: jest.fn(),
+  }),
 }));
 
 describe("sign in button", () => {
@@ -20,7 +24,7 @@ describe("sign in button", () => {
     const { getByLabelText } = render(
       <AppContextProvider>
         <Header />
-        <SignInPage />
+        <Authenticator />
       </AppContextProvider>
     );
 
