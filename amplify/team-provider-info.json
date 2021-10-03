@@ -10,6 +10,11 @@
       "StackName": "amplify-amplifydf5b1817f1d04-staging-21335",
       "StackId": "arn:aws:cloudformation:us-east-1:527865731845:stack/amplify-amplifydf5b1817f1d04-staging-21335/2efb5950-225d-11ec-bfc0-0af9c7a58f19",
       "AmplifyAppId": "d2m1blqzw5jwso"
+    },
+    "categories": {
+      "auth": {
+        "burgerrestaurant": {}
+      }
     }
   }
 }

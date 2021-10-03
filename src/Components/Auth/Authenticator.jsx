@@ -1,37 +1,29 @@
 import React from "react";
-import Amplify from "aws-amplify";
-import {
-  AmplifyAuthenticator,
-  AmplifySignIn,
-  AmplifySignUp,
-  AmplifyForgotPassword,
-} from "@aws-amplify/ui-react";
+import { Auth, Amplify } from "aws-amplify";
+import MuiButton from "@material-ui/core/Button";
 
 import awsconfig from "../../aws-exports";
 
 Amplify.configure(awsconfig);
 
+const username = "tyridings10@gmail.com";
+const password = "Cheeks123!";
+
+async function signUp() {
+  try {
+    const { user } = await Auth.signUp({
+      username,
+      password,
+    });
+    console.log(user);
+  } catch (error) {
+    console.log("error signing up:", error);
+  }
+}
+
 const Authenticator = () => {
   //grab the context object
-  return (
-    <AmplifyAuthenticator>
-      <AmplifySignIn
-        headerText="Sign In"
-        formFields={[{ type: "email" }, { type: "password" }]}
-        slot="sign-in"
-      />
-      <AmplifySignUp
-        headerText="Create an account"
-        formFields={[{ type: "email" }, { type: "password" }]}
-        slot="sign-up"
-      />
-      <AmplifyForgotPassword
-        headerText="Reset Password"
-        slot="forgot-password"
-        formFields={[{ type: "email" }]}
-      ></AmplifyForgotPassword>
-    </AmplifyAuthenticator>
-  );
+  return <MuiButton onClick={signUp}>Submit</MuiButton>;
 };
 
 export default Authenticator;
