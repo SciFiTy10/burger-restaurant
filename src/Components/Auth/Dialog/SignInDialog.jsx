@@ -31,6 +31,8 @@ const SignInDialog = () => {
       const user = await Auth.signIn(email, password);
       //update the current user state
       ctx.userHandler(user);
+      //mark the user as signed in
+      ctx.signInHandler(true);
       //create the snackbar object
       const snackbar = {
         type: "sign in",
