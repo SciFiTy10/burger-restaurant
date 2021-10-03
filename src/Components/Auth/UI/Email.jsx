@@ -5,6 +5,7 @@ const Email = (props) => {
   return (
     <label htmlFor={`enter your email`}>
       <TextField
+        type={props.type}
         dataTestId={props.dataTestId}
         id={props.id}
         inputProps={{
@@ -15,7 +16,7 @@ const Email = (props) => {
         placeholder={props.placeholder}
         onChange={props.onChange}
         onBlur={props.onBlur}
-        type="auth"
+        componentType="auth"
         error={props.error}
         helperText={props.helperText}
       />

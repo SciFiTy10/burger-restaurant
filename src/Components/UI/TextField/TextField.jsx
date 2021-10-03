@@ -25,9 +25,10 @@ const TextField = (props) => {
 
   return (
     <MuiTextField
+      type={props.type}
       data-testid={props.dataTestId}
       label={props.label}
-      className={props.type === "auth" ? classes.auth : classes.amount}
+      className={props.componentType === "auth" ? classes.auth : classes.amount}
       InputProps={props.inputProps}
       value={props.amount}
       size="small"
@@ -36,8 +37,8 @@ const TextField = (props) => {
       variant={props.variant}
       color={props.color}
       placeholder={props.placeholder}
-      type={props.type}
-      fullWidth={props.type === "auth" ? true : false}
+      componentType={props.componentType}
+      fullWidth={props.componentType === "auth" ? true : false}
       error={props.error}
       helperText={props.helperText}
     />

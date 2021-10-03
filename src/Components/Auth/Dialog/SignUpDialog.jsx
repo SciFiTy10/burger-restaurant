@@ -28,10 +28,13 @@ const SignUpDialog = () => {
   const [password, setPassword] = useState("");
   const [passwordHasError, setPasswordHasError] = useState(false);
   const [passwordErrorText, setPasswordErrorText] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   //create state for managing confirm password
   const [confirmPassword, setConfirmPassword] = useState("");
   const [confirmPasswordHasError, setConfirmPasswordHasError] = useState(false);
   const [confirmPasswordErrorText, setConfirmPasswordErrorText] = useState("");
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   async function signUp() {
     try {
@@ -94,6 +97,16 @@ const SignUpDialog = () => {
   const onSignUpHandler = () => {
     //call the signUp method
     signUp();
+  };
+
+  //handler function for showing the password
+  const showPasswordHandler = () => {
+    setShowPassword(!showPassword);
+  };
+
+  //handler function for showing the password
+  const showConfirmPasswordHandler = () => {
+    setShowConfirmPassword(!showConfirmPassword);
   };
 
   //function for validating the name string
@@ -211,7 +224,14 @@ const SignUpDialog = () => {
   };
 
   return (
-    <Dialog onClose={onCloseHandler} open={ctx.signUpDialogIsOpen}>
+    <Dialog
+      onClose={(event, reason) => {
+        if (reason !== "backdropClick") {
+          onCloseHandler();
+        }
+      }}
+      open={ctx.signUpDialogIsOpen}
+    >
       <MuiDialogTitle>Create a new account</MuiDialogTitle>
       <MuiDialogContent id="dialog-description">
         <MuiBox mb={2}>
@@ -258,9 +278,12 @@ const SignUpDialog = () => {
               value={password}
               onChange={passwordHandler}
               onBlur={validatePassword}
+              onClick={showPasswordHandler}
               placeholder="Enter your password"
               error={passwordHasError}
               helperText={passwordErrorText}
+              showPassword={showPassword}
+              type={showPassword ? "text" : "password"}
             />
           </MuiGrid>
         </MuiBox>
@@ -269,15 +292,18 @@ const SignUpDialog = () => {
             <MuiTypography>Confirm Password *</MuiTypography>
           </MuiGrid>
           <MuiGrid item xs={12}>
-            <Email
+            <Password
               id="sign up confirm password"
               dataTestId="sign up confirm password"
               value={confirmPassword}
               onChange={confirmPasswordHandler}
               onBlur={validateConfirmPassword}
+              onClick={showConfirmPasswordHandler}
               placeholder="Re-enter your password"
               error={confirmPasswordHasError}
               helperText={confirmPasswordErrorText}
+              showPassword={showConfirmPassword}
+              type={showConfirmPassword ? "text" : "password"}
             />
           </MuiGrid>
         </MuiBox>

@@ -24,6 +24,7 @@ const SignInDialog = () => {
   const [password, setPassword] = useState("");
   const [passwordHasError, setPasswordHasError] = useState(false);
   const [passwordErrorText, setPasswordErrorText] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   async function signIn() {
     try {
@@ -51,20 +52,17 @@ const SignInDialog = () => {
     signIn();
   };
 
-  //handler function for navigating to the reset password dialog
-  const onResetPasswordHandler = () => {
-    //close the sign in dialog
-    ctx.signInDialogHandler(false);
-    //open the reset password dialog
-    ctx.resetPasswordDialogHandler(true);
-  };
-
   //handler function for navigating to the create account dialog
   const onCreateAccountHandler = () => {
     //close the sign in dialog
     ctx.signInDialogHandler(false);
     //open the create account dialog
     ctx.signUpDialogHandler(true);
+  };
+
+  //handler function for showing the password
+  const showPasswordHandler = () => {
+    setShowPassword(!showPassword);
   };
 
   //function for validating email string
@@ -133,7 +131,15 @@ const SignInDialog = () => {
   };
 
   return (
-    <Dialog onClose={onCloseHandler} open={ctx.signInDialogIsOpen}>
+    <Dialog
+      onClose={(event, reason) => {
+        if (reason !== "backdropClick") {
+          onCloseHandler();
+        }
+      }}
+      open={ctx.signInDialogIsOpen}
+      disableBackdropClick={true}
+    >
       <MuiDialogTitle>Sign into your account</MuiDialogTitle>
       <MuiDialogContent id="dialog-description">
         <MuiBox mb={2}>
@@ -164,9 +170,12 @@ const SignInDialog = () => {
               value={password}
               onChange={passwordHandler}
               onBlur={validatePassword}
+              onClick={showPasswordHandler}
               placeholder="Enter your password"
               error={passwordHasError}
               helperText={passwordErrorText}
+              showPassword={showPassword}
+              type={showPassword ? "text" : "password"}
             />
           </MuiGrid>
         </MuiBox>
