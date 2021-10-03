@@ -8,6 +8,7 @@ import MuiButton from "@material-ui/core/Button";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
 import MuiDialogActions from "@material-ui/core/DialogActions";
+import MuiLink from "@material-ui/core/Link";
 import Name from "../UI/Name";
 import Email from "../UI/Email";
 import Password from "../UI/Password";
@@ -97,6 +98,14 @@ const SignUpDialog = () => {
   const onSignUpHandler = () => {
     //call the signUp method
     signUp();
+  };
+
+  //handler function for navigating to the create account dialog
+  const onBackToSignInDialogHandler = () => {
+    //open the create account dialog
+    ctx.signUpDialogHandler(false);
+    //close the sign in dialog
+    ctx.signInDialogHandler(true);
   };
 
   //handler function for showing the password
@@ -231,6 +240,8 @@ const SignUpDialog = () => {
         }
       }}
       open={ctx.signUpDialogIsOpen}
+      fullWidth
+      maxWidth="sm"
     >
       <MuiDialogTitle>Create a new account</MuiDialogTitle>
       <MuiDialogContent id="dialog-description">
@@ -307,6 +318,22 @@ const SignUpDialog = () => {
             />
           </MuiGrid>
         </MuiBox>
+        <MuiBox mt={6}>
+          <MuiGrid item xs={12}>
+            <MuiTypography variant="body2">
+              Have an account?{" "}
+              <MuiLink
+                variant="body2"
+                component="button"
+                underline="none"
+                onClick={onBackToSignInDialogHandler}
+                color="primary"
+              >
+                Sign In
+              </MuiLink>
+            </MuiTypography>
+          </MuiGrid>
+        </MuiBox>
       </MuiDialogContent>
       <MuiDialogActions>
         <MuiButton onClick={onCloseHandler} aria-label="close button">
@@ -317,9 +344,13 @@ const SignUpDialog = () => {
           color="primary"
           onClick={onSignUpHandler}
           disabled={
+            name.length === 0 ||
             nameHasError ||
+            email.length === 0 ||
             emailHasError ||
+            password.length === 0 ||
             passwordHasError ||
+            confirmPassword.length === 0 ||
             confirmPasswordHasError
           }
         >

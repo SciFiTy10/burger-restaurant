@@ -138,7 +138,8 @@ const SignInDialog = () => {
         }
       }}
       open={ctx.signInDialogIsOpen}
-      disableBackdropClick={true}
+      fullWidth
+      maxWidth="sm"
     >
       <MuiDialogTitle>Sign into your account</MuiDialogTitle>
       <MuiDialogContent id="dialog-description">
@@ -204,7 +205,12 @@ const SignInDialog = () => {
           aria-label="sign in button"
           color="primary"
           onClick={onSignInHandler}
-          disabled={emailHasError || passwordHasError}
+          disabled={
+            email.length === 0 ||
+            emailHasError ||
+            password.length === 0 ||
+            passwordHasError
+          }
         >
           Sign In
         </MuiButton>
