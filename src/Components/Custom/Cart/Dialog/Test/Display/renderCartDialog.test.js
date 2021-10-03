@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import AppContextProvider from "../../../../../../Context/AppContextProvider";
-import DialogContainer from "../../Container/DialogContainer";
+import CartDialogContainer from "../../Container/CartDialogContainer";
 import Header from "../../../../../Layout/Header/Header";
 import Menu from "../../../../Menu/Menu";
 import "@testing-library/jest-dom";
@@ -21,7 +21,7 @@ describe("cart", () => {
     const { getByLabelText } = render(
       <AppContextProvider>
         <Header />
-        <DialogContainer />
+        <CartDialogContainer />
       </AppContextProvider>
     );
 
@@ -36,7 +36,7 @@ describe("cart", () => {
       <AppContextProvider>
         <Header />
         <Menu />
-        <DialogContainer />
+        <CartDialogContainer />
       </AppContextProvider>
     );
 
