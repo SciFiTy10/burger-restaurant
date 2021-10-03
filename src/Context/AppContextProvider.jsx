@@ -85,10 +85,17 @@ const AppContextProvider = (props) => {
     //make a call to get the current user
     Auth.currentAuthenticatedUser()
       .then((user) => {
+        //if the user is logged in
         setUser(user);
-        console.log(user);
+        //set the user to logged in
+        setIsSignedIn(true);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        //if the user is not logged in
+        setUser({});
+        //set the user to not logged in
+        setIsSignedIn(false);
+      });
   }, []);
 
   //handler function for adding an item to the cart
