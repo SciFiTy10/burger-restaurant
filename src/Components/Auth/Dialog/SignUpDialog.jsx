@@ -16,13 +16,22 @@ import { AppContext } from "../../../Context/app-context";
 const SignUpDialog = () => {
   //grab the context object
   const ctx = useContext(AppContext);
-  //create state for managing the sign in fields
+  //create state for managing the name field
   const [name, setName] = useState("");
+  const [nameHasError, setNameHasError] = useState(false);
+  const [nameErrorText, setNameErrorText] = useState("");
+  //create state for managing the email field
   const [email, setEmail] = useState("");
   const [emailHasError, setEmailHasError] = useState(false);
   const [emailErrorText, setEmailErrorText] = useState("");
+  //create state for managing the password
   const [password, setPassword] = useState("");
+  const [passwordHasError, setPasswordHasError] = useState(false);
+  const [passwordErrorText, setPasswordErrorText] = useState("");
+  //create state for managing confirm password
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPasswordHasError, setConfirmPasswordHasError] = useState(false);
+  const [confirmPasswordErrorText, setConfirmPasswordErrorText] = useState("");
 
   async function signUp() {
     try {
@@ -87,6 +96,26 @@ const SignUpDialog = () => {
     signUp();
   };
 
+  //function for validating the name string
+  const validateName = (event) => {
+    //get the name string
+    const name = event.target.value;
+    //if the name string is empty
+    if (name.length === 0) {
+      //set the error value to true
+      setNameHasError(true);
+      //set the error text
+      setNameErrorText("Name is required.");
+    }
+    //the name is in the correct format
+    else {
+      //set the error value to false
+      setNameHasError(false);
+      //reset the error text
+      setNameErrorText("");
+    }
+  };
+
   //function for validating email string
   const validateEmail = (event) => {
     //get the email string
@@ -118,6 +147,69 @@ const SignUpDialog = () => {
     }
   };
 
+  //function for validating password
+  const validatePassword = (event) => {
+    //get the password string
+    const password = event.target.value;
+    //if the password string is empty
+    if (password.length === 0) {
+      //set the error value to true
+      setPasswordHasError(true);
+      //set the error text
+      setPasswordErrorText("Password is required.");
+    }
+    //if there is an password string, but it's not in the correct format
+    else if (
+      password.length > 0 &&
+      new RegExp(
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/
+      ).test(password) === false
+    ) {
+      //set the error value to true
+      setPasswordHasError(true);
+      //set the error text
+      setPasswordErrorText(
+        "Password must be at least 8 characters and contain at least 1 lowercase letter, 1 uppercase letter, 1 numeric digit, and 1 special character (ex: !#%&)"
+      );
+    }
+    //password is in the correct format
+    else {
+      //set the error value to false
+      setPasswordHasError(false);
+      //reset the error text
+      setPasswordErrorText("");
+    }
+  };
+
+  //function for validating confirm password
+  const validateConfirmPassword = (event) => {
+    //get the password string
+    const confirmPassword = event.target.value;
+    //if the confirmPassword string is empty
+    if (confirmPassword.length === 0) {
+      //set the error value to true
+      setConfirmPasswordHasError(true);
+      //set the error text
+      setConfirmPasswordErrorText("Please re-enter your password.");
+    }
+    //if there is an password string, but it's not in the correct format
+    else if (password !== confirmPassword) {
+      //set the error value to true
+      setConfirmPasswordHasError(true);
+      //set the error text
+      setConfirmPasswordErrorText(
+        "Confirm Password must match password above."
+      );
+    }
+    //password is in the correct format
+    else {
+      //set the error value to false
+      setConfirmPasswordHasError(false);
+      //reset the error text
+      setConfirmPasswordErrorText("");
+    }
+  };
+
   return (
     <Dialog onClose={onCloseHandler} open={ctx.signUpDialogIsOpen}>
       <MuiDialogTitle>Create a new account</MuiDialogTitle>
@@ -131,7 +223,10 @@ const SignUpDialog = () => {
               id="sign up name"
               value={name}
               onChange={nameHandler}
+              onBlur={validateName}
               placeholder="Enter your name"
+              error={nameHasError}
+              helperText={nameErrorText}
             />
           </MuiGrid>
         </MuiBox>
@@ -162,7 +257,10 @@ const SignUpDialog = () => {
               dataTestId="sign up password"
               value={password}
               onChange={passwordHandler}
+              onBlur={validatePassword}
               placeholder="Enter your password"
+              error={passwordHasError}
+              helperText={passwordErrorText}
             />
           </MuiGrid>
         </MuiBox>
@@ -176,7 +274,10 @@ const SignUpDialog = () => {
               dataTestId="sign up confirm password"
               value={confirmPassword}
               onChange={confirmPasswordHandler}
+              onBlur={validateConfirmPassword}
               placeholder="Re-enter your password"
+              error={confirmPasswordHasError}
+              helperText={confirmPasswordErrorText}
             />
           </MuiGrid>
         </MuiBox>
@@ -189,7 +290,12 @@ const SignUpDialog = () => {
           aria-label="sign up button"
           color="primary"
           onClick={onSignUpHandler}
-          disabled={emailHasError}
+          disabled={
+            nameHasError ||
+            emailHasError ||
+            passwordHasError ||
+            confirmPasswordHasError
+          }
         >
           Create Account
         </MuiButton>

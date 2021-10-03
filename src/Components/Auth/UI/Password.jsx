@@ -14,7 +14,10 @@ const Password = (props) => {
         color="primary"
         placeholder={props.placeholder}
         onChange={props.onChange}
+        onBlur={props.onBlur}
         type="auth"
+        error={props.error}
+        helperText={props.helperText}
       />
     </label>
   );

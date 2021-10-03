@@ -16,11 +16,14 @@ import Password from "../UI/Password";
 const SignInDialog = () => {
   //grab the context object
   const ctx = useContext(AppContext);
-  //create state for managing the sign in fields
+  //create state for email field
   const [email, setEmail] = useState("");
   const [emailHasError, setEmailHasError] = useState(false);
   const [emailErrorText, setEmailErrorText] = useState("");
+  //create state for password field
   const [password, setPassword] = useState("");
+  const [passwordHasError, setPasswordHasError] = useState(false);
+  const [passwordErrorText, setPasswordErrorText] = useState("");
 
   async function signIn() {
     try {
@@ -95,6 +98,40 @@ const SignInDialog = () => {
     }
   };
 
+  //function for validating password
+  const validatePassword = (event) => {
+    //get the password string
+    const password = event.target.value;
+    //if the password string is empty
+    if (password.length === 0) {
+      //set the error value to true
+      setPasswordHasError(true);
+      //set the error text
+      setPasswordErrorText("Password is required.");
+    }
+    //if there is an password string, but it's not in the correct format
+    else if (
+      password.length > 0 &&
+      new RegExp(
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/
+      ).test(password) === false
+    ) {
+      //set the error value to true
+      setPasswordHasError(true);
+      //set the error text
+      setPasswordErrorText(
+        "Password must be at least 8 characters and contain at least 1 lowercase letter, 1 uppercase letter, 1 numeric digit, and 1 special character (ex: !#%&)"
+      );
+    }
+    //password is in the correct format
+    else {
+      //set the error value to false
+      setPasswordHasError(false);
+      //reset the error text
+      setPasswordErrorText("");
+    }
+  };
+
   return (
     <Dialog onClose={onCloseHandler} open={ctx.signInDialogIsOpen}>
       <MuiDialogTitle>Sign into your account</MuiDialogTitle>
@@ -126,24 +163,11 @@ const SignInDialog = () => {
               dataTestId="sign in password"
               value={password}
               onChange={passwordHandler}
+              onBlur={validatePassword}
               placeholder="Enter your password"
+              error={passwordHasError}
+              helperText={passwordErrorText}
             />
-          </MuiGrid>
-        </MuiBox>
-        <MuiBox mb={2}>
-          <MuiGrid item xs={12}>
-            <MuiTypography variant="body2">
-              Forgot your password?{" "}
-              <MuiLink
-                variant="body2"
-                component="button"
-                underline="none"
-                onClick={onResetPasswordHandler}
-                color="primary"
-              >
-                Reset password
-              </MuiLink>
-            </MuiTypography>
           </MuiGrid>
         </MuiBox>
         <MuiBox mt={6}>
@@ -171,7 +195,7 @@ const SignInDialog = () => {
           aria-label="sign in button"
           color="primary"
           onClick={onSignInHandler}
-          disabled={emailHasError}
+          disabled={emailHasError || passwordHasError}
         >
           Sign In
         </MuiButton>
