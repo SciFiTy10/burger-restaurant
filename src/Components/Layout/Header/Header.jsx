@@ -60,7 +60,12 @@ const Header = () => {
   //handler function for showing the signin dialog
   const signInDialogOpenHandler = () => {
     //show the signInDialog
-    signInDialogHandler(true);
+    ctx.signInDialogHandler(true);
+  };
+
+  //handler function for returning to the home page
+  const toHomePageHandler = () => {
+    history.push("/");
   };
 
   //determine which auth button to render

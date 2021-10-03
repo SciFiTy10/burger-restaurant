@@ -11,8 +11,8 @@ const Email = (props) => {
           id: props.id,
         }}
         variant="outlined"
-        label={props.label}
         color="primary"
+        placeholder={props.placeholder}
       />
     </label>
   );

@@ -56,6 +56,9 @@ const AppContextProvider = (props) => {
   const [signInDialogIsOpen, setSignInDialogIsOpen] = useState(false);
   //create state for showing the signUpDialog
   const [signUpDialogIsOpen, setSignUpDialogIsOpen] = useState(false);
+  //create state for showing the reset password dialog
+  const [resetPasswordDialogIsOpen, setResetPasswordDialogIsOpen] =
+    useState(false);
 
   //use effect hook for setting up the default cart state based on localStorage
   useEffect(() => {
@@ -144,6 +147,10 @@ const AppContextProvider = (props) => {
   const signUpDialogHandler = (isOpen) => {
     setSignUpDialogIsOpen(isOpen);
   };
+  //handler function for controlling whether the signUpDialog is open
+  const resetPasswordDialogHandler = (isOpen) => {
+    setResetPasswordDialogIsOpen(isOpen);
+  };
 
   return (
     <AppContext.Provider
@@ -169,6 +176,8 @@ const AppContextProvider = (props) => {
         signInDialogHandler,
         signUpDialogIsOpen,
         signUpDialogHandler,
+        resetPasswordDialogIsOpen,
+        resetPasswordDialogHandler,
       }}
     >
       {props.children}

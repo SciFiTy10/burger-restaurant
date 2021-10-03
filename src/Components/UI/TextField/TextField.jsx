@@ -29,6 +29,7 @@ const TextField = (props) => {
       onChange={props.onChange}
       variant={props.variant}
       color={props.color}
+      placeholder={props.placeholder}
     />
   );
 };
