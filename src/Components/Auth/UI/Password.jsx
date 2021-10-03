@@ -13,6 +13,7 @@ const Password = (props) => {
         variant="outlined"
         color="primary"
         placeholder={props.placeholder}
+        onChange={props.onChange}
       />
     </label>
   );

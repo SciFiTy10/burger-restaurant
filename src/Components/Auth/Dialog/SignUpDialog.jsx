@@ -19,11 +19,12 @@ const SignUpDialog = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   async function signUp() {
     try {
       const { user } = await Auth.signUp({
-        email,
+        username: email,
         password,
         attributes: {
           email,
@@ -42,8 +43,16 @@ const SignUpDialog = () => {
       //close the cart dialog
       ctx.signUpDialogHandler(false);
     } catch (error) {
-      //find a way to display an error here
-      //there may already be an account set up
+      //create the snackbar error object
+      const snackbar = {
+        type: "sign up",
+        message:
+          "Error: something went wrong. Please check your input fields and try again.",
+        open: true,
+      };
+      //display the snackbar
+      ctx.snackbarHandler(snackbar);
+      //print error to the console
       console.log("error signing up:", error);
     }
   }
@@ -53,7 +62,15 @@ const SignUpDialog = () => {
   };
   //handle the input from the email textfield
   const emailHandler = (event) => {
-    setEmail(event.target.value);
+    setEmail(event.target.value.toLowerCase());
+  };
+  //handle the input from the password textfield
+  const passwordHandler = (event) => {
+    setPassword(event.target.value);
+  };
+  //handle the input from the email textfield
+  const confirmPasswordHandler = (event) => {
+    setConfirmPassword(event.target.value);
   };
 
   //handler function for closing the sign up dialog
@@ -84,16 +101,44 @@ const SignUpDialog = () => {
           </MuiGrid>
         </MuiBox>
         <MuiBox mb={2}>
-          <MuiGrid item xs={2}>
+          <MuiGrid item xs={12}>
             <MuiTypography>Email *</MuiTypography>
           </MuiGrid>
-          <MuiGrid item xs={2}>
+          <MuiGrid item xs={12}>
             <Email
               id="sign up email"
-              dataTestId="sign in email"
+              dataTestId="sign up email"
               value={email}
               onChange={emailHandler}
               placeholder="Enter your email"
+            />
+          </MuiGrid>
+        </MuiBox>
+        <MuiBox mb={2}>
+          <MuiGrid item xs={12}>
+            <MuiTypography>Email *</MuiTypography>
+          </MuiGrid>
+          <MuiGrid item xs={12}>
+            <Email
+              id="sign up password"
+              dataTestId="sign up password"
+              value={password}
+              onChange={passwordHandler}
+              placeholder="Enter your password"
+            />
+          </MuiGrid>
+        </MuiBox>
+        <MuiBox mb={2}>
+          <MuiGrid item xs={12}>
+            <MuiTypography>Confirm Password *</MuiTypography>
+          </MuiGrid>
+          <MuiGrid item xs={12}>
+            <Email
+              id="sign up confirm password"
+              dataTestId="sign up confirm password"
+              value={confirmPassword}
+              onChange={confirmPasswordHandler}
+              placeholder="Re-enter your password"
             />
           </MuiGrid>
         </MuiBox>

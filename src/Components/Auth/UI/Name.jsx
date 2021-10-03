@@ -14,6 +14,8 @@ const Name = (props) => {
         variant="outlined"
         label={props.label}
         color="primary"
+        placeholder={props.placeholder}
+        onChange={props.onChange}
       />
     </label>
   );
