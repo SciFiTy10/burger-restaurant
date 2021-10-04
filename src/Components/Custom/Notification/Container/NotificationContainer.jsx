@@ -16,7 +16,8 @@ const NotificationContainer = () => {
       )}
       {ctx.snackbar.open &&
         (ctx.snackbar.type === "sign up" ||
-          ctx.snackbar.type === "sign in") && <AuthNotification />}
+          ctx.snackbar.type === "sign in" ||
+          ctx.snackbar.type === "sign out") && <AuthNotification />}
     </>
   );
 };
