@@ -31,10 +31,11 @@ const UserInfoContainer = () => {
   async function signOut() {
     try {
       await Auth.signOut();
+      const name = ctx.user.attributes.name;
       //create the snackbar object
       const snackbar = {
         type: "sign out",
-        message: `See you later ${ctx.user.attributes.name}!`,
+        message: `See you later ${name}!`,
         open: true,
       };
       //update the current user state
