@@ -1,6 +1,7 @@
 import React, { useState, useReducer, useEffect } from "react";
 import { cartReducer } from "../Reducers/cartReducer/cartReducer";
 import { AppContext } from "./app-context";
+import { Auth } from "aws-amplify";
 
 const AppContextProvider = (props) => {
   //create state for the title
@@ -50,6 +51,14 @@ const AppContextProvider = (props) => {
   const [itemToBeRemoved, setItemToBeRemoved] = useState({});
   //create state for managing the snackbar
   const [snackbar, setSnackbar] = useState({});
+  //create state for tracking whether the user is signed in
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  //create state for showing the signInDialog
+  const [signInDialogIsOpen, setSignInDialogIsOpen] = useState(false);
+  //create state for showing the signUpDialog
+  const [signUpDialogIsOpen, setSignUpDialogIsOpen] = useState(false);
+  //create state for managing the logged in user
+  const [user, setUser] = useState({});
 
   //use effect hook for setting up the default cart state based on localStorage
   useEffect(() => {
@@ -70,6 +79,24 @@ const AppContextProvider = (props) => {
     //the cart state has updated, so localStorage will now be updated
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
+
+  //use effect hook for managing the current user
+  useEffect(() => {
+    //make a call to get the current user
+    Auth.currentAuthenticatedUser()
+      .then((user) => {
+        //if the user is logged in
+        setUser(user);
+        //set the user to logged in
+        setIsSignedIn(true);
+      })
+      .catch((err) => {
+        //if the user is not logged in
+        setUser({});
+        //set the user to not logged in
+        setIsSignedIn(false);
+      });
+  }, []);
 
   //handler function for adding an item to the cart
   const cartAddHandler = (item) => {
@@ -126,6 +153,24 @@ const AppContextProvider = (props) => {
     //update the snackbar state
     setSnackbar(snackbar);
   };
+  //handler function for controlling whether the user is signed in
+  const signInHandler = (isSignedIn) => {
+    setIsSignedIn(isSignedIn);
+  };
+  //handler function for controlling whether the signInDialog is open
+  const signInDialogHandler = (isOpen) => {
+    setSignInDialogIsOpen(isOpen);
+  };
+  //handler function for controlling whether the signUpDialog is open
+  const signUpDialogHandler = (isOpen) => {
+    setSignUpDialogIsOpen(isOpen);
+  };
+
+  //handler function for updating the user
+  const userHandler = (user) => {
+    setUser(user);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -144,6 +189,14 @@ const AppContextProvider = (props) => {
         itemToBeRemoved,
         snackbar,
         snackbarHandler,
+        isSignedIn,
+        signInHandler,
+        signInDialogIsOpen,
+        signInDialogHandler,
+        signUpDialogIsOpen,
+        signUpDialogHandler,
+        user,
+        userHandler,
       }}
     >
       {props.children}

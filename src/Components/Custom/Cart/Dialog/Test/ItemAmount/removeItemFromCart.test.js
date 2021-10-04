@@ -1,12 +1,20 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import AppContextProvider from "../../../../../../Context/AppContextProvider";
-import DialogContainer from "../../Container/DialogContainer";
+import CartDialogContainer from "../../Container/CartDialogContainer";
 import Header from "../../../../../Layout/Header/Header";
 import Menu from "../../../../Menu/Menu";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
-import { cyan } from "@material-ui/core/colors";
+
+//mock the useLocation hook
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useLocation: () => ({
+    //set the pathname to the home page
+    pathname: "/",
+  }),
+}));
 
 describe("removing an item from the cart", () => {
   it("removes one of an item which exists in the cart", () => {
@@ -14,7 +22,7 @@ describe("removing an item from the cart", () => {
       <AppContextProvider>
         <Header />
         <Menu />
-        <DialogContainer />
+        <CartDialogContainer />
       </AppContextProvider>
     );
 

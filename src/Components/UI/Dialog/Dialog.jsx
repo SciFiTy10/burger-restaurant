@@ -15,6 +15,8 @@ const Dialog = React.forwardRef((props, ref) => (
     open={props.open}
     TransitionComponent={zoom}
     transitionDuration={500}
+    fullWidth={props.fullWidth}
+    maxWidth={props.maxWidth}
   >
     {props.children}
   </MuiDialog>

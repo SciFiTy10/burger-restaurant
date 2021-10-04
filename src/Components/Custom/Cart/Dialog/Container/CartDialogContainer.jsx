@@ -3,7 +3,7 @@ import CartDialog from "../CartDialog";
 import RemoveFromCartDialog from "../RemoveFromCartDialog";
 import { AppContext } from "../../../../../Context/app-context";
 
-const DialogContainer = () => {
+const CartDialogContainer = () => {
   //grab the context object
   const ctx = useContext(AppContext);
   return (
@@ -14,4 +14,4 @@ const DialogContainer = () => {
   );
 };
 
-export default DialogContainer;
+export default CartDialogContainer;
