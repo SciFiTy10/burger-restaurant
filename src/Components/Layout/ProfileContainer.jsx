@@ -3,6 +3,7 @@ import theme from "../../Theme/theme";
 import SideContainer from "./Section/SideContainer";
 import MiddleContainer from "./Section/MiddleContainer";
 import MenuContainer from "../Custom/Menu/Container/MenuContainer";
+import UserInfoContainer from "../Custom/User/Container/UserInfoContainer";
 import MuiGrid from "@material-ui/core/Grid";
 
 const ProfileContainer = () => {
@@ -16,7 +17,7 @@ const ProfileContainer = () => {
     <MuiGrid container style={styles.root}>
       <SideContainer />
       <MiddleContainer>
-        <MenuContainer />
+        <UserInfoContainer />
       </MiddleContainer>
       <SideContainer />
     </MuiGrid>

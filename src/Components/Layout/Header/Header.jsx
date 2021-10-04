@@ -10,7 +10,7 @@ import { AppContext } from "../../../Context/app-context";
 import MuiLunchDiningIcon from "@material-ui/core/Icon";
 import MuiShoppingCartIcon from "@material-ui/core/Icon";
 import MuiAccountCircle from "@material-ui/core/Icon";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 //set up the styles for the app bar
 const useStyles = makeStyles((theme) => ({
@@ -31,18 +31,8 @@ const Header = () => {
   const classes = useStyles();
   //grab the context object
   const ctx = useContext(AppContext);
-  //track which page the user is on
-  const [page, setPage] = useState("/");
   //grab the history object
   const history = useHistory();
-  //grab the location object
-  const location = useLocation();
-
-  //listen for the page and adjust the state when that occurs
-  useEffect(() => {
-    //update the page
-    setPage(location.pathname);
-  }, [location.pathname]);
 
   //get the total amount of items in the cart
   const itemsInCart = ctx.cart.reduce((total, item) => {
