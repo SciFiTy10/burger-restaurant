@@ -68,6 +68,11 @@ const Header = () => {
     history.push("/");
   };
 
+  //handler function for navigating to the profile page
+  const toProfilePageHandler = () => {
+    history.push("/profile");
+  };
+
   //determine which auth button to render
   let authButton = !ctx.isSignedIn ? (
     <MuiButton
@@ -80,7 +85,7 @@ const Header = () => {
   ) : (
     <MuiIconButton
       color="inherit"
-      onClick={cartOpenHandler}
+      onClick={toProfilePageHandler}
       aria-label="profile page button"
     >
       <MuiAccountCircle>account_circle</MuiAccountCircle>
@@ -98,28 +103,16 @@ const Header = () => {
           <MuiTypography variant="h6" className={classes.title}>
             {ctx.titleText}
           </MuiTypography>
-          {page === "/" ? (
-            <>
-              <>{authButton}</>
-              <MuiIconButton
-                color="inherit"
-                onClick={cartOpenHandler}
-                aria-label="shopping cart button"
-              >
-                <MuiBadge badgeContent={itemsInCart} color="secondary">
-                  <MuiShoppingCartIcon>shopping_cart</MuiShoppingCartIcon>
-                </MuiBadge>
-              </MuiIconButton>
-            </>
-          ) : (
-            <MuiButton
-              onClick={toHomePageHandler}
-              color="inherit"
-              aria-label="back to home page button"
-            >
-              Back To Home Page
-            </MuiButton>
-          )}
+          <>{authButton}</>
+          <MuiIconButton
+            color="inherit"
+            onClick={cartOpenHandler}
+            aria-label="shopping cart button"
+          >
+            <MuiBadge badgeContent={itemsInCart} color="secondary">
+              <MuiShoppingCartIcon>shopping_cart</MuiShoppingCartIcon>
+            </MuiBadge>
+          </MuiIconButton>
         </MuiToolbar>
       </MuiAppBar>
       <MuiToolbar />

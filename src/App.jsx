@@ -4,6 +4,7 @@ import React from "react";
 import { CssBaseline } from "@material-ui/core";
 import AppContextProvider from "./Context/AppContextProvider";
 import HomePage from "./Pages/HomePage";
+import ProfilePage from "./Pages/ProfilePage";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Amplify } from "aws-amplify";
@@ -19,8 +20,11 @@ const App = () => {
       <AppContextProvider>
         <Router>
           <Switch>
-            <Route path="/">
+            <Route exact path="/">
               <HomePage />
+            </Route>
+            <Route path="/profile">
+              <ProfilePage />
             </Route>
           </Switch>
         </Router>

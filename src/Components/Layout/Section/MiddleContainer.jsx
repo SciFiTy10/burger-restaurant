@@ -1,13 +1,10 @@
 import React from "react";
-import WelcomeContainer from "../../Custom/Welcome/Container/WelcomeContainer";
-import MenuContainer from "../../Custom/Menu/Container/MenuContainer";
 import MuiGrid from "@material-ui/core/Grid";
 
-const MiddleContainer = () => {
+const MiddleContainer = (props) => {
   return (
     <MuiGrid item xs={12} sm={10}>
-      <WelcomeContainer />
-      <MenuContainer />
+      {props.children}
     </MuiGrid>
   );
 };
