@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Auth } from "aws-amplify";
 import Dialog from "../../UI/Dialog/Dialog";
 import MuiGrid from "@material-ui/core/Grid";
 import MuiTypography from "@material-ui/core/Typography";
@@ -12,12 +13,6 @@ import Name from "../UI/Name";
 import Email from "../UI/Email";
 import Password from "../UI/Password";
 import { AppContext } from "../../../Context/app-context";
-import { Amplify, Auth } from "aws-amplify";
-
-import awsconfig from "../../../aws-exports";
-
-Amplify.configure(awsconfig);
-Auth.configure(awsconfig);
 
 const SignUpDialog = () => {
   //grab the context object

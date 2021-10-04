@@ -7,12 +7,11 @@ import HomePage from "./Pages/HomePage";
 import ProfilePage from "./Pages/ProfilePage";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Amplify, Auth } from "aws-amplify";
+import { Amplify } from "aws-amplify";
 
 import awsconfig from "./aws-exports";
 
 Amplify.configure(awsconfig);
-Auth.configure(awsconfig);
 
 const App = () => {
   return (
