@@ -13,7 +13,7 @@ import Email from "../UI/Email";
 import Password from "../UI/Password";
 import { Amplify, Auth } from "aws-amplify";
 
-import awsconfig from "./aws-exports";
+import awsconfig from "../../../aws-exports";
 
 Amplify.configure(awsconfig);
 Auth.configure(awsconfig);
