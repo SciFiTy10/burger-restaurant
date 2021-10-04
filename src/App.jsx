@@ -7,7 +7,7 @@ import HomePage from "./Pages/HomePage";
 import ProfilePage from "./Pages/ProfilePage";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Amplify } from "aws-amplify";
+import { Amplify, Auth } from "aws-amplify";
 
 import awsconfig from "./aws-exports";
 
