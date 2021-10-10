@@ -47,8 +47,8 @@ const SignUpDialog = () => {
           name,
         },
       });
-      //update the current user state
-      ctx.userHandler(user);
+      //update the current user's name
+      ctx.nameHandler(name);
       //mark the user as signed in
       ctx.signInHandler(true);
       //create the snackbar object

@@ -29,8 +29,8 @@ const SignInDialog = () => {
   async function signIn() {
     try {
       const user = await Auth.signIn(email, password);
-      //update the current user state
-      ctx.userHandler(user);
+      //update the current user's name
+      ctx.nameHandler(user.attributes.name);
       //mark the user as signed in
       ctx.signInHandler(true);
       //create the snackbar object

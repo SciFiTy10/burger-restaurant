@@ -57,8 +57,8 @@ const AppContextProvider = (props) => {
   const [signInDialogIsOpen, setSignInDialogIsOpen] = useState(false);
   //create state for showing the signUpDialog
   const [signUpDialogIsOpen, setSignUpDialogIsOpen] = useState(false);
-  //create state for managing the logged in user
-  const [user, setUser] = useState({});
+  //create state for managing the user's name
+  const [name, setName] = useState("");
 
   //use effect hook for setting up the default cart state based on localStorage
   useEffect(() => {
@@ -86,13 +86,13 @@ const AppContextProvider = (props) => {
     Auth.currentAuthenticatedUser()
       .then((user) => {
         //if the user is logged in
-        setUser(user);
+        setName(user.attributes.name);
         //set the user to logged in
         setIsSignedIn(true);
       })
       .catch((err) => {
         //if the user is not logged in
-        setUser({});
+        setName("");
         //set the user to not logged in
         setIsSignedIn(false);
       });
@@ -166,9 +166,9 @@ const AppContextProvider = (props) => {
     setSignUpDialogIsOpen(isOpen);
   };
 
-  //handler function for updating the user
-  const userHandler = (user) => {
-    setUser(user);
+  //handler function for updating the user's name
+  const nameHandler = (name) => {
+    setName(name);
   };
 
   return (
@@ -195,8 +195,8 @@ const AppContextProvider = (props) => {
         signInDialogHandler,
         signUpDialogIsOpen,
         signUpDialogHandler,
-        user,
-        userHandler,
+        name,
+        nameHandler,
       }}
     >
       {props.children}

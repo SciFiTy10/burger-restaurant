@@ -30,16 +30,16 @@ const UserInfoContainer = () => {
   };
   async function signOut() {
     try {
-      await Auth.signOut();
-      const name = ctx.user.attributes.name;
       //create the snackbar object
       const snackbar = {
         type: "sign out",
-        message: `See you later ${name}!`,
+        message: `See you later ${ctx.name}!`,
         open: true,
       };
-      //update the current user state
-      ctx.userHandler({});
+      //update the current user's name
+      ctx.nameHandler("");
+      //sign out
+      await Auth.signOut();
       //mark the user as signed out
       ctx.signInHandler(false);
       //display the snackbar
@@ -67,7 +67,7 @@ const UserInfoContainer = () => {
     <MuiBox mt={5} mx={marginSides} mb={2}>
       <MuiCard>
         <MuiCardHeader
-          title="Hi, Ty!"
+          title={`Hi, ${ctx.name}!`}
           action={
             <MuiButton
               aria-label="back to main page"
