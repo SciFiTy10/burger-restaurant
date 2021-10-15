@@ -4,9 +4,15 @@ import AppContextProvider from "../../../../../Context/AppContextProvider";
 import Menu from "../../Menu";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
+import { Auth } from "aws-amplify";
 
 describe("removing an item from the menu list", () => {
   it("should decrement the text field value by 1", () => {
+    //mock the currentAuthenticatedUser method
+    jest.spyOn(Auth, "currentAuthenticatedUser").mockImplementation(() => {
+      return Promise.resolve("done");
+    });
+
     const { getByTestId } = render(
       <AppContextProvider>
         <Menu />
