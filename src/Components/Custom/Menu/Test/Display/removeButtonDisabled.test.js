@@ -3,9 +3,14 @@ import { render, screen } from "@testing-library/react";
 import AppContextProvider from "../../../../../Context/AppContextProvider";
 import Menu from "../../Menu";
 import "@testing-library/jest-dom";
+import { Auth } from "aws-amplify";
 
 describe("the remove button", () => {
   it("should be disabled if the count is 0", () => {
+    //mock the currentAuthenticatedUser method
+    jest.spyOn(Auth, "currentAuthenticatedUser").mockImplementation(() => {
+      return Promise.resolve("done");
+    });
     const { getByTestId } = render(
       <AppContextProvider>
         <Menu />

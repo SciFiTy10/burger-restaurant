@@ -6,6 +6,7 @@ import Header from "../../../../../Layout/Header/Header";
 import Menu from "../../../../Menu/Menu";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
+import { Auth } from "aws-amplify";
 
 //mock the useLocation hook
 jest.mock("react-router-dom", () => ({
@@ -18,6 +19,10 @@ jest.mock("react-router-dom", () => ({
 
 describe("adding an item in the cart", () => {
   it("adds one of an item which exists in the cart", () => {
+    //mock the currentAuthenticatedUser method
+    jest.spyOn(Auth, "currentAuthenticatedUser").mockImplementation(() => {
+      return Promise.resolve("done");
+    });
     const { getByLabelText, getByTestId } = render(
       <AppContextProvider>
         <Header />
