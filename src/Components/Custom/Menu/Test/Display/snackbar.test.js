@@ -8,9 +8,14 @@ import "@testing-library/jest-dom";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "../../../../../Theme/theme";
 import { CssBaseline } from "@material-ui/core";
+import { Auth } from "aws-amplify";
 
 describe("the snackbar", () => {
   it("should display the item that was added from the menu", () => {
+    //mock the currentAuthenticatedUser method
+    jest.spyOn(Auth, "currentAuthenticatedUser").mockImplementation(() => {
+      return Promise.resolve("done");
+    });
     const { getByTestId } = render(
       <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -31,6 +36,10 @@ describe("the snackbar", () => {
   });
 
   it("should display the item that was removed from the menu", () => {
+    //mock the currentAuthenticatedUser method
+    jest.spyOn(Auth, "currentAuthenticatedUser").mockImplementation(() => {
+      return Promise.resolve("done");
+    });
     const { getByTestId } = render(
       <ThemeProvider theme={theme}>
         <CssBaseline />
