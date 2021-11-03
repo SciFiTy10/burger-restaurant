@@ -34,6 +34,7 @@ const Password = (props) => {
         componenttype="auth"
         error={props.error}
         helperText={props.helperText}
+        amount={props.value}
       />
     </label>
   );
