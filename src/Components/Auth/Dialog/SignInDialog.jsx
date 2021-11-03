@@ -225,7 +225,7 @@ const SignInDialog = () => {
           Close
         </MuiButton>
         <MuiButton
-          aria-label="sign in button"
+          aria-label="sign in dialog sign in button"
           color="primary"
           onClick={onSignInHandler}
           disabled={
