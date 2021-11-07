@@ -45,6 +45,41 @@ describe("sign in password", () => {
     ).toBeDisabled();
   });
 
+  it("shows password requirements when incorrect", () => {
+    //mock the currentAuthenticatedUser method
+    jest.spyOn(Auth, "currentAuthenticatedUser").mockImplementation(() => {
+      return Promise.resolve("done");
+    });
+    const { getByLabelText, getByPlaceholderText } = render(
+      <AppContextProvider>
+        <Header />
+        <AuthDialogContainer />
+      </AppContextProvider>
+    );
+
+    //click the sign in button
+    userEvent.click(getByLabelText("sign in button"));
+    //check whether the Sign into your account text displayed
+    expect(screen.getByText("Sign into your account")).toBeInTheDocument();
+    //type an incorret password into password field
+    userEvent.type(
+      screen.getByPlaceholderText("Enter your password"),
+      "badpassword12"
+    );
+    //click into email field
+    userEvent.click(screen.getByPlaceholderText("Enter your email"));
+    //check for password helper text
+    expect(
+      screen.getByText(
+        "Password must be at least 8 characters and contain at least 1 lowercase letter, 1 uppercase letter, 1 numeric digit, and 1 special character (ex: !#%&)"
+      )
+    ).toBeInTheDocument();
+    //ensure sign in button is disabled
+    expect(
+      screen.getByLabelText("sign in dialog sign in button")
+    ).toBeDisabled();
+  });
+
   it("masks passwords by default", () => {
     //mock the currentAuthenticatedUser method
     jest.spyOn(Auth, "currentAuthenticatedUser").mockImplementation(() => {
@@ -81,7 +116,12 @@ describe("sign in password", () => {
     jest.spyOn(Auth, "currentAuthenticatedUser").mockImplementation(() => {
       return Promise.resolve("done");
     });
-    const { getByLabelText, getByPlaceholderText, queryByText } = render(
+    const {
+      getByLabelText,
+      getByPlaceholderText,
+      queryByText,
+      getByDisplayValue,
+    } = render(
       <AppContextProvider>
         <Header />
         <AuthDialogContainer />
@@ -100,7 +140,7 @@ describe("sign in password", () => {
     //click the toggle visibility button
     userEvent.click(getByLabelText("toggle password visibility"));
     //check for thistextwillshow
-    expect(screen.getByText("thistextwillshow")).toBeInTheDocument();
+    expect(screen.getByDisplayValue("thistextwillshow")).toBeInTheDocument();
     //ensure sign in button is disabled
     expect(
       screen.getByLabelText("sign in dialog sign in button")
