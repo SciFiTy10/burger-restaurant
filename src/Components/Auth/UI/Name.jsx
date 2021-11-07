@@ -6,6 +6,7 @@ const Name = (props) => {
   return (
     <label htmlFor={`enter your name`}>
       <TextField
+        value={props.value}
         type={props.type}
         dataTestId={`sign up name`}
         id={props.id}

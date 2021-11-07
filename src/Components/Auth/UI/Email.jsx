@@ -5,6 +5,7 @@ const Email = (props) => {
   return (
     <label htmlFor={`enter your email`}>
       <TextField
+        value={props.value}
         type={props.type}
         dataTestId={props.dataTestId}
         id={props.id}

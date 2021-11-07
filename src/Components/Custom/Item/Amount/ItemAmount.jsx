@@ -99,7 +99,7 @@ const ItemAmount = (props) => {
             </MuiInputAdornment>
           ),
         }}
-        amount={props.amount}
+        value={props.amount}
         variant="outlined"
         label={props.label}
         color="primary"

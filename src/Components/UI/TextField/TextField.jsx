@@ -30,7 +30,7 @@ const TextField = (props) => {
       label={props.label}
       className={props.componenttype === "auth" ? classes.auth : classes.amount}
       InputProps={props.inputProps}
-      value={props.amount}
+      value={props.value}
       size="small"
       onChange={props.onChange}
       onBlur={props.onBlur}

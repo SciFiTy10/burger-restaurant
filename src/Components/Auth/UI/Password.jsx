@@ -9,6 +9,7 @@ const Password = (props) => {
   return (
     <label htmlFor={`enter your password`}>
       <TextField
+        value={props.value}
         type={props.type}
         dataTestId={props.dataTestId}
         id={props.id}
