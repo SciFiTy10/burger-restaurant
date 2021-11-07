@@ -333,6 +333,7 @@ const SignUpDialog = () => {
                 underline="none"
                 onClick={onBackToSignInDialogHandler}
                 color="primary"
+                aria-label="back to sign in link"
               >
                 Sign In
               </MuiLink>
