@@ -298,6 +298,7 @@ const SignUpDialog = () => {
               helperText={passwordErrorText}
               showPassword={showPassword}
               type={showPassword ? "text" : "password"}
+              visibilityAriaLabel="toggle password visibility"
             />
           </MuiGrid>
         </MuiBox>
@@ -318,6 +319,7 @@ const SignUpDialog = () => {
               helperText={confirmPasswordErrorText}
               showPassword={showConfirmPassword}
               type={showConfirmPassword ? "text" : "password"}
+              visibilityAriaLabel="toggle confirm password visibility"
             />
           </MuiGrid>
         </MuiBox>

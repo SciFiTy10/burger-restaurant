@@ -200,6 +200,7 @@ const SignInDialog = () => {
               helperText={passwordErrorText}
               showPassword={showPassword}
               type={showPassword ? "text" : "password"}
+              visibilityAriaLabel="toggle password visibility"
             />
           </MuiGrid>
         </MuiBox>

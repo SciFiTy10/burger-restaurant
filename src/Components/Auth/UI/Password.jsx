@@ -18,7 +18,7 @@ const Password = (props) => {
           endAdornment: (
             <MuiInputAdornment position="end">
               <MuiIconButton
-                aria-label="toggle password visibility"
+                aria-label={props.visibilityAriaLabel}
                 onClick={props.onClick}
                 edge="end"
               >
